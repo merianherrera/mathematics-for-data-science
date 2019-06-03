@@ -70,10 +70,23 @@ y = c(1, 1, −3, 1,−99, −10, 10, −7)
 x
 y
 
-# b. Calcule el ángulo entre los vectores 𝑥 𝑒 𝑦
-# c. Extraiga las entradas 2 y 7 del vector 𝑥
-# d. Extraigas de 𝑦 todas las entradas de dicho vector, excepto las posiciones 2 y 7
+# b. Calcule el ángulo entre los vectores x e y
+m = x*y # Multiplicacion de los vectores
+
+nx = norm(x, type="2") # Calcular norma del vector x
+ny = norm(y, type="2") # Calcularr norma del vector y
+
+angulo = atan(m/nx*ny)
+angulo
+# c. Extraiga las entradas 2 y 7 del vector x
+x[c(2,7)]
+
+# d. Extraiga de y todas las entradas de dicho vector, excepto las posiciones 2 y 7
+y[-c(2,7)]
+
 # e. Escriba un comando en R para extraer las entradas menores que -3 o mayores que 10.
+x[]
+
 # f. Escriba un comando en R para extraer las entradas mayores que 0 y que sean número pares.
 ```
 

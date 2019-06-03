@@ -1899,12 +1899,42 @@ x</code></pre>
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdICAgMSAgIDEgIC0zICAgMSAtOTkgLTEwICAxMCAgLTdcbiJ9 -->
 <pre><code>[1]   1   1  -3   1 -99 -10  10  -7</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBiLiBDYWxjdWxlIGVsIMOhbmd1bG8gZW50cmUgbG9zIHZlY3RvcmVzIPCdkaUg8J2RkiDwnZGmXG4jIGMuIEV4dHJhaWdhIGxhcyBlbnRyYWRhcyAyIHkgNyBkZWwgdmVjdG9yIPCdkaVcbiMgZC4gRXh0cmFpZ2FzIGRlIPCdkaYgdG9kYXMgbGFzIGVudHJhZGFzIGRlIGRpY2hvIHZlY3RvciwgZXhjZXB0byBsYXMgcG9zaWNpb25lcyAyIHkgN1xuIyBlLiBFc2NyaWJhIHVuIGNvbWFuZG8gZW4gUiBwYXJhIGV4dHJhZXIgbGFzIGVudHJhZGFzIG1lbm9yZXMgcXVlIC0zIG8gbWF5b3JlcyBxdWUgMTAuXG4jIGYuIEVzY3JpYmEgdW4gY29tYW5kbyBlbiBSIHBhcmEgZXh0cmFlciBsYXMgZW50cmFkYXMgbWF5b3JlcyBxdWUgMCB5IHF1ZSBzZWFuIG7Dum1lcm8gcGFyZXMuXG5gYGAifQ== -->
-<pre class="r"><code># b. Calcule el ángulo entre los vectores 𝑥 𝑒 𝑦
-# c. Extraiga las entradas 2 y 7 del vector 𝑥
-# d. Extraigas de 𝑦 todas las entradas de dicho vector, excepto las posiciones 2 y 7
-# e. Escriba un comando en R para extraer las entradas menores que -3 o mayores que 10.
-# f. Escriba un comando en R para extraer las entradas mayores que 0 y que sean número pares.</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBiLiBDYWxjdWxlIGVsIMOhbmd1bG8gZW50cmUgbG9zIHZlY3RvcmVzIHggZSB5XG5tID0geCp5ICMgTXVsdGlwbGljYWNpb24gZGUgbG9zIHZlY3RvcmVzXG5cbm54ID0gbm9ybSh4LCB0eXBlPVwiMlwiKSAjIENhbGN1bGFyIG5vcm1hIGRlbCB2ZWN0b3IgeFxubnkgPSBub3JtKHksIHR5cGU9XCIyXCIpICMgQ2FsY3VsYXJyIG5vcm1hIGRlbCB2ZWN0b3IgeVxuXG5hbmd1bG8gPSBhdGFuKG0vbngqbnkpXG5hbmd1bG9cbmBgYCJ9 -->
+<pre class="r"><code># b. Calcule el ángulo entre los vectores x e y
+m = x*y # Multiplicacion de los vectores
+
+nx = norm(x, type=&quot;2&quot;) # Calcular norma del vector x
+ny = norm(y, type=&quot;2&quot;) # Calcularr norma del vector y
+
+angulo = atan(m/nx*ny)
+angulo</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAxLjQ0Mjc1NyAtMS40OTM3MDMgLTEuNTY2NjQzIC0xLjIwMjIxNSAgMS41NzAzNjMgLTEuNTY2OTM0ICAwLjAwMDAwMCAtMS41Njc3MzFcbiJ9 -->
+<pre><code>[1]  1.442757 -1.493703 -1.566643 -1.202215  1.570363 -1.566934  0.000000 -1.567731</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBjLiBFeHRyYWlnYSBsYXMgZW50cmFkYXMgMiB5IDcgZGVsIHZlY3RvciB4XG54W2MoMiw3KV1cbmBgYCJ9 -->
+<pre class="r"><code># c. Extraiga las entradas 2 y 7 del vector x
+x[c(2,7)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIC01ICAwXG4ifQ== -->
+<pre><code>[1] -5  0</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBkLiBFeHRyYWlnYSBkZSB5IHRvZGFzIGxhcyBlbnRyYWRhcyBkZSBkaWNobyB2ZWN0b3IsIGV4Y2VwdG8gbGFzIHBvc2ljaW9uZXMgMiB5IDdcbnlbLWMoMiw3KV1cbmBgYCJ9 -->
+<pre class="r"><code># d. Extraiga de y todas las entradas de dicho vector, excepto las posiciones 2 y 7
+y[-c(2,7)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAgMSAgLTMgICAxIC05OSAtMTAgIC03XG4ifQ== -->
+<pre><code>[1]   1  -3   1 -99 -10  -7</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBlLiBFc2NyaWJhIHVuIGNvbWFuZG8gZW4gUiBwYXJhIGV4dHJhZXIgbGFzIGVudHJhZGFzIG1lbm9yZXMgcXVlIC0zIG8gbWF5b3JlcyBxdWUgMTAuXG54W3ggPCAtMyAmIHggPiAxMF1cbmBgYCJ9 -->
+<pre class="r"><code># e. Escriba un comando en R para extraer las entradas menores que -3 o mayores que 10.
+x[x &lt; -3 &amp; x &gt; 10]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoibnVtZXJpYygwKVxuIn0= -->
+<pre><code>numeric(0)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBmLiBFc2NyaWJhIHVuIGNvbWFuZG8gZW4gUiBwYXJhIGV4dHJhZXIgbGFzIGVudHJhZGFzIG1heW9yZXMgcXVlIDAgeSBxdWUgc2VhbiBuw7ptZXJvIHBhcmVzLlxuYGBgIn0= -->
+<pre class="r"><code># f. Escriba un comando en R para extraer las entradas mayores que 0 y que sean número pares.</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1914,7 +1944,7 @@ x</code></pre>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlRhcmVhIFZlY3RvcmVzIC0gTWVyaWFuIEhlcnJlcmEiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIyMgSSBQQVJURTogQ29tYW5kb3MgbWF0ZW3DoXRpY29zIHkgdW4gcG9jbyBkZSB2ZWN0b3JlcyBcDQoNCiMjIyMgMS4gRWplY3V0ZSBsYXMgc2lndWllbnRlcyBpbnN0cnVjY2lvbmVzIHBhcmEgcHJhY3RpY2FyIGVsIHVzbyBhbGd1bm9zIGNvbWFuZG9zIGRlIGxhIG1hdGVtw6F0aWNhIGRlIFIuDQoNCmBgYHtyfQ0KcGkqMl4zLXNxcnQoNCkNCmBgYA0KTGEgZnVuY2lvbiAic3FydCgpIiBzZSB1dGlsaXphIHBhcmEgY2FsY3VsYXIgbGEgcmFpeiBjdWFkcmFkYSBkZSB1biBudW1lcm8gbyB1bmEgZXhwcmVzaW9uLiBcDQoNCmBgYHtyfQ0KYWJzKDEyLTE3KjIvMy05KQ0KYGBgDQpMYSBmdW5jaW9uICJhYnMoKSIgc2UgdXRpbGl6YSBwYXJhIGNhbGN1bGFyIGVsIHZhbG9yIGFic29sdXRvIHBvc2l0aXZvIGRlIHVuIG51bWVybyBvIHVuYSBleHByZXNpb24uIFwNCg0KYGBge3J9DQpmYWN0b3JpYWwoNCkNCmBgYA0KTGEgZnVuY2lvbiAiZmFjdG9yaWFsKCkiIHNlIHV0aWxpemEgcGFyYSBjYWxjdWxhciBlbCBmYWN0b3JpYWwgZGUgdW4gbnVtZXJvIG8gdW5hIGV4cHJlc2lvbi4gXA0KDQpgYGB7cn0NCmxvZygyLDEwKQ0KYGBgDQoNCmBgYHtyfQ0KbG9nKDIpDQpgYGANCkxhIGZ1bmNpb24gImxvZyh4LCBiYXNlKSIgc2UgdXRpbGl6YSBwYXJhIGNhbGN1bGFyIGxvZ2FyaXRtb3MuIFwNCg0KYGBge3J9DQpleHAoMC4wNjkzMTQ3MjUpDQpgYGANCkxhIGV4cHJlc2lvbiAiZXhwKCkiIGNhbGN1bGEgZWwgZXhwb25lbmNpYWwgZGUgdW5hIGZ1bmNpb24uIFwNClwNCg0KIyMjIyAgMi4gQ2FsY3VsZSBlbiBSIGVsIHZhbG9yIGRlIHgNCg0KYGBge3J9DQp5ID0gMTANCnogPSBwaQ0KDQp4ID0gMSt5LzErMip6XjINCngNCg0KYGBgDQpcDQoNCiMjIyMgXCAzLiBDYWxjdWxlIGVuIFIgZWwgdmFsb3IgZGUgeiwgc2FiaWVuZG8gcXVlIHg94oiSMTAsIHk9cGkNCg0KYGBge3J9DQp4ID0gLTEwDQp5ID0gcGkNCg0KeiA9IHNxcnQoKHheMiArIHleMikpDQp6DQpgYGANClwNCg0KIyMjIyBcIDQuIERhZG8gKng9KDMs4oiSNSwgMzEsIOKIkjEs4oiSOSwgMTAsMCwgMTgpKiB5ICp5PSgxLCAxLCDiiJIzLCAxLOKIkjk5LCDiiJIxMCwgMTAsIOKIkjcpKixyZWFsaWNlIGxvIHNpZ3VpZW50ZToNCg0KYGBge3J9DQojIGEuIEludHJvZHV6Y2Eg8J2RpSBlIPCdkaYgY29tbyB2ZWN0b3JlcyBkZQ0KeCA9ICBjKDMs4oiSNSwgMzEsIOKIkjEs4oiSOSwgMTAsMCwgMTgpDQp5ID0gYygxLCAxLCDiiJIzLCAxLOKIkjk5LCDiiJIxMCwgMTAsIOKIkjcpDQoNCngNCnkNCg0KIyBiLiBDYWxjdWxlIGVsIMOhbmd1bG8gZW50cmUgbG9zIHZlY3RvcmVzIPCdkaUg8J2RkiDwnZGmDQojIGMuIEV4dHJhaWdhIGxhcyBlbnRyYWRhcyAyIHkgNyBkZWwgdmVjdG9yIPCdkaUNCiMgZC4gRXh0cmFpZ2FzIGRlIPCdkaYgdG9kYXMgbGFzIGVudHJhZGFzIGRlIGRpY2hvIHZlY3RvciwgZXhjZXB0byBsYXMgcG9zaWNpb25lcyAyIHkgNw0KIyBlLiBFc2NyaWJhIHVuIGNvbWFuZG8gZW4gUiBwYXJhIGV4dHJhZXIgbGFzIGVudHJhZGFzIG1lbm9yZXMgcXVlIC0zIG8gbWF5b3JlcyBxdWUgMTAuDQojIGYuIEVzY3JpYmEgdW4gY29tYW5kbyBlbiBSIHBhcmEgZXh0cmFlciBsYXMgZW50cmFkYXMgbWF5b3JlcyBxdWUgMCB5IHF1ZSBzZWFuIG7Dum1lcm8gcGFyZXMuDQpgYGANCg0KYGBge3J9DQpgYGANCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlRhcmVhIFZlY3RvcmVzIC0gTWVyaWFuIEhlcnJlcmEiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIyMgSSBQQVJURTogQ29tYW5kb3MgbWF0ZW3DoXRpY29zIHkgdW4gcG9jbyBkZSB2ZWN0b3JlcyBcDQoNCiMjIyMgMS4gRWplY3V0ZSBsYXMgc2lndWllbnRlcyBpbnN0cnVjY2lvbmVzIHBhcmEgcHJhY3RpY2FyIGVsIHVzbyBhbGd1bm9zIGNvbWFuZG9zIGRlIGxhIG1hdGVtw6F0aWNhIGRlIFIuDQoNCmBgYHtyfQ0KcGkqMl4zLXNxcnQoNCkNCmBgYA0KTGEgZnVuY2lvbiAic3FydCgpIiBzZSB1dGlsaXphIHBhcmEgY2FsY3VsYXIgbGEgcmFpeiBjdWFkcmFkYSBkZSB1biBudW1lcm8gbyB1bmEgZXhwcmVzaW9uLiBcDQoNCmBgYHtyfQ0KYWJzKDEyLTE3KjIvMy05KQ0KYGBgDQpMYSBmdW5jaW9uICJhYnMoKSIgc2UgdXRpbGl6YSBwYXJhIGNhbGN1bGFyIGVsIHZhbG9yIGFic29sdXRvIHBvc2l0aXZvIGRlIHVuIG51bWVybyBvIHVuYSBleHByZXNpb24uIFwNCg0KYGBge3J9DQpmYWN0b3JpYWwoNCkNCmBgYA0KTGEgZnVuY2lvbiAiZmFjdG9yaWFsKCkiIHNlIHV0aWxpemEgcGFyYSBjYWxjdWxhciBlbCBmYWN0b3JpYWwgZGUgdW4gbnVtZXJvIG8gdW5hIGV4cHJlc2lvbi4gXA0KDQpgYGB7cn0NCmxvZygyLDEwKQ0KYGBgDQoNCmBgYHtyfQ0KbG9nKDIpDQpgYGANCkxhIGZ1bmNpb24gImxvZyh4LCBiYXNlKSIgc2UgdXRpbGl6YSBwYXJhIGNhbGN1bGFyIGxvZ2FyaXRtb3MuIFwNCg0KYGBge3J9DQpleHAoMC4wNjkzMTQ3MjUpDQpgYGANCkxhIGV4cHJlc2lvbiAiZXhwKCkiIGNhbGN1bGEgZWwgZXhwb25lbmNpYWwgZGUgdW5hIGZ1bmNpb24uIFwNClwNCg0KIyMjIyAgMi4gQ2FsY3VsZSBlbiBSIGVsIHZhbG9yIGRlIHgNCg0KYGBge3J9DQp5ID0gMTANCnogPSBwaQ0KDQp4ID0gMSt5LzErMip6XjINCngNCg0KYGBgDQpcDQoNCiMjIyMgXCAzLiBDYWxjdWxlIGVuIFIgZWwgdmFsb3IgZGUgeiwgc2FiaWVuZG8gcXVlIHg94oiSMTAsIHk9cGkNCg0KYGBge3J9DQp4ID0gLTEwDQp5ID0gcGkNCg0KeiA9IHNxcnQoKHheMiArIHleMikpDQp6DQpgYGANClwNCg0KIyMjIyBcIDQuIERhZG8gKng9KDMs4oiSNSwgMzEsIOKIkjEs4oiSOSwgMTAsMCwgMTgpKiB5ICp5PSgxLCAxLCDiiJIzLCAxLOKIkjk5LCDiiJIxMCwgMTAsIOKIkjcpKixyZWFsaWNlIGxvIHNpZ3VpZW50ZToNCg0KYGBge3J9DQojIGEuIEludHJvZHV6Y2Eg8J2RpSBlIPCdkaYgY29tbyB2ZWN0b3JlcyBkZQ0KeCA9ICBjKDMs4oiSNSwgMzEsIOKIkjEs4oiSOSwgMTAsMCwgMTgpDQp5ID0gYygxLCAxLCDiiJIzLCAxLOKIkjk5LCDiiJIxMCwgMTAsIOKIkjcpDQoNCngNCnkNCg0KIyBiLiBDYWxjdWxlIGVsIMOhbmd1bG8gZW50cmUgbG9zIHZlY3RvcmVzIHggZSB5DQptID0geCp5ICMgTXVsdGlwbGljYWNpb24gZGUgbG9zIHZlY3RvcmVzDQoNCm54ID0gbm9ybSh4LCB0eXBlPSIyIikgIyBDYWxjdWxhciBub3JtYSBkZWwgdmVjdG9yIHgNCm55ID0gbm9ybSh5LCB0eXBlPSIyIikgIyBDYWxjdWxhcnIgbm9ybWEgZGVsIHZlY3RvciB5DQoNCmFuZ3VsbyA9IGF0YW4obS9ueCpueSkNCmFuZ3Vsbw0KIyBjLiBFeHRyYWlnYSBsYXMgZW50cmFkYXMgMiB5IDcgZGVsIHZlY3RvciB4DQp4W2MoMiw3KV0NCg0KIyBkLiBFeHRyYWlnYSBkZSB5IHRvZGFzIGxhcyBlbnRyYWRhcyBkZSBkaWNobyB2ZWN0b3IsIGV4Y2VwdG8gbGFzIHBvc2ljaW9uZXMgMiB5IDcNCnlbLWMoMiw3KV0NCg0KIyBlLiBFc2NyaWJhIHVuIGNvbWFuZG8gZW4gUiBwYXJhIGV4dHJhZXIgbGFzIGVudHJhZGFzIG1lbm9yZXMgcXVlIC0zIG8gbWF5b3JlcyBxdWUgMTAuDQp4W10NCg0KIyBmLiBFc2NyaWJhIHVuIGNvbWFuZG8gZW4gUiBwYXJhIGV4dHJhZXIgbGFzIGVudHJhZGFzIG1heW9yZXMgcXVlIDAgeSBxdWUgc2VhbiBuw7ptZXJvIHBhcmVzLg0KYGBgDQoNCmBgYHtyfQ0KYGBgDQo=</div>
 
 
 
