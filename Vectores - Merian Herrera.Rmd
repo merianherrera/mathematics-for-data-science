@@ -1,0 +1,81 @@
+---
+title: "Tarea Vectores - Merian Herrera"
+output: html_notebook
+---
+
+### I PARTE: Comandos matemáticos y un poco de vectores \
+
+#### 1. Ejecute las siguientes instrucciones para practicar el uso algunos comandos de la matemática de R.
+
+```{r}
+pi*2^3-sqrt(4)
+```
+La funcion "sqrt()" se utiliza para calcular la raiz cuadrada de un numero o una expresion. \
+
+```{r}
+abs(12-17*2/3-9)
+```
+La funcion "abs()" se utiliza para calcular el valor absoluto positivo de un numero o una expresion. \
+
+```{r}
+factorial(4)
+```
+La funcion "factorial()" se utiliza para calcular el factorial de un numero o una expresion. \
+
+```{r}
+log(2,10)
+```
+
+```{r}
+log(2)
+```
+La funcion "log(x, base)" se utiliza para calcular logaritmos. \
+
+```{r}
+exp(0.069314725)
+```
+La expresion "exp()" calcula el exponencial de una funcion. \
+\
+
+####  2. Calcule en R el valor de x
+
+```{r}
+y = 10
+z = pi
+
+x = 1+y/1+2*z^2
+x
+
+```
+\
+
+#### \ 3. Calcule en R el valor de z, sabiendo que x=−10, y=pi
+
+```{r}
+x = -10
+y = pi
+
+z = sqrt((x^2 + y^2))
+z
+```
+\
+
+#### \ 4. Dado *x=(3,−5, 31, −1,−9, 10,0, 18)* y *y=(1, 1, −3, 1,−99, −10, 10, −7)*,realice lo siguiente:
+
+```{r}
+# a. Introduzca 𝑥 e 𝑦 como vectores de
+x =  c(3,−5, 31, −1,−9, 10,0, 18)
+y = c(1, 1, −3, 1,−99, −10, 10, −7)
+
+x
+y
+
+# b. Calcule el ángulo entre los vectores 𝑥 𝑒 𝑦
+# c. Extraiga las entradas 2 y 7 del vector 𝑥
+# d. Extraigas de 𝑦 todas las entradas de dicho vector, excepto las posiciones 2 y 7
+# e. Escriba un comando en R para extraer las entradas menores que -3 o mayores que 10.
+# f. Escriba un comando en R para extraer las entradas mayores que 0 y que sean número pares.
+```
+
+```{r}
+```
