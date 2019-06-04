@@ -1,12 +1,13 @@
 ---
-title: "Tarea Vectores - Merian Herrera"
+title: "Tarea 02 - Vectores"
+author: "Merian Herrera"
 output: html_notebook
 ---
 
 ### I PARTE: Comandos matemáticos y un poco de vectores \
+\
 
 #### 1. Ejecute las siguientes instrucciones para practicar el uso algunos comandos de la matemática de R.
-
 ```{r}
 pi*2^3-sqrt(4)
 ```
@@ -63,7 +64,7 @@ z
 #### \ 4. Dado *x=(3,−5, 31, −1,−9, 10,0, 18)* y *y=(1, 1, −3, 1,−99, −10, 10, −7)*,realice lo siguiente:
 
 ```{r}
-# a. Introduzca 𝑥 e 𝑦 como vectores de
+# a. Introduzca x e y como vectores de
 x =  c(3,−5, 31, −1,−9, 10,0, 18)
 y = c(1, 1, −3, 1,−99, −10, 10, −7)
 
@@ -104,7 +105,9 @@ print(v)
 
 ```{r}
 plot(3,1, xlim=c(0,5), ylim=c(0,5), xlab="x", ylab="y", lwd=3, ,col='red', bty='n')
+# plot(x, y, limite de x, limite de x, label x, label x, line with, color, box type )
 arrows(0,0,3,1,col='red')
+# arrows(from x,from y, to x, to y, color, lty, lwd)
 ```
 \
 
@@ -116,22 +119,49 @@ plot(3,1, xlim=c(0,5), ylim=c(0,5), xlab="x", ylab="y", lwd=3, ,col='red'
 arrows(0,0,3,1,col='red')
 points(1,3,lwd=3,col='blue')
 arrows(0,0,1,3,col='blue')
+
 points(4,4,lwd=3,col='green')
 arrows(0,0,4,4,col='green')
 arrows(1,3,4,4,col='red',lty=3)
 arrows(3,1,4,4,col='blue',lty=3)
 ```
+Los vectores utilizados para diseñar la figura fueron: \
+x = (3, 1) \ 
+y = (1, 3) \
+
+El vector de color verde representa la **suma** de ambos vectores.
 
 \
 
 #### Realice una modificación al Código, de manera que se en lugar de ilustrar la suma de vectores, se ilustre la resta de los vectores base.
+
+```{r}
+plot(3,1, xlim=c(0,5), ylim=c(0,5), xlab="x", ylab="y", lwd=3, ,col='red', bty='n')
+arrows(0,0,3,1,col='red')
+points(1,3,lwd=3,col='blue')
+arrows(0,0,1,3,col='blue')
+arrows(1,3,3,1,col='green')
+```
+
+```{R}
+a = c(0,-2,-5)
+b = c(3,4,4)
+
+na = norm(a, type="2")
+nb = norm(b, type="2")
+
+multi = -28
+multi2 = na*nb
+
+atan(multi/multi2)
+```
+
 #### Además, complete la siguiente tabla, explicando la función de ciertas instrucciones del comando plot y arrows:
 
 |   Comando  | Explicacion |
 |:----------:|:-----------:|
-| xlim, ylim |             |
-| xlab, ylab |             |
-| lwd        |             |
-| lty        |             |
-| col        |             |
-| bty        |             |
+| xlab, ylab |Define los limites en los ejes "x" y "y"|
+| lwd        |Define el ancho de la linea|
+| lty        |Define  el tipo de linea|
+| col        |Define el color de la linea|
+| bty        |Define el tipo de borde del grafico|
