@@ -167,13 +167,46 @@ m3
 ```
 
 ## Otras operaciones con matrices
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
+matriz %*% matriz2
+```
+**A %*% B :** producto de matrices <br>
 
-- **A %*% B :** producto de matrices
-- **t(A) :** transpuesta de la matriz A
-- **solve(A,b) :** solución del sistema de ecuaciones Ax=b.
-- **solve(A) :** inversa de la matriz A
-- **diag(b) :** matriz diagonal (b es un vector)
-- **diag(A) :** matriz diagonal (A es una matriz)
-- **rref(A|B) :** matriz en forma reducida por fila (escalonada reducida). La expresión A|B es la matriz aumentada del sistema. Requiere instalar y cargar el paquete pracma.
-- **fractions(A) :** transforma las entradas de la matriz de decimal a fracciones. Para usar esta función debe instalar y cargar el paquete MASS
-- **det(A) :** calcula el determinante de una matriz
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
+t(matriz)
+```
+**t(A) :** transpuesta de la matriz A <br>
+
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,2, 2, 4, 3),4,4)
+solve(matriz,matriz)
+```
+**solve(A,b) :** solución del sistema de ecuaciones Ax=b.<br>
+
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,2, 2, 4, 3),4,4)
+solve(matriz)
+```
+**solve(A) :** inversa de la matriz A<br>
+
+```{r}
+matriz<-matrix(c(2,4,6,8,4,2,6,8,4,6,2,8,2,4,6,8),4,4)
+diag(matriz)
+```
+**diag(b) :** matriz diagonal (b es un vector)<br>
+**diag(A) :** matriz diagonal (A es una matriz)<br>
+
+```{r}
+```
+**rref(A|B) :** matriz en forma reducida por fila (escalonada reducida). La expresión A|B es la matriz aumentada del sistema. Requiere instalar y cargar el paquete pracma.<br>
+
+```{r}
+```
+**fractions(A) :** transforma las entradas de la matriz de decimal a fracciones. Para usar esta función debe instalar y cargar el paquete MASS <br>
+
+```{r}
+```
+**det(A) :** calcula el determinante de una matriz <br>
+
