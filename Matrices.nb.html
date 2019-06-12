@@ -266,9 +266,8 @@ matriz</code></pre>
 <h4>Para la matriz creada anteriormente, realice en RStudio las siguientes instrucciones y vaya anotando lo que observa:</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKVxuZGltKG1hdHJpeilcbmBgYCJ9 -->
-<pre class="r"><code>matriz &lt;- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
-dim(matriz)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGltKG1hdHJpeilcbmBgYCJ9 -->
+<pre class="r"><code>dim(matriz)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDQgM1xuIn0= -->
 <pre><code>[1] 4 3</code></pre>
@@ -296,9 +295,8 @@ summary(matriz)</code></pre>
 <p>La funcion <strong>summary()</strong> retorna toda la informacion de una matriz por columna: <br> - <strong>Min. :</strong> Valor minimo en la columna <br> - <strong>1st Qu.:</strong> Primer cuartil (Percentil 25) <br> - <strong>Median :</strong> Mediana <br> - <strong>Mean :</strong> Media <br> - <strong>3rd Qu.:</strong> Tercer cuartil (Percentil 75) <br> - <strong>Max. :</strong> Valor maximo en la columna <br></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKVxuc3RyKG1hdHJpeilcbmBgYCJ9 -->
-<pre class="r"><code>matriz &lt;- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
-str(matriz)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKG1hdHJpeilcbmBgYCJ9 -->
+<pre class="r"><code>str(matriz)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiIG51bSBbMTo0LCAxOjNdIDEgMiAzIDQgNSA2IDcgOCA5IDAgLi4uXG4ifQ== -->
 <pre><code> num [1:4, 1:3] 1 2 3 4 5 6 7 8 9 0 ...</code></pre>
@@ -308,9 +306,8 @@ str(matriz)</code></pre>
 <p>La funcuin <strong>str()</strong> se utiliza para mostrar de manera compacta la estructura interna de un objeto, en este caso nos muestra la informacion de la matriz: <br> - Numero de filas - Numero de columnas - Elementos de la matriz</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKVxuaXMubWF0cml4KG1hdHJpeilcbmBgYCJ9 -->
-<pre class="r"><code>matriz &lt;- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
-is.matrix(matriz)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXMubWF0cml4KG1hdHJpeilcbmBgYCJ9 -->
+<pre class="r"><code>is.matrix(matriz)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
 <pre><code>[1] TRUE</code></pre>
@@ -335,9 +332,8 @@ length(matriz)</code></pre>
 <h4>Consultas sobre entradas de la matriz:</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKVxubWF0cml6WzIsM11cbmBgYCJ9 -->
-<pre class="r"><code>matriz &lt;- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
-matriz[2,3]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6WzIsM11cbmBgYCJ9 -->
+<pre class="r"><code>matriz[2,3]</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
 <pre><code>[1] 0</code></pre>
@@ -398,13 +394,11 @@ matriz*matriz</code></pre>
 <h4>Mientras que **matriz %*% matriz** sí devuelve el producto matricial</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKVxubWF0cml6MiA8LSBtYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMylcbm1hdHJpeiAlKiUgbWF0cml6MlxuYGBgIn0= -->
-<pre class="r"><code>matriz &lt;- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
-matriz2 &lt;- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
-matriz %*% matriz2</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6ICUqJSBtYXRyaXpcbmBgYCJ9 -->
+<pre class="r"><code>matriz %*% matriz</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gbWF0cml6ICUqJSBtYXRyaXoyIDogbm9uLWNvbmZvcm1hYmxlIGFyZ3VtZW50c1xuIn0= -->
-<pre><code>Error in matriz %*% matriz2 : non-conformable arguments</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gbWF0cml6ICUqJSBtYXRyaXogOiBub24tY29uZm9ybWFibGUgYXJndW1lbnRzXG4ifQ== -->
+<pre><code>Error in matriz %*% matriz : non-conformable arguments</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -416,9 +410,8 @@ matriz %*% matriz2</code></pre>
 <h4>Cree una nueva matriz como sigue:</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKVxubWF0cml6MjwtbWF0cml4KGMoMSwyLDMsNCw1LDYpLDMsMilcbmRpbShtYXRyaXoyKVxuYGBgIn0= -->
-<pre class="r"><code>matriz &lt;- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
-matriz2&lt;-matrix(c(1,2,3,4,5,6),3,2)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml6MjwtbWF0cml4KGMoMSwyLDMsNCw1LDYpLDMsMilcbmRpbShtYXRyaXoyKVxuYGBgIn0= -->
+<pre class="r"><code>matriz2&lt;-matrix(c(1,2,3,4,5,6),3,2)
 dim(matriz2)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMgMlxuIn0= -->
@@ -537,19 +530,82 @@ m</code></pre>
 <h4>En el siguiente ejemplo hacemos uso del argumento dimnames para dar nombre a las filas y columnas:</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXV0b21vdmlsZXMgPC0gbWF0cml4KDE6MTIsIDQsIFRSVUUsIGRpbW5hbWVzIGxpc3QoYyhcIkJsYW5jb1wiLCBcIlJvam9cIiwgXCJOZWdyb1wiLCBcIkdyaXNcIiksYyhcIlRveW90YVwiLCBcIkF1ZGlcIiwgXCJOaXNzYW5cIikpKVxuYGBgIn0= -->
-<pre class="r"><code>automoviles &lt;- matrix(1:12, 4, TRUE, dimnames list(c(&quot;Blanco&quot;, &quot;Rojo&quot;, &quot;Negro&quot;, &quot;Gris&quot;),c(&quot;Toyota&quot;, &quot;Audi&quot;, &quot;Nissan&quot;)))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXV0b21vdmlsZXMgPC0gbWF0cml4KGRhdGE9MToxMiwgbnJvdz00LCBieXJvdz1UUlVFLCBkaW1uYW1lcz1saXN0KGMoXCJCbGFuY29cIiwgXCJSb2pvXCIsIFwiTmVncm9cIiwgXCJHcmlzXCIpLGMoXCJUb3lvdGFcIiwgXCJBdWRpXCIsIFwiTmlzc2FuXCIpKSlcbmF1dG9tb3ZpbGVzXG5gYGAifQ== -->
+<pre class="r"><code>automoviles &lt;- matrix(data=1:12, nrow=4, byrow=TRUE, dimnames=list(c(&quot;Blanco&quot;, &quot;Rojo&quot;, &quot;Negro&quot;, &quot;Gris&quot;),c(&quot;Toyota&quot;, &quot;Audi&quot;, &quot;Nissan&quot;)))
+automoviles</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IHVuZXhwZWN0ZWQgc3ltYm9sIGluIFwiYXV0b21vdmlsZXMgPC0gbWF0cml4KDE6MTIsIDQsIFRSVUUsIGRpbW5hbWVzIGxpc3RcIlxuIn0= -->
-<pre><code>Error: unexpected symbol in &quot;automoviles &lt;- matrix(1:12, 4, TRUE, dimnames list&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgIFRveW90YSBBdWRpIE5pc3NhblxuQmxhbmNvICAgICAgMSAgICAyICAgICAgM1xuUm9qbyAgICAgICAgNCAgICA1ICAgICAgNlxuTmVncm8gICAgICAgNyAgICA4ICAgICAgOVxuR3JpcyAgICAgICAxMCAgIDExICAgICAxMlxuIn0= -->
+<pre><code>       Toyota Audi Nissan
+Blanco      1    2      3
+Rojo        4    5      6
+Negro       7    8      9
+Gris       10   11     12</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>La funcion <strong>matrix()</strong> recibe los siguientes argumentos: <br> - <strong>data: </strong> Datos para crear la matriz, puede ser una lista, una expresion o un vector. <br> - <strong>nrow: </strong> Numero de filas. <br> - <strong>ncol: </strong> Numero de columnas. <br> - <strong>byrow: </strong> Decide si la matriz se llena por columnas o por filas. <br> - <strong>dimnames: </strong> Nombres para las filas y columnas. <br></p>
+</div>
+</div>
+<div id="combinando-matrices" class="section level2">
+<h2>Combinando matrices</h2>
+<div id="las-funciones-cbind-y-rbind-se-pueden-usar-para-unir-dos-o-mas-vectores-o-matrices-por-columnas-o-por-filas-respectivamente." class="section level4">
+<h4>Las funciones cbind() y rbind() se pueden usar para unir dos o más vectores o matrices, por columnas o por filas, respectivamente.</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTEgPC0gbWF0cml4KGMoNDUsIDIzLCA2NiwgNzcsIDMzLCA0NCwgNTYsIDEyLCA3OCwgMjMpLCAyLDUpXG5jYmluZChjKDQsIDc2KSwgbTFbLCA0XSlcbmBgYCJ9 -->
+<pre class="r"><code>m1 &lt;- matrix(c(45, 23, 66, 77, 33, 44, 56, 12, 78, 23), 2,5)
+cbind(c(4, 76), m1[, 4])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl1cblsxLF0gICAgNCAgIDU2XG5bMixdICAgNzYgICAxMlxuIn0= -->
+<pre><code>     [,1] [,2]
+[1,]    4   56
+[2,]   76   12</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTIgPC0gbWF0cml4KHJlcCgxMCwgMjApLCA0LCA1KSAjc2UgcmVjb21pZW5kYSBxdWUgbGEgY2FudGlkYWQgZGUgZWxlbWVudG9zIGEgcmVwZXRpciwgY29pbmNpZGEgY29uIGVsIG7Dum1lcm8gZGUgZW50cmFkYXMgZGUgbGEgbWF0cml6XG5tMlxuYGBgIn0= -->
+<pre class="r"><code>m2 &lt;- matrix(rep(10, 20), 4, 5) #se recomienda que la cantidad de elementos a repetir, coincida con el número de entradas de la matriz
+m2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXSBbLDRdIFssNV1cblsxLF0gICAxMCAgIDEwICAgMTAgICAxMCAgIDEwXG5bMixdICAgMTAgICAxMCAgIDEwICAgMTAgICAxMFxuWzMsXSAgIDEwICAgMTAgICAxMCAgIDEwICAgMTBcbls0LF0gICAxMCAgIDEwICAgMTAgICAxMCAgIDEwXG4ifQ== -->
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]   10   10   10   10   10
+[2,]   10   10   10   10   10
+[3,]   10   10   10   10   10
+[4,]   10   10   10   10   10</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTMgPC0gcmJpbmQobTFbMSwgXSwgbTJbMywgXSlcbm0zXG5gYGAifQ== -->
+<pre class="r"><code>m3 &lt;- rbind(m1[1, ], m2[3, ])
+m3</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXSBbLDRdIFssNV1cblsxLF0gICA0NSAgIDY2ICAgMzMgICA1NiAgIDc4XG5bMixdICAgMTAgICAxMCAgIDEwICAgMTAgICAxMFxuIn0= -->
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]   45   66   33   56   78
+[2,]   10   10   10   10   10</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
+</div>
+<div id="otras-operaciones-con-matrices" class="section level2">
+<h2>Otras operaciones con matrices</h2>
+<ul>
+<li>**A %*% B :** producto de matrices</li>
+<li><strong>t(A) :</strong> transpuesta de la matriz A</li>
+<li><strong>solve(A,b) :</strong> solución del sistema de ecuaciones Ax=b.</li>
+<li><strong>solve(A) :</strong> inversa de la matriz A</li>
+<li><strong>diag(b) :</strong> matriz diagonal (b es un vector)</li>
+<li><strong>diag(A) :</strong> matriz diagonal (A es una matriz)</li>
+<li><strong>rref(A|B) :</strong> matriz en forma reducida por fila (escalonada reducida). La expresión A|B es la matriz aumentada del sistema. Requiere instalar y cargar el paquete pracma.</li>
+<li><strong>fractions(A) :</strong> transforma las entradas de la matriz de decimal a fracciones. Para usar esta función debe instalar y cargar el paquete MASS</li>
+<li><strong>det(A) :</strong> calcula el determinante de una matriz</li>
+</ul>
+<!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTWF0cmljZXMiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgpgYGB7cn0KbWF0cml6PC1tYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKbWF0cml6CmBgYApVbmEgbWF0cml6IHNlIGRlZmluZSBtZWRpYW50ZSBsYSBmdW5jacOzbiBtYXRyaXgoKSBhIGxhIHF1ZSBoYXkgcXVlIGVzcGVjaWZpY2FybGUKbG9zIGVsZW1lbnRvcyB5IGxhIGRpbWVuc2nDs246IDxicj4gKiptYXRyaXgoYyhlbnRyYWRhcyksIE7CsCBmaWxhcywgTsKwIGNvbHVtbmFzKSoqCgoKIyMgRWplcmNpY2lvcwoKIyMjIyBQYXJhIGxhIG1hdHJpeiBjcmVhZGEgYW50ZXJpb3JtZW50ZSwgcmVhbGljZSBlbiBSU3R1ZGlvIGxhcyBzaWd1aWVudGVzIGluc3RydWNjaW9uZXMgeSB2YXlhIGFub3RhbmRvIGxvIHF1ZSBvYnNlcnZhOgoKYGBge3J9Cm1hdHJpeiA8LSBtYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKZGltKG1hdHJpeikKYGBgCkxhIGZ1bmNpb24gKipkaW0oKSoqIHJldG9ybmEgbGEgZGltZW5zaW9uIGRlIHVuYSBtYXRyaXo6ICoqZmlsYXMqKngqKmNvbHVtbmFzKiouCgpgYGB7cn0KbWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKQpzdW1tYXJ5KG1hdHJpeikKYGBgCkxhIGZ1bmNpb24gKipzdW1tYXJ5KCkqKiByZXRvcm5hIHRvZGEgbGEgaW5mb3JtYWNpb24gZGUgdW5hIG1hdHJpeiBwb3IgY29sdW1uYTogPGJyPgotICoqTWluLiAgIDoqKiBWYWxvciBtaW5pbW8gZW4gbGEgY29sdW1uYSA8YnI+Ci0gKioxc3QgUXUuOioqIFByaW1lciBjdWFydGlsIChQZXJjZW50aWwgMjUpIDxicj4KLSAqKk1lZGlhbiA6KiogTWVkaWFuYSA8YnI+Ci0gKipNZWFuICAgOioqIE1lZGlhIDxicj4KLSAqKjNyZCBRdS46KiogVGVyY2VyIGN1YXJ0aWwgKFBlcmNlbnRpbCA3NSkgPGJyPgotICoqTWF4LiAgIDoqKiBWYWxvciBtYXhpbW8gZW4gbGEgY29sdW1uYSA8YnI+CgpgYGB7cn0KbWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKQpzdHIobWF0cml6KQpgYGAKTGEgZnVuY3VpbiAqKnN0cigpKiogc2UgdXRpbGl6YSBwYXJhIG1vc3RyYXIgZGUgbWFuZXJhIGNvbXBhY3RhIGxhIGVzdHJ1Y3R1cmEgaW50ZXJuYSBkZSB1biBvYmpldG8sIGVuIGVzdGUgY2FzbyBub3MgbXVlc3RyYSBsYSBpbmZvcm1hY2lvbiBkZSBsYSBtYXRyaXo6IDxicj4KLSBOdW1lcm8gZGUgZmlsYXMKLSBOdW1lcm8gZGUgY29sdW1uYXMKLSBFbGVtZW50b3MgZGUgbGEgbWF0cml6CgpgYGB7cn0KbWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKQppcy5tYXRyaXgobWF0cml6KQpgYGAKCkxhIGZ1bmNpb24gKippcy5tYXRyaXgoKSoqIG5vcyByZXRvcm5hIHNpIGVsIG9iamV0byBxdWUgZXN0YW1vcyBldmFsdWFuZG8gZXMgbyBubyB1bmEgbWF0cml6OiA8YnI+Ci0gVFJVRTogRXMgdW5hIG1hdHJpegotIEZBTFNFOiBObyBlcyB1bmEgbWF0cml6CgpgYGB7cn0KbWF0cml6IDwtIG1hdHJpeChjKDEsMiwzLDQsNSw2LDcsOCw5LDAsMCwtMSksNCwzKQpsZW5ndGgobWF0cml6KQpgYGAKTGEgZnVuY2lvbiAqKmxlbmd0aCgpKiogbm9zIHJldG9ybmEgZWwgdG90YWwgZGUgZWxlbWVudG9zIGRlbnRybyBkZSB1bmEgbWF0cml6LgoKIyMjIyBDb25zdWx0YXMgc29icmUgZW50cmFkYXMgZGUgbGEgbWF0cml6OgoKYGBge3J9Cm1hdHJpeiA8LSBtYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKCm1hdHJpelsyLDNdCmBgYAoKYGBge3J9Cm1hdHJpeiA8LSBtYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKCm1hdHJpelsxOjIsMjozXQpgYGAKCmBgYHtyfQptYXRyaXogPC0gbWF0cml4KGMoMSwyLDMsNCw1LDYsNyw4LDksMCwwLC0xKSw0LDMpCgptYXRyaXpbLGMoMSwzKV0KYGBgCgojIyBPcGVyYWNpb25lcyBjb24gbWF0cmljZXMKCiMjIyMgUG9yIG90cmEgcGFydGUsIHRhbnRvIHBhcmEgdmVjdG9yZXMgY29tbyBwYXJhIG1hdHJpY2VzLCBmdW5jaW9uYW4gbGFzIG9wZXJhY2lvbmVzIHN1bWEgeSBkaWZlcmVuY2lhIHNpbiBtw6FzIGNvbXBsaWNhY2lvbmVzLiBFbiBlbCBjYXNvIGRlbCBwcm9kdWN0bywgc2luIGVtYmFyZ28sIGhheSBxdWUgY2xhcmlmaWNhciBxdWUgcG9yIGVqZW1wbG8sICoqbWF0cml6Km1hdHJpeioqIGRldnVlbHZlIGxhIG11bHRpcGxpY2FjacOzbiBlbGVtZW50byBhIGVsZW1lbnRvIHkgbm8gZWwgcHJvZHVjdG8gbWF0cmljaWFsLgoKYGBge3J9Cm1hdHJpeiA8LSBtYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKCm1hdHJpeiptYXRyaXoKYGBgCgojIyMjIE1pZW50cmFzIHF1ZSAqKm1hdHJpeiAlKiUgbWF0cml6Kiogc8OtIGRldnVlbHZlIGVsIHByb2R1Y3RvIG1hdHJpY2lhbAoKYGBge3J9Cm1hdHJpeiA8LSBtYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKCm1hdHJpeiAlKiUgbWF0cml6CmBgYAoKIyMgT3BlcmFjaW9uZXMgY29uIG1hdHJpY2VzCgojIyMjIENyZWUgdW5hIG51ZXZhIG1hdHJpeiBjb21vIHNpZ3VlOgoKYGBge3J9Cm1hdHJpeiA8LSBtYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKbWF0cml6MjwtbWF0cml4KGMoMSwyLDMsNCw1LDYpLDMsMikKCmRpbShtYXRyaXoyKQpucm93KG1hdHJpejIpCm5jb2wobWF0cml6MikKCm1hdHJpejIKCiMgbWF0cml6MiUqJW1hdHJpegoKbWF0cml6ICUqJSBtYXRyaXoyCmBgYApMYSBmdW5jaW9uICoqbnJvdygpKiogcmV0b3JuYSBlbCBudW1lcm8gZGUgZmlsYXMgZGUgdW5hIG1hdHJpei4gPGJyPgpMYSBmdW5jaW9uICoqbmNvbCgpKiogcmV0b3JuYSBlbCBudW1lcm8gZGUgY29sdW1uYXMgZGUgdW5hIG1hdHJpei4gPGJyPgoKIyMgQ3JlYWNpb24gZGUgbWF0cmljZXMKCiMjIyMgQ3JlZSB1bmEgbnVldmEgbWF0cml6IGNvbW8gc2lndWU6CgpgYGB7cn0KWCA8LSBtYXRyaXgoZGF0YT1jKDEsMiwzLDQpLCBucm93PTIsIG5jb2w9MikKWApgYGAKCmBgYHtyfQpYMiA8LSBtYXRyaXgoZGF0YT1jKDEsMiwzLDQpLDIsMikKWDIKYGBgCgojIyMjIExhcyBmdW5jaW9uZXMgYW50ZXJpb3JlcywgaGFjZW4gdW4gbGxlbmFkbyBkZSBsb3MgZGF0b3MgcG9yIGNvbHVtbmFzIChwb3IgZGVmZWN0bykuIFNpIGludGVyZXNlIGhhY2VyIGVsIGxsZW5hZG8gcG9yIGZpbGFzLCByZWFsaWNlIGxvIHNpZ3VpZW50ZToKCmBgYHtyfQpYMiA8LSBtYXRyaXgoZGF0YT1jKDEsMiwzLDQpLDIsMiwgYnlyb3cgPSBUUlVFKQpYMgpgYGAKCiMjIyMgQSBwYXJ0aXIgZGUgdW4gdmVjdG9yLCBzaSBsZSBhw7FhZGltb3MgZWwgYXRyaWJ1dG8gZGltZW5zacOzbiBwb2RlbW9zIG9idGVuZXIgdW5hIG1hdHJpejoKCmBgYHtyfQptIDwtIDE6MTIKbQoKZGltKG0pIDwtIGMoNCwzKQptCmBgYAoKIyMjIyBFbiBlbCBzaWd1aWVudGUgZWplbXBsbyBoYWNlbW9zIHVzbyBkZWwgYXJndW1lbnRvIGRpbW5hbWVzIHBhcmEgZGFyIG5vbWJyZSBhIGxhcyBmaWxhcyB5IGNvbHVtbmFzOgoKYGBge3J9CmF1dG9tb3ZpbGVzIDwtIG1hdHJpeCgxOjEyLCA0LCBUUlVFLCBkaW1uYW1lcyBsaXN0KGMoIkJsYW5jbyIsICJSb2pvIiwgIk5lZ3JvIiwgIkdyaXMiKSxjKCJUb3lvdGEiLCAiQXVkaSIsICJOaXNzYW4iKSkpCgphdXRvbW92aWxlcwpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTWF0cmljZXMiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgpgYGB7cn0KbWF0cml6PC1tYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKbWF0cml6CmBgYApVbmEgbWF0cml6IHNlIGRlZmluZSBtZWRpYW50ZSBsYSBmdW5jacOzbiBtYXRyaXgoKSBhIGxhIHF1ZSBoYXkgcXVlIGVzcGVjaWZpY2FybGUKbG9zIGVsZW1lbnRvcyB5IGxhIGRpbWVuc2nDs246IDxicj4gKiptYXRyaXgoYyhlbnRyYWRhcyksIE7CsCBmaWxhcywgTsKwIGNvbHVtbmFzKSoqCgoKIyMgRWplcmNpY2lvcwoKIyMjIyBQYXJhIGxhIG1hdHJpeiBjcmVhZGEgYW50ZXJpb3JtZW50ZSwgcmVhbGljZSBlbiBSU3R1ZGlvIGxhcyBzaWd1aWVudGVzIGluc3RydWNjaW9uZXMgeSB2YXlhIGFub3RhbmRvIGxvIHF1ZSBvYnNlcnZhOgoKYGBge3J9CmRpbShtYXRyaXopCmBgYApMYSBmdW5jaW9uICoqZGltKCkqKiByZXRvcm5hIGxhIGRpbWVuc2lvbiBkZSB1bmEgbWF0cml6OiAqKmZpbGFzKip4Kipjb2x1bW5hcyoqLgoKYGBge3J9CnN1bW1hcnkobWF0cml6KQpgYGAKTGEgZnVuY2lvbiAqKnN1bW1hcnkoKSoqIHJldG9ybmEgdG9kYSBsYSBpbmZvcm1hY2lvbiBkZSB1bmEgbWF0cml6IHBvciBjb2x1bW5hOiA8YnI+Ci0gKipNaW4uICAgOioqIFZhbG9yIG1pbmltbyBlbiBsYSBjb2x1bW5hIDxicj4KLSAqKjFzdCBRdS46KiogUHJpbWVyIGN1YXJ0aWwgKFBlcmNlbnRpbCAyNSkgPGJyPgotICoqTWVkaWFuIDoqKiBNZWRpYW5hIDxicj4KLSAqKk1lYW4gICA6KiogTWVkaWEgPGJyPgotICoqM3JkIFF1LjoqKiBUZXJjZXIgY3VhcnRpbCAoUGVyY2VudGlsIDc1KSA8YnI+Ci0gKipNYXguICAgOioqIFZhbG9yIG1heGltbyBlbiBsYSBjb2x1bW5hIDxicj4KCmBgYHtyfQpzdHIobWF0cml6KQpgYGAKTGEgZnVuY3VpbiAqKnN0cigpKiogc2UgdXRpbGl6YSBwYXJhIG1vc3RyYXIgZGUgbWFuZXJhIGNvbXBhY3RhIGxhIGVzdHJ1Y3R1cmEgaW50ZXJuYSBkZSB1biBvYmpldG8sIGVuIGVzdGUgY2FzbyBub3MgbXVlc3RyYSBsYSBpbmZvcm1hY2lvbiBkZSBsYSBtYXRyaXo6IDxicj4KLSBOdW1lcm8gZGUgZmlsYXMKLSBOdW1lcm8gZGUgY29sdW1uYXMKLSBFbGVtZW50b3MgZGUgbGEgbWF0cml6CgpgYGB7cn0KaXMubWF0cml4KG1hdHJpeikKYGBgCgpMYSBmdW5jaW9uICoqaXMubWF0cml4KCkqKiBub3MgcmV0b3JuYSBzaSBlbCBvYmpldG8gcXVlIGVzdGFtb3MgZXZhbHVhbmRvIGVzIG8gbm8gdW5hIG1hdHJpejogPGJyPgotIFRSVUU6IEVzIHVuYSBtYXRyaXoKLSBGQUxTRTogTm8gZXMgdW5hIG1hdHJpegoKYGBge3J9Cm1hdHJpeiA8LSBtYXRyaXgoYygxLDIsMyw0LDUsNiw3LDgsOSwwLDAsLTEpLDQsMykKbGVuZ3RoKG1hdHJpeikKYGBgCkxhIGZ1bmNpb24gKipsZW5ndGgoKSoqIG5vcyByZXRvcm5hIGVsIHRvdGFsIGRlIGVsZW1lbnRvcyBkZW50cm8gZGUgdW5hIG1hdHJpei4KCiMjIyMgQ29uc3VsdGFzIHNvYnJlIGVudHJhZGFzIGRlIGxhIG1hdHJpejoKCmBgYHtyfQptYXRyaXpbMiwzXQpgYGAKCmBgYHtyfQptYXRyaXogPC0gbWF0cml4KGMoMSwyLDMsNCw1LDYsNyw4LDksMCwwLC0xKSw0LDMpCgptYXRyaXpbMToyLDI6M10KYGBgCgpgYGB7cn0KbWF0cml6WyxjKDEsMyldCmBgYAoKIyMgT3BlcmFjaW9uZXMgY29uIG1hdHJpY2VzCgojIyMjIFBvciBvdHJhIHBhcnRlLCB0YW50byBwYXJhIHZlY3RvcmVzIGNvbW8gcGFyYSBtYXRyaWNlcywgZnVuY2lvbmFuIGxhcyBvcGVyYWNpb25lcyBzdW1hIHkgZGlmZXJlbmNpYSBzaW4gbcOhcyBjb21wbGljYWNpb25lcy4gRW4gZWwgY2FzbyBkZWwgcHJvZHVjdG8sIHNpbiBlbWJhcmdvLCBoYXkgcXVlIGNsYXJpZmljYXIgcXVlIHBvciBlamVtcGxvLCAqKm1hdHJpeiptYXRyaXoqKiBkZXZ1ZWx2ZSBsYSBtdWx0aXBsaWNhY2nDs24gZWxlbWVudG8gYSBlbGVtZW50byB5IG5vIGVsIHByb2R1Y3RvIG1hdHJpY2lhbC4KCmBgYHtyfQptYXRyaXoqbWF0cml6CmBgYAoKIyMjIyBNaWVudHJhcyBxdWUgKiptYXRyaXogJSolIG1hdHJpeioqIHPDrSBkZXZ1ZWx2ZSBlbCBwcm9kdWN0byBtYXRyaWNpYWwKCmBgYHtyfQptYXRyaXogJSolIG1hdHJpegpgYGAKCiMjIE9wZXJhY2lvbmVzIGNvbiBtYXRyaWNlcwoKIyMjIyBDcmVlIHVuYSBudWV2YSBtYXRyaXogY29tbyBzaWd1ZToKCmBgYHtyfQptYXRyaXoyPC1tYXRyaXgoYygxLDIsMyw0LDUsNiksMywyKQoKZGltKG1hdHJpejIpCm5yb3cobWF0cml6MikKbmNvbChtYXRyaXoyKQoKbWF0cml6MgoKIyBtYXRyaXoyJSolbWF0cml6CgptYXRyaXogJSolIG1hdHJpejIKYGBgCkxhIGZ1bmNpb24gKipucm93KCkqKiByZXRvcm5hIGVsIG51bWVybyBkZSBmaWxhcyBkZSB1bmEgbWF0cml6LiA8YnI+CkxhIGZ1bmNpb24gKipuY29sKCkqKiByZXRvcm5hIGVsIG51bWVybyBkZSBjb2x1bW5hcyBkZSB1bmEgbWF0cml6LiA8YnI+CgojIyBDcmVhY2lvbiBkZSBtYXRyaWNlcwoKIyMjIyBDcmVlIHVuYSBudWV2YSBtYXRyaXogY29tbyBzaWd1ZToKCmBgYHtyfQpYIDwtIG1hdHJpeChkYXRhPWMoMSwyLDMsNCksIG5yb3c9MiwgbmNvbD0yKQpYCmBgYAoKYGBge3J9ClgyIDwtIG1hdHJpeChkYXRhPWMoMSwyLDMsNCksMiwyKQpYMgpgYGAKCiMjIyMgTGFzIGZ1bmNpb25lcyBhbnRlcmlvcmVzLCBoYWNlbiB1biBsbGVuYWRvIGRlIGxvcyBkYXRvcyBwb3IgY29sdW1uYXMgKHBvciBkZWZlY3RvKS4gU2kgaW50ZXJlc2UgaGFjZXIgZWwgbGxlbmFkbyBwb3IgZmlsYXMsIHJlYWxpY2UgbG8gc2lndWllbnRlOgoKYGBge3J9ClgyIDwtIG1hdHJpeChkYXRhPWMoMSwyLDMsNCksMiwyLCBieXJvdyA9IFRSVUUpClgyCmBgYAoKIyMjIyBBIHBhcnRpciBkZSB1biB2ZWN0b3IsIHNpIGxlIGHDsWFkaW1vcyBlbCBhdHJpYnV0byBkaW1lbnNpw7NuIHBvZGVtb3Mgb2J0ZW5lciB1bmEgbWF0cml6OgoKYGBge3J9Cm0gPC0gMToxMgptCgpkaW0obSkgPC0gYyg0LDMpCm0KYGBgCgojIyMjIEVuIGVsIHNpZ3VpZW50ZSBlamVtcGxvIGhhY2Vtb3MgdXNvIGRlbCBhcmd1bWVudG8gZGltbmFtZXMgcGFyYSBkYXIgbm9tYnJlIGEgbGFzIGZpbGFzIHkgY29sdW1uYXM6CgpgYGB7cn0KYXV0b21vdmlsZXMgPC0gbWF0cml4KGRhdGE9MToxMiwgbnJvdz00LCBieXJvdz1UUlVFLCBkaW1uYW1lcz1saXN0KGMoIkJsYW5jbyIsICJSb2pvIiwgIk5lZ3JvIiwgIkdyaXMiKSxjKCJUb3lvdGEiLCAiQXVkaSIsICJOaXNzYW4iKSkpCgphdXRvbW92aWxlcwpgYGAKTGEgZnVuY2lvbiAqKm1hdHJpeCgpKiogcmVjaWJlIGxvcyBzaWd1aWVudGVzIGFyZ3VtZW50b3M6IDxicj4KLSAqKmRhdGE6ICoqIERhdG9zIHBhcmEgY3JlYXIgbGEgbWF0cml6LCBwdWVkZSBzZXIgdW5hIGxpc3RhLCB1bmEgZXhwcmVzaW9uIG8gdW4gdmVjdG9yLiA8YnI+Ci0gKipucm93OiAqKiBOdW1lcm8gZGUgZmlsYXMuIDxicj4KLSAqKm5jb2w6ICoqIE51bWVybyBkZSBjb2x1bW5hcy4gPGJyPgotICoqYnlyb3c6ICoqIERlY2lkZSBzaSBsYSBtYXRyaXogc2UgbGxlbmEgcG9yIGNvbHVtbmFzIG8gcG9yIGZpbGFzLiA8YnI+Ci0gKipkaW1uYW1lczogKiogTm9tYnJlcyBwYXJhIGxhcyBmaWxhcyB5IGNvbHVtbmFzLiA8YnI+CgojIyBDb21iaW5hbmRvIG1hdHJpY2VzCgojIyMjIExhcyBmdW5jaW9uZXMgY2JpbmQoKSB5IHJiaW5kKCkgc2UgcHVlZGVuIHVzYXIgcGFyYSB1bmlyIGRvcyBvIG3DoXMgdmVjdG9yZXMgbyBtYXRyaWNlcywgcG9yIGNvbHVtbmFzIG8gcG9yIGZpbGFzLCByZXNwZWN0aXZhbWVudGUuCgpgYGB7cn0KbTEgPC0gbWF0cml4KGMoNDUsIDIzLCA2NiwgNzcsIDMzLCA0NCwgNTYsIDEyLCA3OCwgMjMpLCAyLDUpCgpjYmluZChjKDQsIDc2KSwgbTFbLCA0XSkKYGBgCgpgYGB7cn0KbTIgPC0gbWF0cml4KHJlcCgxMCwgMjApLCA0LCA1KSAjc2UgcmVjb21pZW5kYSBxdWUgbGEgY2FudGlkYWQgZGUgZWxlbWVudG9zIGEgcmVwZXRpciwgY29pbmNpZGEgY29uIGVsIG7Dum1lcm8gZGUgZW50cmFkYXMgZGUgbGEgbWF0cml6Cm0yCm0zIDwtIHJiaW5kKG0xWzEsIF0sIG0yWzMsIF0pCm0zCmBgYAoKIyMgT3RyYXMgb3BlcmFjaW9uZXMgY29uIG1hdHJpY2VzCgotICoqQSAlKiUgQiA6KiogcHJvZHVjdG8gZGUgbWF0cmljZXMKLSAqKnQoQSkgOioqIHRyYW5zcHVlc3RhIGRlIGxhIG1hdHJpeiBBCi0gKipzb2x2ZShBLGIpIDoqKiBzb2x1Y2nDs24gZGVsIHNpc3RlbWEgZGUgZWN1YWNpb25lcyBBeD1iLgotICoqc29sdmUoQSkgOioqIGludmVyc2EgZGUgbGEgbWF0cml6IEEKLSAqKmRpYWcoYikgOioqIG1hdHJpeiBkaWFnb25hbCAoYiBlcyB1biB2ZWN0b3IpCi0gKipkaWFnKEEpIDoqKiBtYXRyaXogZGlhZ29uYWwgKEEgZXMgdW5hIG1hdHJpeikKLSAqKnJyZWYoQXxCKSA6KiogbWF0cml6IGVuIGZvcm1hIHJlZHVjaWRhIHBvciBmaWxhIChlc2NhbG9uYWRhIHJlZHVjaWRhKS4gTGEgZXhwcmVzacOzbiBBfEIgZXMgbGEgbWF0cml6IGF1bWVudGFkYSBkZWwgc2lzdGVtYS4gUmVxdWllcmUgaW5zdGFsYXIgeSBjYXJnYXIgZWwgcGFxdWV0ZSBwcmFjbWEuCi0gKipmcmFjdGlvbnMoQSkgOioqIHRyYW5zZm9ybWEgbGFzIGVudHJhZGFzIGRlIGxhIG1hdHJpeiBkZSBkZWNpbWFsIGEgZnJhY2Npb25lcy4gUGFyYSB1c2FyIGVzdGEgZnVuY2nDs24gZGViZSBpbnN0YWxhciB5IGNhcmdhciBlbCBwYXF1ZXRlIE1BU1MKLSAqKmRldChBKSA6KiogY2FsY3VsYSBlbCBkZXRlcm1pbmFudGUgZGUgdW5hIG1hdHJpego=</div>
 
 
 
