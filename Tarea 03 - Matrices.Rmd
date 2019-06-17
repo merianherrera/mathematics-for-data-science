@@ -15,17 +15,30 @@ q <- c(5, 2)
 r <- c(2, -5) 
 s <- c(1, -2)
 
-pq <- q-p
-rs <- s-r
+pq<- q-p # PQ
+rs <- s-r # RS
+
+norma_pq = norm(pq, type = "2")
+
+proyeccion = fractions(((rs*pq)/(norma_pq^2)) * pq)
+proyeccion
 ```
 
-##### 2. Sea u=(-2, 1, 6) y v=(2, 4, 5) compruebe que el vector w es un vector vector ortogonal con v. (3 puntos)
+##### 2. Sea u=(-2, 1, 6) y v=(2, 4, 5) compruebe que el vector w es un vector ortogonal con v. (3 puntos)
 ```{r}
 u <- c(-2, 1, 6)
 v <- c(2, 4, 5)
 
+norma_v = norm(pq, type = "2")
+
+w = fractions(u - (((u * v) / (norma_v^2)) * v))
+
+
+sum(w * v)
 
 ```
+**Respuesta: **
+El vector **w** no es ortogonal con **v**.
 
 ##### 3. Sean A=(3, 0, 0), b=(1,0,2), c=(2,3,0) puntos en el espacio R3, con estos puntos determine <br> a. Determine si el triangulo ABC es rectangulo, obtusangulo o acutangulo. <br> b. Determine el perimetro del triangulo ABC. <br> c. Determine el area del triangulo ABC. (6 puntos)
 
@@ -56,8 +69,14 @@ a <- matrix(c(
   -1, 3, 4,
   1, -2, -3
 ), ncol = 3, nrow = 3, byrow = TRUE)
+
+a_2 = a %*% a
+a_2
 a
 ```
+**Respuesta** <br>
+La matriz **$a$** es idempotente ya que $a^{2}$ es igual a $a$.
+
 
 ##### 3. Sean **f($x$) = 6$x^{3}$ + 3$x^{2}$ - $x$** y $m$ una matriz. Determine la composicion f($m$) (2 puntos)
 ```{r}
@@ -75,7 +94,12 @@ a <- matrix(c(
   2, 5, 7,
   -2, -4, -5
 ), ncol = 3, nrow = 3, byrow = TRUE)
-a
+
+a_inversa = solve(a)
+a_inversa
+
+det_a = det(a)
+det_a
 ```
 
 ```{r}
@@ -84,7 +108,12 @@ b <- matrix(c(
   -4, 1, -1,
   2, 0, 1
 ), ncol = 3, nrow = 3, byrow = TRUE)
-b
+
+b_inversa = solve(b)
+b_inversa
+
+det_b = det(b)
+det_b
 ```
 
 ```{r}
@@ -93,7 +122,12 @@ c <- matrix(c(
   1, 3, -1,
   -1, 1, 2
 ), ncol = 3, nrow = 3, byrow = TRUE)
-c
+
+c_inversa = solve(c)
+c_inversa
+
+det_c = det(c)
+det_c
 ```
 
 ```{r}
@@ -102,8 +136,14 @@ d <- matrix(c(
   2, 5, 1,
   1, 1, 8
 ), ncol = 3, nrow = 3, byrow = TRUE)
-d
+
+det_d = det(d)
+det_d
+
+# d_inversa = solve(d)
+# d_inversa
 ```
+La matriz **d** no tiene inversa ya que es una matriz singular. Sabemos que una matriz es singular cuando su determinante es **0**.
 
 ##### 5. ¿Cómo se propaga una enfermedad contagiosa?. Suponga que un grupo de 4 individuos que llamaremos $I_{1}$, $I_{2}$, $I_{3}$, $I_{4}$ han contraido una enfermedad. <br><br> Este grupo entra en contacto con 6 personas de un segundo grupo $P_{1}$, $P_{2}$, $P_{3}$, $P_{4}$, $P_{5}$, $P_{6}$. Este tipo de contactos se llaman directos y se pueden representar en una matriz de 4x6 como la que se muestra a continuacion:
 
@@ -131,7 +171,11 @@ b <- matrix(c(
 ), nrow = 6, ncol = 5,  byrow = TRUE,
 dimnames = list(c("P1", "P2", "P3", "P4", "P5", "P6"), c("M1", "M2", "M3", "M4", "M5")))
 
-b
+```
+
+```{r}
+a %*% b
+
 ```
 
 ##### Llamamos B a esta segunda matriz de contacto. <br> <br> La lógica es igual que en el caso anterior, 1 significa que un individuo del segundo grupo estuvo en contacto con un individuo del tercer grupo. <br> <br>Los contactos indirectos o de segundo orden, se pueden dar entre individuos del primer grupo con individuos del tercer grupo, esto es, que una persona del grupo 3, puede ser contagiada por alguien del grupo 2 que a su vez fue contagiada por alguien del grupo 1. <br> <br> A manera de ejemplo, note que las posiciones **$A_{24}$ = 1** y **$B_{45}$ = 1** con esto, se ve que indirectamente la quinta persona del grupo 3, tuvo contacto con una persona del grupo 1 a través de la cuarta persona del grupo 2, así: <br> <br> **$I_{2}$** => **$P_{4}$** => **$M_{5}$** 
@@ -139,9 +183,10 @@ b
 ##### Con respecto al caso anterior, realice los siguiente:
 ##### a. Calcule una nueva matriz C tal que C=A*B  (Tome en cuenta que el producto es matricial, al trabajarlo en R). 
 ```{r}
-
+a %*% b
 ```
 ##### b. ¿Cuáles grupos de individuos (Grupo 1, 2 o 3) están quedando representados en C ?, ¿quiénes están representados en las filas y quiénes en las columnas?
 ##### c. Tome la fila 2 de C e interprétela (haga la extracción de esta usando un comando apropiado en R).
 ##### d. Tome la columna 2 y 5 de C e interprételas (Use comandos apropiados en R para la extracción).
 ##### e. Interprete la posición $C_{43}$ (Extraiga la entrada, usando el comando apropiado en R).
+

@@ -257,38 +257,40 @@ $(document).ready(function () {
 <h5>1. Sea P=(2,3), Q=(5,2), R=(2,-5) y S=(1, -2). Calcule la proyeccion de PQ sobre RS. (4 puntos)</h5>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucCA8LSBjKDIsIDMpXG5xIDwtIGMoNSwgMilcbnIgPC0gYygyLCAtNSkgXG5zIDwtIGMoMSwgLTIpXG5wcSA8LSBxLXBcbnJzIDwtIHMtclxucHFcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucCA8LSBjKDIsIDMpXG5xIDwtIGMoNSwgMilcbnIgPC0gYygyLCAtNSkgXG5zIDwtIGMoMSwgLTIpXG5wcTwtIHEtcCAjIFBRXG5ycyA8LSBzLXIgIyBSU1xubm9ybWFfcHEgPSBub3JtKHBxLCB0eXBlID0gXCIyXCIpXG5wcm95ZWNjaW9uID0gZnJhY3Rpb25zKCgocnMqcHEpLyhub3JtYV9wcV4yKSkgKiBwcSlcbnByb3llY2Npb25cbmBgYCJ9 -->
 <pre class="r"><code>p &lt;- c(2, 3)
 q &lt;- c(5, 2)
 r &lt;- c(2, -5) 
 s &lt;- c(1, -2)
-pq &lt;- q-p
-rs &lt;- s-r
-pq</code></pre>
+pq&lt;- q-p # PQ
+rs &lt;- s-r # RS
+norma_pq = norm(pq, type = &quot;2&quot;)
+proyeccion = fractions(((rs*pq)/(norma_pq^2)) * pq)
+proyeccion</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAzIC0xXG4ifQ== -->
-<pre><code>[1]  3 -1</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucnNcbmBgYCJ9 -->
-<pre class="r"><code>rs</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIC0xICAzXG4ifQ== -->
-<pre><code>[1] -1  3</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIC05LzEwICAzLzEwXG4ifQ== -->
+<pre><code>[1] -9/10  3/10</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="sea-u-2-1-6-y-v2-4-5-compruebe-que-el-vector-w-es-un-vector-vector-ortogonal-con-v.-3-puntos" class="section level5">
-<h5>2. Sea u=(-2, 1, 6) y v=(2, 4, 5) compruebe que el vector w es un vector vector ortogonal con v. (3 puntos)</h5>
+<div id="sea-u-2-1-6-y-v2-4-5-compruebe-que-el-vector-w-es-un-vector-ortogonal-con-v.-3-puntos" class="section level5">
+<h5>2. Sea u=(-2, 1, 6) y v=(2, 4, 5) compruebe que el vector w es un vector ortogonal con v. (3 puntos)</h5>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudSA8LSBjKC0yLCAxLCA2KVxudiA8LSBjKDIsIDQsIDUpXG5cblxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudSA8LSBjKC0yLCAxLCA2KVxudiA8LSBjKDIsIDQsIDUpXG5ub3JtYV92ID0gbm9ybShwcSwgdHlwZSA9IFwiMlwiKVxudyA9IGZyYWN0aW9ucyh1IC0gKCgodSAqIHYpIC8gKG5vcm1hX3ZeMikpICogdikpXG5zdW0odyAqIHYpXG5gYGAifQ== -->
 <pre class="r"><code>u &lt;- c(-2, 1, 6)
 v &lt;- c(2, 4, 5)
-</code></pre>
+norma_v = norm(pq, type = &quot;2&quot;)
+w = fractions(u - (((u * v) / (norma_v^2)) * v))
+sum(w * v)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIC0yNDkvNVxuIn0= -->
+<pre><code>[1] -249/5</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p><strong>Respuesta: </strong> El vector <strong>w</strong> no es ortogonal con <strong>v</strong>.</p>
 </div>
 <div id="sean-a3-0-0-b102-c230-puntos-en-el-espacio-r3-con-estos-puntos-determine-a.-determine-si-el-triangulo-abc-es-rectangulo-obtusangulo-o-acutangulo.-b.-determine-el-perimetro-del-triangulo-abc.-c.-determine-el-area-del-triangulo-abc.-6-puntos" class="section level5">
 <h5>3. Sean A=(3, 0, 0), b=(1,0,2), c=(2,3,0) puntos en el espacio R3, con estos puntos determine <br> a. Determine si el triangulo ABC es rectangulo, obtusangulo o acutangulo. <br> b. Determine el perimetro del triangulo ABC. <br> c. Determine el area del triangulo ABC. (6 puntos)</h5>
@@ -333,9 +335,23 @@ p</code></pre>
 <h5>2. Compruebe que la matriz A es idempotente: (2 puntos)</h5>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSBtYXRyaXgoYygyLCAtMSwgMSwgLTIsIDMsIC0yLCAtNCwgNCwgLTMpLCAzLCAzKVxuYVxuYGBgIn0= -->
-<pre class="r"><code>a &lt;- matrix(c(2, -1, 1, -2, 3, -2, -4, 4, -3), 3, 3)
-a</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSBtYXRyaXgoYyhcbiAgMiwgLTIsIC00LFxuICAtMSwgMywgNCxcbiAgMSwgLTIsIC0zXG4pLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSlcbmFfMiA9IGEgJSolIGFcbmFfMlxuYGBgIn0= -->
+<pre class="r"><code>a &lt;- matrix(c(
+  2, -2, -4,
+  -1, 3, 4,
+  1, -2, -3
+), ncol = 3, nrow = 3, byrow = TRUE)
+a_2 = a %*% a
+a_2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXVxuWzEsXSAgICAyICAgLTIgICAtNFxuWzIsXSAgIC0xICAgIDMgICAgNFxuWzMsXSAgICAxICAgLTIgICAtM1xuIn0= -->
+<pre><code>     [,1] [,2] [,3]
+[1,]    2   -2   -4
+[2,]   -1    3    4
+[3,]    1   -2   -3</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYVxuYGBgIn0= -->
+<pre class="r"><code>a</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXVxuWzEsXSAgICAyICAgLTIgICAtNFxuWzIsXSAgIC0xICAgIDMgICAgNFxuWzMsXSAgICAxICAgLTIgICAtM1xuIn0= -->
 <pre><code>     [,1] [,2] [,3]
@@ -345,6 +361,7 @@ a</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p><strong>Respuesta</strong> <br> La matriz <strong><span class="math inline">\(a\)</span></strong> es idempotente ya que <span class="math inline">\(a^{2}\)</span> es igual a <span class="math inline">\(a\)</span>.</p>
 </div>
 <div id="sean-fx-6x3-3x2---x-y-m-una-matriz.-determine-la-composicion-fm-2-puntos" class="section level5">
 <h5>3. Sean <strong>f(<span class="math inline">\(x\)</span>) = 6<span class="math inline">\(x^{3}\)</span> + 3<span class="math inline">\(x^{2}\)</span> - <span class="math inline">\(x\)</span></strong> y <span class="math inline">\(m\)</span> una matriz. Determine la composicion f(<span class="math inline">\(m\)</span>) (2 puntos)</h5>
@@ -369,64 +386,109 @@ m</code></pre>
 <h5>4. Encuentre la matriz inversa y el determinante de cada una de las siguientes matrices: (8 puntos)</h5>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSBtYXRyaXgoYyhcbiAgMSwgMiwgMyxcbiAgMiwgNSwgNyxcbiAgLTIsIC00LCAtNVxuKSwgbmNvbCA9IDMsIG5yb3cgPSAzLCBieXJvdyA9IFRSVUUpXG5hXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSBtYXRyaXgoYyhcbiAgMSwgMiwgMyxcbiAgMiwgNSwgNyxcbiAgLTIsIC00LCAtNVxuKSwgbmNvbCA9IDMsIG5yb3cgPSAzLCBieXJvdyA9IFRSVUUpXG5hX2ludmVyc2EgPSBzb2x2ZShhKVxuYV9pbnZlcnNhXG5gYGAifQ== -->
 <pre class="r"><code>a &lt;- matrix(c(
   1, 2, 3,
   2, 5, 7,
   -2, -4, -5
 ), ncol = 3, nrow = 3, byrow = TRUE)
-a</code></pre>
+a_inversa = solve(a)
+a_inversa</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXVxuWzEsXSAgICAzICAgLTIgICAtMVxuWzIsXSAgIC00ICAgIDEgICAtMVxuWzMsXSAgICAyICAgIDAgICAgMVxuIn0= -->
+<pre><code>     [,1] [,2] [,3]
+[1,]    3   -2   -1
+[2,]   -4    1   -1
+[3,]    2    0    1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGV0X2EgPSBkZXQoYSlcbmRldF9hXG5gYGAifQ== -->
+<pre class="r"><code>det_a = det(a)
+det_a</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcbiJ9 -->
+<pre><code>[1] 1</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYiA8LSBtYXRyaXgoYyhcbiAgMywtMiwgLTEsXG4gIC00LCAxLCAtMSxcbiAgMiwgMCwgMVxuKSwgbmNvbCA9IDMsIG5yb3cgPSAzLCBieXJvdyA9IFRSVUUpXG5iXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYiA8LSBtYXRyaXgoYyhcbiAgMywtMiwgLTEsXG4gIC00LCAxLCAtMSxcbiAgMiwgMCwgMVxuKSwgbmNvbCA9IDMsIG5yb3cgPSAzLCBieXJvdyA9IFRSVUUpXG5iX2ludmVyc2EgPSBzb2x2ZShiKVxuYl9pbnZlcnNhXG5gYGAifQ== -->
 <pre class="r"><code>b &lt;- matrix(c(
   3,-2, -1,
   -4, 1, -1,
   2, 0, 1
 ), ncol = 3, nrow = 3, byrow = TRUE)
-b</code></pre>
+b_inversa = solve(b)
+b_inversa</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXVxuWzEsXSAgICAxICAgIDIgICAgM1xuWzIsXSAgICAyICAgIDUgICAgN1xuWzMsXSAgIC0yICAgLTQgICAtNVxuIn0= -->
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    2    5    7
+[3,]   -2   -4   -5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGV0X2IgPSBkZXQoYilcbmRldF9iXG5gYGAifQ== -->
+<pre class="r"><code>det_b = det(b)
+det_b</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcbiJ9 -->
+<pre><code>[1] 1</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYyA8LSBtYXRyaXgoYyhcbiAgMCwgMiwgMSxcbiAgMSwgMywgLTEsXG4gIC0xLCAxLCAyXG4pLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSlcbmNcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYyA8LSBtYXRyaXgoYyhcbiAgMCwgMiwgMSxcbiAgMSwgMywgLTEsXG4gIC0xLCAxLCAyXG4pLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSlcbmNfaW52ZXJzYSA9IHNvbHZlKGMpXG5jX2ludmVyc2FcbmBgYCJ9 -->
 <pre class="r"><code>c &lt;- matrix(c(
   0, 2, 1,
   1, 3, -1,
   -1, 1, 2
 ), ncol = 3, nrow = 3, byrow = TRUE)
-c</code></pre>
+c_inversa = solve(c)
+c_inversa</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXVxuWzEsXSAgMy41IC0xLjUgLTIuNVxuWzIsXSAtMC41ICAwLjUgIDAuNVxuWzMsXSAgMi4wIC0xLjAgLTEuMFxuIn0= -->
+<pre><code>     [,1] [,2] [,3]
+[1,]  3.5 -1.5 -2.5
+[2,] -0.5  0.5  0.5
+[3,]  2.0 -1.0 -1.0</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGV0X2MgPSBkZXQoYylcbmRldF9jXG5gYGAifQ== -->
+<pre class="r"><code>det_c = det(c)
+det_c</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZCA8LSBtYXRyaXgoYyhcbiAgMywgNiwgOSxcbiAgMiwgNSwgMSxcbiAgMSwgMSwgOFxuKSwgbmNvbCA9IDMsIG5yb3cgPSAzLCBieXJvdyA9IFRSVUUpXG5kXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZCA8LSBtYXRyaXgoYyhcbiAgMywgNiwgOSxcbiAgMiwgNSwgMSxcbiAgMSwgMSwgOFxuKSwgbmNvbCA9IDMsIG5yb3cgPSAzLCBieXJvdyA9IFRSVUUpXG5kZXRfZCA9IGRldChkKVxuZGV0X2RcbmBgYCJ9 -->
 <pre class="r"><code>d &lt;- matrix(c(
   3, 6, 9,
   2, 5, 1,
   1, 1, 8
 ), ncol = 3, nrow = 3, byrow = TRUE)
-d</code></pre>
+det_d = det(d)
+det_d</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXVxuWzEsXSAgICAzICAgIDYgICAgOVxuWzIsXSAgICAyICAgIDUgICAgMVxuWzMsXSAgICAxICAgIDEgICAgOFxuIn0= -->
-<pre><code>     [,1] [,2] [,3]
-[1,]    3    6    9
-[2,]    2    5    1
-[3,]    1    1    8</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
+<pre><code>[1] 0</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBkX2ludmVyc2EgPSBzb2x2ZShkKVxuIyBkX2ludmVyc2FcbmBgYCJ9 -->
+<pre class="r"><code># d_inversa = solve(d)
+# d_inversa</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>La matriz <strong>d</strong> no tiene inversa ya que es una matriz singular. Sabemos que una matriz es singular cuando su determinante es <strong>0</strong>.</p>
 </div>
 <div id="como-se-propaga-una-enfermedad-contagiosa.-suponga-que-un-grupo-de-4-individuos-que-llamaremos-i_1-i_2-i_3-i_4-han-contraido-una-enfermedad.-este-grupo-entra-en-contacto-con-6-personas-de-un-segundo-grupo-p_1-p_2-p_3-p_4-p_5-p_6.-este-tipo-de-contactos-se-llaman-directos-y-se-pueden-representar-en-una-matriz-de-4x6-como-la-que-se-muestra-a-continuacion" class="section level5">
 <h5>5. ¿Cómo se propaga una enfermedad contagiosa?. Suponga que un grupo de 4 individuos que llamaremos <span class="math inline">\(I_{1}\)</span>, <span class="math inline">\(I_{2}\)</span>, <span class="math inline">\(I_{3}\)</span>, <span class="math inline">\(I_{4}\)</span> han contraido una enfermedad. <br><br> Este grupo entra en contacto con 6 personas de un segundo grupo <span class="math inline">\(P_{1}\)</span>, <span class="math inline">\(P_{2}\)</span>, <span class="math inline">\(P_{3}\)</span>, <span class="math inline">\(P_{4}\)</span>, <span class="math inline">\(P_{5}\)</span>, <span class="math inline">\(P_{6}\)</span>. Este tipo de contactos se llaman directos y se pueden representar en una matriz de 4x6 como la que se muestra a continuacion:</h5>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSBtYXRyaXgoYyhcbiAgMCwxLDAsMCwxLDAsXG4gIDEsMCwwLDEsMCwxLFxuICAwLDAsMCwxLDEsMCxcbiAgMSwwLDAsMCwwLDFcbiksIG5yb3cgPSA0LCBuY29sID0gNiwgIGJ5cm93ID0gVFJVRSxcbmRpbW5hbWVzID0gbGlzdChjKFwiSTFcIiwgXCJJMlwiLCBcIkkzXCIsIFwiSTRcIiksIGMoXCJQMVwiLCBcIlAyXCIsIFwiUDNcIiwgXCJQNFwiLCBcIlA1XCIsIFwiUDZcIikpKVxuXG5hXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSBtYXRyaXgoYyhcbiAgMCwxLDAsMCwxLDAsXG4gIDEsMCwwLDEsMCwxLFxuICAwLDAsMCwxLDEsMCxcbiAgMSwwLDAsMCwwLDFcbiksIG5yb3cgPSA0LCBuY29sID0gNiwgIGJ5cm93ID0gVFJVRSxcbmRpbW5hbWVzID0gbGlzdChjKFwiSTFcIiwgXCJJMlwiLCBcIkkzXCIsIFwiSTRcIiksIGMoXCJQMVwiLCBcIlAyXCIsIFwiUDNcIiwgXCJQNFwiLCBcIlA1XCIsIFwiUDZcIikpKVxuYVxuYGBgIn0= -->
 <pre class="r"><code>a &lt;- matrix(c(
   0,1,0,0,1,0,
   1,0,0,1,0,1,
@@ -434,9 +496,15 @@ d</code></pre>
   1,0,0,0,0,1
 ), nrow = 4, ncol = 6,  byrow = TRUE,
 dimnames = list(c(&quot;I1&quot;, &quot;I2&quot;, &quot;I3&quot;, &quot;I4&quot;), c(&quot;P1&quot;, &quot;P2&quot;, &quot;P3&quot;, &quot;P4&quot;, &quot;P5&quot;, &quot;P6&quot;)))
-
 a</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgUDEgUDIgUDMgUDQgUDUgUDZcbkkxICAwICAxICAwICAwICAxICAwXG5JMiAgMSAgMCAgMCAgMSAgMCAgMVxuSTMgIDAgIDAgIDAgIDEgIDEgIDBcbkk0ICAxICAwICAwICAwICAwICAxXG4ifQ== -->
+<pre><code>   P1 P2 P3 P4 P5 P6
+I1  0  1  0  0  1  0
+I2  1  0  0  1  0  1
+I3  0  0  0  1  1  0
+I4  1  0  0  0  0  1</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -444,7 +512,7 @@ a</code></pre>
 <h5>Note que la forma de construir dicha matriz es, colocando un <strong>1</strong> si una persona del primer grupo (contagiados) entra en contacto con alguna persona del segundo grupo. <br> <br> Llamemos A a esta matriz de contactos Primer Contacto Directo. Ahora suponga que las 6 personas del grupo 2 entró en contacto directo con un tercer grupo de cinco personas <span class="math inline">\(M_{1}\)</span>, <span class="math inline">\(M_{2}\)</span>, <span class="math inline">\(M_{3}\)</span>, <span class="math inline">\(M_{4}\)</span>, <span class="math inline">\(M_{5}\)</span> de la siguiente manera:</h5>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYiA8LSBtYXRyaXgoYyhcbiAgMCwwLDEsMCwxLFxuICAwLDAsMCwxLDAsXG4gIDAsMSwwLDAsMCxcbiAgMSwwLDAsMCwxLFxuICAwLDAsMCwxLDAsXG4gIDAsMCwxLDAsMFxuKSwgbnJvdyA9IDYsIG5jb2wgPSA1LCAgYnlyb3cgPSBUUlVFLFxuZGltbmFtZXMgPSBsaXN0KGMoXCJQMVwiLCBcIlAyXCIsIFwiUDNcIiwgXCJQNFwiLCBcIlA1XCIsIFwiUDZcIiksIGMoXCJNMVwiLCBcIk0yXCIsIFwiTTNcIiwgXCJNNFwiLCBcIk01XCIpKSlcblxuYlxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYiA8LSBtYXRyaXgoYyhcbiAgMCwwLDEsMCwxLFxuICAwLDAsMCwxLDAsXG4gIDAsMSwwLDAsMCxcbiAgMSwwLDAsMCwxLFxuICAwLDAsMCwxLDAsXG4gIDAsMCwxLDAsMFxuKSwgbnJvdyA9IDYsIG5jb2wgPSA1LCAgYnlyb3cgPSBUUlVFLFxuZGltbmFtZXMgPSBsaXN0KGMoXCJQMVwiLCBcIlAyXCIsIFwiUDNcIiwgXCJQNFwiLCBcIlA1XCIsIFwiUDZcIiksIGMoXCJNMVwiLCBcIk0yXCIsIFwiTTNcIiwgXCJNNFwiLCBcIk01XCIpKSlcbmJcbmBgYCJ9 -->
 <pre class="r"><code>b &lt;- matrix(c(
   0,0,1,0,1,
   0,0,0,1,0,
@@ -454,9 +522,31 @@ a</code></pre>
   0,0,1,0,0
 ), nrow = 6, ncol = 5,  byrow = TRUE,
 dimnames = list(c(&quot;P1&quot;, &quot;P2&quot;, &quot;P3&quot;, &quot;P4&quot;, &quot;P5&quot;, &quot;P6&quot;), c(&quot;M1&quot;, &quot;M2&quot;, &quot;M3&quot;, &quot;M4&quot;, &quot;M5&quot;)))
-
 b</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTTEgTTIgTTMgTTQgTTVcblAxICAwICAwICAxICAwICAxXG5QMiAgMCAgMCAgMCAgMSAgMFxuUDMgIDAgIDEgIDAgIDAgIDBcblA0ICAxICAwICAwICAwICAxXG5QNSAgMCAgMCAgMCAgMSAgMFxuUDYgIDAgIDAgIDEgIDAgIDBcbiJ9 -->
+<pre><code>   M1 M2 M3 M4 M5
+P1  0  0  1  0  1
+P2  0  0  0  1  0
+P3  0  1  0  0  0
+P4  1  0  0  0  1
+P5  0  0  0  1  0
+P6  0  0  1  0  0</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSAlKiUgYlxuYGBgIn0= -->
+<pre class="r"><code>a %*% b</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTTEgTTIgTTMgTTQgTTVcbkkxICAwICAwICAwICAyICAwXG5JMiAgMSAgMCAgMiAgMCAgMlxuSTMgIDEgIDAgIDAgIDEgIDFcbkk0ICAwICAwICAyICAwICAxXG4ifQ== -->
+<pre><code>   M1 M2 M3 M4 M5
+I1  0  0  0  2  0
+I2  1  0  2  0  2
+I3  1  0  0  1  1
+I4  0  0  2  0  1</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -470,6 +560,16 @@ b</code></pre>
 <h5>a. Calcule una nueva matriz C tal que C=A*B (Tome en cuenta que el producto es matricial, al trabajarlo en R).</h5>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSAlKiUgYlxuYGBgIn0= -->
+<pre class="r"><code>a %*% b</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTTEgTTIgTTMgTTQgTTVcbkkxICAwICAwICAwICAyICAwXG5JMiAgMSAgMCAgMiAgMCAgMlxuSTMgIDEgIDAgIDAgIDEgIDFcbkk0ICAwICAwICAyICAwICAxXG4ifQ== -->
+<pre><code>   M1 M2 M3 M4 M5
+I1  0  0  0  2  0
+I2  1  0  2  0  2
+I3  1  0  0  1  1
+I4  0  0  2  0  1</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -488,7 +588,7 @@ b</code></pre>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGFyZWEgMDM6IE1hdHJpY2VzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSgiTUFTUyIpCmBgYAoKIyMgSSBQQVJURTogQ29tYW5kb3MgbWF0ZW3DoXRpY29zIHkgdW4gcG9jbyBkZSB2ZWN0b3JlcwojIyMjIyAxLiBTZWEgUD0oMiwzKSwgUT0oNSwyKSwgUj0oMiwtNSkgeSBTPSgxLCAtMikuIENhbGN1bGUgbGEgcHJveWVjY2lvbiBkZSBQUSBzb2JyZSBSUy4gKDQgcHVudG9zKQpgYGB7cn0KcCA8LSBjKDIsIDMpCnEgPC0gYyg1LCAyKQpyIDwtIGMoMiwgLTUpIApzIDwtIGMoMSwgLTIpCgpwcSA8LSBxLXAKcnMgPC0gcy1yCmBgYAoKIyMjIyMgMi4gU2VhIHU9KC0yLCAxLCA2KSB5IHY9KDIsIDQsIDUpIGNvbXBydWViZSBxdWUgZWwgdmVjdG9yIHcgZXMgdW4gdmVjdG9yIHZlY3RvciBvcnRvZ29uYWwgY29uIHYuICgzIHB1bnRvcykKYGBge3J9CnUgPC0gYygtMiwgMSwgNikKdiA8LSBjKDIsIDQsIDUpCgoKYGBgCgojIyMjIyAzLiBTZWFuIEE9KDMsIDAsIDApLCBiPSgxLDAsMiksIGM9KDIsMywwKSBwdW50b3MgZW4gZWwgZXNwYWNpbyBSMywgY29uIGVzdG9zIHB1bnRvcyBkZXRlcm1pbmUgPGJyPiBhLiBEZXRlcm1pbmUgc2kgZWwgdHJpYW5ndWxvIEFCQyBlcyByZWN0YW5ndWxvLCBvYnR1c2FuZ3VsbyBvIGFjdXRhbmd1bG8uIDxicj4gYi4gRGV0ZXJtaW5lIGVsIHBlcmltZXRybyBkZWwgdHJpYW5ndWxvIEFCQy4gPGJyPiBjLiBEZXRlcm1pbmUgZWwgYXJlYSBkZWwgdHJpYW5ndWxvIEFCQy4gKDYgcHVudG9zKQoKU3VnZXJlbmNpYTogZXhwcmVzZSBjYWRhIGxhZG8gZGVsIHRyacOhbmd1bG8gY29tbyB1biB2ZWN0b3IsIHBvciBlamVtcGxvLCBlbCBsYWRvIEFCIHNlIHB1ZWRlIGV4cHJlc2FyIGNvbW8gZWwgdmVjdG9yIEFCLiBQYXJhIGNhbGN1bGFyIGVsIMOhbmd1bG8gZW50cmUgZG9zIHZlY3RvcmVzIHUsIHYgcHVlZGUgdXNhciBlbCBjb21hbmRvIHN1YnNwYWNlKHUsdikgZGVsIHBhcXVldGUgKipwcmFjbWEqKi4gVG9tZSBlbiBjdWVudGEgcXVlIGVsIHJlc3VsdGFkbyBlcyBlbiByYWRpYW5lcywgcGVybyBzaSBkZXNlYSBjb252ZXJ0aXJsbyBlbiBncmFkb3MgdXRpbGljZSBsYSBpbnN0cnVjY2lvbjogMTgwICogc3Vic3BhY2UodSwgdikvcGkKCmBgYHtyfQphIDwtIGMoMywgMCwgMCkKYiA8LSBjKDEsIDAsIDIpCmMgPC0gYygyLCAzLCAwKQoKYGBgCiMjIElJIFBBUlRFOiBNYXRyaWNlcwoKIyMjIyMgMS4gQ29tcHJ1ZWJlIHF1ZSBsYSBtYXRyaXogUCBlcyBvcnRvZ29uYWw6ICgyIHB1bnRvcykKYGBge3J9CnAgPC0gbWF0cml4KGMoMC41LCAwLjUsIDAuNSwgMC41LCAKICAgICAgICAgICAgICgxL3NxcnQoMikpLCAtKDEvc3FydCgyKSksIDAsIDAsCiAgICAgICAgICAgICAoMS9zcXJ0KDYpKSwgKDEvc3FydCg2KSksIC0oMi9zcXJ0KDYpKSwgMCwKICAgICAgICAgICAgICgxLygyKnNxcnQoMykpKSwgKDEvKDIqc3FydCgzKSkpLCAoMS8oMipzcXJ0KDMpKSksICgtMy8oMipzcXJ0KDMpKSkKICAgICAgICAgICAgICksICA0LDQsIGJ5cm93ID0gVFJVRSkKcApgYGAKCiMjIyMjIDIuIENvbXBydWViZSBxdWUgbGEgbWF0cml6IEEgZXMgaWRlbXBvdGVudGU6ICgyIHB1bnRvcykKYGBge3J9CmEgPC0gbWF0cml4KGMoCiAgMiwgLTIsIC00LAogIC0xLCAzLCA0LAogIDEsIC0yLCAtMwopLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSkKYQpgYGAKCiMjIyMjIDMuIFNlYW4gKipmKCR4JCkgPSA2JHheezN9JCArIDMkeF57Mn0kIC0gJHgkKiogeSAkbSQgdW5hIG1hdHJpei4gRGV0ZXJtaW5lIGxhIGNvbXBvc2ljaW9uIGYoJG0kKSAoMiBwdW50b3MpCmBgYHtyfQptIDwtIG1hdHJpeChjKAogICgzLzIpLCAoLTUvMiksCiAgKDIvMyksICgtMS8zKQopLCBuY29sID0gMiwgbnJvdyA9IDIsIGJ5cm93ID0gVFJVRSkKbQpgYGAKCiMjIyMjIDQuIEVuY3VlbnRyZSBsYSBtYXRyaXogaW52ZXJzYSB5IGVsIGRldGVybWluYW50ZSBkZSBjYWRhIHVuYSBkZSBsYXMgc2lndWllbnRlcyBtYXRyaWNlczogKDggcHVudG9zKQpgYGB7cn0KYSA8LSBtYXRyaXgoYygKICAxLCAyLCAzLAogIDIsIDUsIDcsCiAgLTIsIC00LCAtNQopLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSkKYQpgYGAKCmBgYHtyfQpiIDwtIG1hdHJpeChjKAogIDMsLTIsIC0xLAogIC00LCAxLCAtMSwKICAyLCAwLCAxCiksIG5jb2wgPSAzLCBucm93ID0gMywgYnlyb3cgPSBUUlVFKQpiCmBgYAoKYGBge3J9CmMgPC0gbWF0cml4KGMoCiAgMCwgMiwgMSwKICAxLCAzLCAtMSwKICAtMSwgMSwgMgopLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSkKYwpgYGAKCmBgYHtyfQpkIDwtIG1hdHJpeChjKAogIDMsIDYsIDksCiAgMiwgNSwgMSwKICAxLCAxLCA4CiksIG5jb2wgPSAzLCBucm93ID0gMywgYnlyb3cgPSBUUlVFKQpkCmBgYAoKIyMjIyMgNS4gwr9Dw7NtbyBzZSBwcm9wYWdhIHVuYSBlbmZlcm1lZGFkIGNvbnRhZ2lvc2E/LiBTdXBvbmdhIHF1ZSB1biBncnVwbyBkZSA0IGluZGl2aWR1b3MgcXVlIGxsYW1hcmVtb3MgJElfezF9JCwgJElfezJ9JCwgJElfezN9JCwgJElfezR9JCBoYW4gY29udHJhaWRvIHVuYSBlbmZlcm1lZGFkLiA8YnI+PGJyPiBFc3RlIGdydXBvIGVudHJhIGVuIGNvbnRhY3RvIGNvbiA2IHBlcnNvbmFzIGRlIHVuIHNlZ3VuZG8gZ3J1cG8gJFBfezF9JCwgJFBfezJ9JCwgJFBfezN9JCwgJFBfezR9JCwgJFBfezV9JCwgJFBfezZ9JC4gRXN0ZSB0aXBvIGRlIGNvbnRhY3RvcyBzZSBsbGFtYW4gZGlyZWN0b3MgeSBzZSBwdWVkZW4gcmVwcmVzZW50YXIgZW4gdW5hIG1hdHJpeiBkZSA0eDYgY29tbyBsYSBxdWUgc2UgbXVlc3RyYSBhIGNvbnRpbnVhY2lvbjoKCmBgYHtyfQphIDwtIG1hdHJpeChjKAogIDAsMSwwLDAsMSwwLAogIDEsMCwwLDEsMCwxLAogIDAsMCwwLDEsMSwwLAogIDEsMCwwLDAsMCwxCiksIG5yb3cgPSA0LCBuY29sID0gNiwgIGJ5cm93ID0gVFJVRSwKZGltbmFtZXMgPSBsaXN0KGMoIkkxIiwgIkkyIiwgIkkzIiwgIkk0IiksIGMoIlAxIiwgIlAyIiwgIlAzIiwgIlA0IiwgIlA1IiwgIlA2IikpKQoKYQpgYGAKIyMjIyMgTm90ZSBxdWUgbGEgZm9ybWEgZGUgY29uc3RydWlyIGRpY2hhIG1hdHJpeiBlcywgY29sb2NhbmRvIHVuICoqMSoqIHNpIHVuYSBwZXJzb25hIGRlbCBwcmltZXIgZ3J1cG8gKGNvbnRhZ2lhZG9zKSBlbnRyYSBlbiBjb250YWN0byBjb24gYWxndW5hIHBlcnNvbmEgZGVsIHNlZ3VuZG8gZ3J1cG8uIDxicj4gPGJyPiBMbGFtZW1vcyBBIGEgZXN0YSBtYXRyaXogZGUgY29udGFjdG9zIFByaW1lciBDb250YWN0byBEaXJlY3RvLiBBaG9yYSBzdXBvbmdhIHF1ZSBsYXMgNiBwZXJzb25hcyBkZWwgZ3J1cG8gMiBlbnRyw7MgZW4gY29udGFjdG8gZGlyZWN0byBjb24gdW4gdGVyY2VyIGdydXBvIGRlIGNpbmNvIHBlcnNvbmFzICRNX3sxfSQsICRNX3syfSQsICRNX3szfSQsICRNX3s0fSQsICRNX3s1fSQgZGUgbGEgc2lndWllbnRlIG1hbmVyYToKCmBgYHtyfQpiIDwtIG1hdHJpeChjKAogIDAsMCwxLDAsMSwKICAwLDAsMCwxLDAsCiAgMCwxLDAsMCwwLAogIDEsMCwwLDAsMSwKICAwLDAsMCwxLDAsCiAgMCwwLDEsMCwwCiksIG5yb3cgPSA2LCBuY29sID0gNSwgIGJ5cm93ID0gVFJVRSwKZGltbmFtZXMgPSBsaXN0KGMoIlAxIiwgIlAyIiwgIlAzIiwgIlA0IiwgIlA1IiwgIlA2IiksIGMoIk0xIiwgIk0yIiwgIk0zIiwgIk00IiwgIk01IikpKQoKYgpgYGAKCiMjIyMjIExsYW1hbW9zIEIgYSBlc3RhIHNlZ3VuZGEgbWF0cml6IGRlIGNvbnRhY3RvLiA8YnI+IDxicj4gTGEgbMOzZ2ljYSBlcyBpZ3VhbCBxdWUgZW4gZWwgY2FzbyBhbnRlcmlvciwgMSBzaWduaWZpY2EgcXVlIHVuIGluZGl2aWR1byBkZWwgc2VndW5kbyBncnVwbyBlc3R1dm8gZW4gY29udGFjdG8gY29uIHVuIGluZGl2aWR1byBkZWwgdGVyY2VyIGdydXBvLiA8YnI+IDxicj5Mb3MgY29udGFjdG9zIGluZGlyZWN0b3MgbyBkZSBzZWd1bmRvIG9yZGVuLCBzZSBwdWVkZW4gZGFyIGVudHJlIGluZGl2aWR1b3MgZGVsIHByaW1lciBncnVwbyBjb24gaW5kaXZpZHVvcyBkZWwgdGVyY2VyIGdydXBvLCBlc3RvIGVzLCBxdWUgdW5hIHBlcnNvbmEgZGVsIGdydXBvIDMsIHB1ZWRlIHNlciBjb250YWdpYWRhIHBvciBhbGd1aWVuIGRlbCBncnVwbyAyIHF1ZSBhIHN1IHZleiBmdWUgY29udGFnaWFkYSBwb3IgYWxndWllbiBkZWwgZ3J1cG8gMS4gPGJyPiA8YnI+IEEgbWFuZXJhIGRlIGVqZW1wbG8sIG5vdGUgcXVlIGxhcyBwb3NpY2lvbmVzICoqJEFfezI0fSQgPSAxKiogeSAqKiRCX3s0NX0kID0gMSoqIGNvbiBlc3RvLCBzZSB2ZSBxdWUgaW5kaXJlY3RhbWVudGUgbGEgcXVpbnRhIHBlcnNvbmEgZGVsIGdydXBvIDMsIHR1dm8gY29udGFjdG8gY29uIHVuYSBwZXJzb25hIGRlbCBncnVwbyAxIGEgdHJhdsOpcyBkZSBsYSBjdWFydGEgcGVyc29uYSBkZWwgZ3J1cG8gMiwgYXPDrTogPGJyPiA8YnI+ICoqJElfezJ9JCoqID0+ICoqJFBfezR9JCoqID0+ICoqJE1fezV9JCoqIAoKIyMjIyMgQ29uIHJlc3BlY3RvIGFsIGNhc28gYW50ZXJpb3IsIHJlYWxpY2UgbG9zIHNpZ3VpZW50ZToKIyMjIyMgYS4gQ2FsY3VsZSB1bmEgbnVldmEgbWF0cml6IEMgdGFsIHF1ZSBDPUEqQiAgKFRvbWUgZW4gY3VlbnRhIHF1ZSBlbCBwcm9kdWN0byBlcyBtYXRyaWNpYWwsIGFsIHRyYWJhamFybG8gZW4gUikuIApgYGB7cn0KCmBgYAojIyMjIyBiLiDCv0N1w6FsZXMgZ3J1cG9zIGRlIGluZGl2aWR1b3MgKEdydXBvIDEsIDIgbyAzKSBlc3TDoW4gcXVlZGFuZG8gcmVwcmVzZW50YWRvcyBlbiBDID8sIMK/cXVpw6luZXMgZXN0w6FuIHJlcHJlc2VudGFkb3MgZW4gbGFzIGZpbGFzIHkgcXVpw6luZXMgZW4gbGFzIGNvbHVtbmFzPwojIyMjIyBjLiBUb21lIGxhIGZpbGEgMiBkZSBDIGUgaW50ZXJwcsOpdGVsYSAoaGFnYSBsYSBleHRyYWNjacOzbiBkZSBlc3RhIHVzYW5kbyB1biBjb21hbmRvIGFwcm9waWFkbyBlbiBSKS4KIyMjIyMgZC4gVG9tZSBsYSBjb2x1bW5hIDIgeSA1IGRlIEMgZSBpbnRlcnByw6l0ZWxhcyAoVXNlIGNvbWFuZG9zIGFwcm9waWFkb3MgZW4gUiBwYXJhIGxhIGV4dHJhY2Npw7NuKS4KIyMjIyMgZS4gSW50ZXJwcmV0ZSBsYSBwb3NpY2nDs24gJENfezQzfSQgKEV4dHJhaWdhIGxhIGVudHJhZGEsIHVzYW5kbyBlbCBjb21hbmRvIGFwcm9waWFkbyBlbiBSKS4=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGFyZWEgMDM6IE1hdHJpY2VzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSgiTUFTUyIpCmBgYAoKIyMgSSBQQVJURTogQ29tYW5kb3MgbWF0ZW3DoXRpY29zIHkgdW4gcG9jbyBkZSB2ZWN0b3JlcwojIyMjIyAxLiBTZWEgUD0oMiwzKSwgUT0oNSwyKSwgUj0oMiwtNSkgeSBTPSgxLCAtMikuIENhbGN1bGUgbGEgcHJveWVjY2lvbiBkZSBQUSBzb2JyZSBSUy4gKDQgcHVudG9zKQpgYGB7cn0KcCA8LSBjKDIsIDMpCnEgPC0gYyg1LCAyKQpyIDwtIGMoMiwgLTUpIApzIDwtIGMoMSwgLTIpCgpwcTwtIHEtcCAjIFBRCnJzIDwtIHMtciAjIFJTCgpub3JtYV9wcSA9IG5vcm0ocHEsIHR5cGUgPSAiMiIpCgpwcm95ZWNjaW9uID0gZnJhY3Rpb25zKCgocnMqcHEpLyhub3JtYV9wcV4yKSkgKiBwcSkKcHJveWVjY2lvbgpgYGAKCiMjIyMjIDIuIFNlYSB1PSgtMiwgMSwgNikgeSB2PSgyLCA0LCA1KSBjb21wcnVlYmUgcXVlIGVsIHZlY3RvciB3IGVzIHVuIHZlY3RvciBvcnRvZ29uYWwgY29uIHYuICgzIHB1bnRvcykKYGBge3J9CnUgPC0gYygtMiwgMSwgNikKdiA8LSBjKDIsIDQsIDUpCgpub3JtYV92ID0gbm9ybShwcSwgdHlwZSA9ICIyIikKCncgPSBmcmFjdGlvbnModSAtICgoKHUgKiB2KSAvIChub3JtYV92XjIpKSAqIHYpKQoKCnN1bSh3ICogdikKCmBgYAoqKlJlc3B1ZXN0YTogKioKRWwgdmVjdG9yICoqdyoqIG5vIGVzIG9ydG9nb25hbCBjb24gKip2KiouCgojIyMjIyAzLiBTZWFuIEE9KDMsIDAsIDApLCBiPSgxLDAsMiksIGM9KDIsMywwKSBwdW50b3MgZW4gZWwgZXNwYWNpbyBSMywgY29uIGVzdG9zIHB1bnRvcyBkZXRlcm1pbmUgPGJyPiBhLiBEZXRlcm1pbmUgc2kgZWwgdHJpYW5ndWxvIEFCQyBlcyByZWN0YW5ndWxvLCBvYnR1c2FuZ3VsbyBvIGFjdXRhbmd1bG8uIDxicj4gYi4gRGV0ZXJtaW5lIGVsIHBlcmltZXRybyBkZWwgdHJpYW5ndWxvIEFCQy4gPGJyPiBjLiBEZXRlcm1pbmUgZWwgYXJlYSBkZWwgdHJpYW5ndWxvIEFCQy4gKDYgcHVudG9zKQoKU3VnZXJlbmNpYTogZXhwcmVzZSBjYWRhIGxhZG8gZGVsIHRyacOhbmd1bG8gY29tbyB1biB2ZWN0b3IsIHBvciBlamVtcGxvLCBlbCBsYWRvIEFCIHNlIHB1ZWRlIGV4cHJlc2FyIGNvbW8gZWwgdmVjdG9yIEFCLiBQYXJhIGNhbGN1bGFyIGVsIMOhbmd1bG8gZW50cmUgZG9zIHZlY3RvcmVzIHUsIHYgcHVlZGUgdXNhciBlbCBjb21hbmRvIHN1YnNwYWNlKHUsdikgZGVsIHBhcXVldGUgKipwcmFjbWEqKi4gVG9tZSBlbiBjdWVudGEgcXVlIGVsIHJlc3VsdGFkbyBlcyBlbiByYWRpYW5lcywgcGVybyBzaSBkZXNlYSBjb252ZXJ0aXJsbyBlbiBncmFkb3MgdXRpbGljZSBsYSBpbnN0cnVjY2lvbjogMTgwICogc3Vic3BhY2UodSwgdikvcGkKCmBgYHtyfQphIDwtIGMoMywgMCwgMCkKYiA8LSBjKDEsIDAsIDIpCmMgPC0gYygyLCAzLCAwKQoKYGBgCiMjIElJIFBBUlRFOiBNYXRyaWNlcwoKIyMjIyMgMS4gQ29tcHJ1ZWJlIHF1ZSBsYSBtYXRyaXogUCBlcyBvcnRvZ29uYWw6ICgyIHB1bnRvcykKYGBge3J9CnAgPC0gbWF0cml4KGMoMC41LCAwLjUsIDAuNSwgMC41LCAKICAgICAgICAgICAgICgxL3NxcnQoMikpLCAtKDEvc3FydCgyKSksIDAsIDAsCiAgICAgICAgICAgICAoMS9zcXJ0KDYpKSwgKDEvc3FydCg2KSksIC0oMi9zcXJ0KDYpKSwgMCwKICAgICAgICAgICAgICgxLygyKnNxcnQoMykpKSwgKDEvKDIqc3FydCgzKSkpLCAoMS8oMipzcXJ0KDMpKSksICgtMy8oMipzcXJ0KDMpKSkKICAgICAgICAgICAgICksICA0LDQsIGJ5cm93ID0gVFJVRSkKcApgYGAKCiMjIyMjIDIuIENvbXBydWViZSBxdWUgbGEgbWF0cml6IEEgZXMgaWRlbXBvdGVudGU6ICgyIHB1bnRvcykKYGBge3J9CmEgPC0gbWF0cml4KGMoCiAgMiwgLTIsIC00LAogIC0xLCAzLCA0LAogIDEsIC0yLCAtMwopLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSkKCmFfMiA9IGEgJSolIGEKYV8yCmEKYGBgCioqUmVzcHVlc3RhKiogPGJyPgpMYSBtYXRyaXogKiokYSQqKiBlcyBpZGVtcG90ZW50ZSB5YSBxdWUgJGFeezJ9JCBlcyBpZ3VhbCBhICRhJC4KCgojIyMjIyAzLiBTZWFuICoqZigkeCQpID0gNiR4XnszfSQgKyAzJHheezJ9JCAtICR4JCoqIHkgJG0kIHVuYSBtYXRyaXouIERldGVybWluZSBsYSBjb21wb3NpY2lvbiBmKCRtJCkgKDIgcHVudG9zKQpgYGB7cn0KbSA8LSBtYXRyaXgoYygKICAoMy8yKSwgKC01LzIpLAogICgyLzMpLCAoLTEvMykKKSwgbmNvbCA9IDIsIG5yb3cgPSAyLCBieXJvdyA9IFRSVUUpCm0KYGBgCgojIyMjIyA0LiBFbmN1ZW50cmUgbGEgbWF0cml6IGludmVyc2EgeSBlbCBkZXRlcm1pbmFudGUgZGUgY2FkYSB1bmEgZGUgbGFzIHNpZ3VpZW50ZXMgbWF0cmljZXM6ICg4IHB1bnRvcykKYGBge3J9CmEgPC0gbWF0cml4KGMoCiAgMSwgMiwgMywKICAyLCA1LCA3LAogIC0yLCAtNCwgLTUKKSwgbmNvbCA9IDMsIG5yb3cgPSAzLCBieXJvdyA9IFRSVUUpCgphX2ludmVyc2EgPSBzb2x2ZShhKQphX2ludmVyc2EKCmRldF9hID0gZGV0KGEpCmRldF9hCmBgYAoKYGBge3J9CmIgPC0gbWF0cml4KGMoCiAgMywtMiwgLTEsCiAgLTQsIDEsIC0xLAogIDIsIDAsIDEKKSwgbmNvbCA9IDMsIG5yb3cgPSAzLCBieXJvdyA9IFRSVUUpCgpiX2ludmVyc2EgPSBzb2x2ZShiKQpiX2ludmVyc2EKCmRldF9iID0gZGV0KGIpCmRldF9iCmBgYAoKYGBge3J9CmMgPC0gbWF0cml4KGMoCiAgMCwgMiwgMSwKICAxLCAzLCAtMSwKICAtMSwgMSwgMgopLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSkKCmNfaW52ZXJzYSA9IHNvbHZlKGMpCmNfaW52ZXJzYQoKZGV0X2MgPSBkZXQoYykKZGV0X2MKYGBgCgpgYGB7cn0KZCA8LSBtYXRyaXgoYygKICAzLCA2LCA5LAogIDIsIDUsIDEsCiAgMSwgMSwgOAopLCBuY29sID0gMywgbnJvdyA9IDMsIGJ5cm93ID0gVFJVRSkKCmRldF9kID0gZGV0KGQpCmRldF9kCgojIGRfaW52ZXJzYSA9IHNvbHZlKGQpCiMgZF9pbnZlcnNhCmBgYApMYSBtYXRyaXogKipkKiogbm8gdGllbmUgaW52ZXJzYSB5YSBxdWUgZXMgdW5hIG1hdHJpeiBzaW5ndWxhci4gU2FiZW1vcyBxdWUgdW5hIG1hdHJpeiBlcyBzaW5ndWxhciBjdWFuZG8gc3UgZGV0ZXJtaW5hbnRlIGVzICoqMCoqLgoKIyMjIyMgNS4gwr9Dw7NtbyBzZSBwcm9wYWdhIHVuYSBlbmZlcm1lZGFkIGNvbnRhZ2lvc2E/LiBTdXBvbmdhIHF1ZSB1biBncnVwbyBkZSA0IGluZGl2aWR1b3MgcXVlIGxsYW1hcmVtb3MgJElfezF9JCwgJElfezJ9JCwgJElfezN9JCwgJElfezR9JCBoYW4gY29udHJhaWRvIHVuYSBlbmZlcm1lZGFkLiA8YnI+PGJyPiBFc3RlIGdydXBvIGVudHJhIGVuIGNvbnRhY3RvIGNvbiA2IHBlcnNvbmFzIGRlIHVuIHNlZ3VuZG8gZ3J1cG8gJFBfezF9JCwgJFBfezJ9JCwgJFBfezN9JCwgJFBfezR9JCwgJFBfezV9JCwgJFBfezZ9JC4gRXN0ZSB0aXBvIGRlIGNvbnRhY3RvcyBzZSBsbGFtYW4gZGlyZWN0b3MgeSBzZSBwdWVkZW4gcmVwcmVzZW50YXIgZW4gdW5hIG1hdHJpeiBkZSA0eDYgY29tbyBsYSBxdWUgc2UgbXVlc3RyYSBhIGNvbnRpbnVhY2lvbjoKCmBgYHtyfQphIDwtIG1hdHJpeChjKAogIDAsMSwwLDAsMSwwLAogIDEsMCwwLDEsMCwxLAogIDAsMCwwLDEsMSwwLAogIDEsMCwwLDAsMCwxCiksIG5yb3cgPSA0LCBuY29sID0gNiwgIGJ5cm93ID0gVFJVRSwKZGltbmFtZXMgPSBsaXN0KGMoIkkxIiwgIkkyIiwgIkkzIiwgIkk0IiksIGMoIlAxIiwgIlAyIiwgIlAzIiwgIlA0IiwgIlA1IiwgIlA2IikpKQoKYQpgYGAKIyMjIyMgTm90ZSBxdWUgbGEgZm9ybWEgZGUgY29uc3RydWlyIGRpY2hhIG1hdHJpeiBlcywgY29sb2NhbmRvIHVuICoqMSoqIHNpIHVuYSBwZXJzb25hIGRlbCBwcmltZXIgZ3J1cG8gKGNvbnRhZ2lhZG9zKSBlbnRyYSBlbiBjb250YWN0byBjb24gYWxndW5hIHBlcnNvbmEgZGVsIHNlZ3VuZG8gZ3J1cG8uIDxicj4gPGJyPiBMbGFtZW1vcyBBIGEgZXN0YSBtYXRyaXogZGUgY29udGFjdG9zIFByaW1lciBDb250YWN0byBEaXJlY3RvLiBBaG9yYSBzdXBvbmdhIHF1ZSBsYXMgNiBwZXJzb25hcyBkZWwgZ3J1cG8gMiBlbnRyw7MgZW4gY29udGFjdG8gZGlyZWN0byBjb24gdW4gdGVyY2VyIGdydXBvIGRlIGNpbmNvIHBlcnNvbmFzICRNX3sxfSQsICRNX3syfSQsICRNX3szfSQsICRNX3s0fSQsICRNX3s1fSQgZGUgbGEgc2lndWllbnRlIG1hbmVyYToKCmBgYHtyfQpiIDwtIG1hdHJpeChjKAogIDAsMCwxLDAsMSwKICAwLDAsMCwxLDAsCiAgMCwxLDAsMCwwLAogIDEsMCwwLDAsMSwKICAwLDAsMCwxLDAsCiAgMCwwLDEsMCwwCiksIG5yb3cgPSA2LCBuY29sID0gNSwgIGJ5cm93ID0gVFJVRSwKZGltbmFtZXMgPSBsaXN0KGMoIlAxIiwgIlAyIiwgIlAzIiwgIlA0IiwgIlA1IiwgIlA2IiksIGMoIk0xIiwgIk0yIiwgIk0zIiwgIk00IiwgIk01IikpKQoKYGBgCgpgYGB7cn0KYSAlKiUgYgoKYGBgCgojIyMjIyBMbGFtYW1vcyBCIGEgZXN0YSBzZWd1bmRhIG1hdHJpeiBkZSBjb250YWN0by4gPGJyPiA8YnI+IExhIGzDs2dpY2EgZXMgaWd1YWwgcXVlIGVuIGVsIGNhc28gYW50ZXJpb3IsIDEgc2lnbmlmaWNhIHF1ZSB1biBpbmRpdmlkdW8gZGVsIHNlZ3VuZG8gZ3J1cG8gZXN0dXZvIGVuIGNvbnRhY3RvIGNvbiB1biBpbmRpdmlkdW8gZGVsIHRlcmNlciBncnVwby4gPGJyPiA8YnI+TG9zIGNvbnRhY3RvcyBpbmRpcmVjdG9zIG8gZGUgc2VndW5kbyBvcmRlbiwgc2UgcHVlZGVuIGRhciBlbnRyZSBpbmRpdmlkdW9zIGRlbCBwcmltZXIgZ3J1cG8gY29uIGluZGl2aWR1b3MgZGVsIHRlcmNlciBncnVwbywgZXN0byBlcywgcXVlIHVuYSBwZXJzb25hIGRlbCBncnVwbyAzLCBwdWVkZSBzZXIgY29udGFnaWFkYSBwb3IgYWxndWllbiBkZWwgZ3J1cG8gMiBxdWUgYSBzdSB2ZXogZnVlIGNvbnRhZ2lhZGEgcG9yIGFsZ3VpZW4gZGVsIGdydXBvIDEuIDxicj4gPGJyPiBBIG1hbmVyYSBkZSBlamVtcGxvLCBub3RlIHF1ZSBsYXMgcG9zaWNpb25lcyAqKiRBX3syNH0kID0gMSoqIHkgKiokQl97NDV9JCA9IDEqKiBjb24gZXN0bywgc2UgdmUgcXVlIGluZGlyZWN0YW1lbnRlIGxhIHF1aW50YSBwZXJzb25hIGRlbCBncnVwbyAzLCB0dXZvIGNvbnRhY3RvIGNvbiB1bmEgcGVyc29uYSBkZWwgZ3J1cG8gMSBhIHRyYXbDqXMgZGUgbGEgY3VhcnRhIHBlcnNvbmEgZGVsIGdydXBvIDIsIGFzw606IDxicj4gPGJyPiAqKiRJX3syfSQqKiA9PiAqKiRQX3s0fSQqKiA9PiAqKiRNX3s1fSQqKiAKCiMjIyMjIENvbiByZXNwZWN0byBhbCBjYXNvIGFudGVyaW9yLCByZWFsaWNlIGxvcyBzaWd1aWVudGU6CiMjIyMjIGEuIENhbGN1bGUgdW5hIG51ZXZhIG1hdHJpeiBDIHRhbCBxdWUgQz1BKkIgIChUb21lIGVuIGN1ZW50YSBxdWUgZWwgcHJvZHVjdG8gZXMgbWF0cmljaWFsLCBhbCB0cmFiYWphcmxvIGVuIFIpLiAKYGBge3J9CmEgJSolIGIKYGBgCiMjIyMjIGIuIMK/Q3XDoWxlcyBncnVwb3MgZGUgaW5kaXZpZHVvcyAoR3J1cG8gMSwgMiBvIDMpIGVzdMOhbiBxdWVkYW5kbyByZXByZXNlbnRhZG9zIGVuIEMgPywgwr9xdWnDqW5lcyBlc3TDoW4gcmVwcmVzZW50YWRvcyBlbiBsYXMgZmlsYXMgeSBxdWnDqW5lcyBlbiBsYXMgY29sdW1uYXM/CiMjIyMjIGMuIFRvbWUgbGEgZmlsYSAyIGRlIEMgZSBpbnRlcnByw6l0ZWxhIChoYWdhIGxhIGV4dHJhY2Npw7NuIGRlIGVzdGEgdXNhbmRvIHVuIGNvbWFuZG8gYXByb3BpYWRvIGVuIFIpLgojIyMjIyBkLiBUb21lIGxhIGNvbHVtbmEgMiB5IDUgZGUgQyBlIGludGVycHLDqXRlbGFzIChVc2UgY29tYW5kb3MgYXByb3BpYWRvcyBlbiBSIHBhcmEgbGEgZXh0cmFjY2nDs24pLgojIyMjIyBlLiBJbnRlcnByZXRlIGxhIHBvc2ljacOzbiAkQ197NDN9JCAoRXh0cmFpZ2EgbGEgZW50cmFkYSwgdXNhbmRvIGVsIGNvbWFuZG8gYXByb3BpYWRvIGVuIFIpLgoK</div>
 
 
 
