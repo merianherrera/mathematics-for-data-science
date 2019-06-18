@@ -1,7 +1,10 @@
 ---
-title: "Tarea 03: Matrices"
 output: html_notebook
 ---
+<center><h3>Tarea Clase 4 y 5: Matrices<h3></center>
+
+**Estudiante:** Merian Herrera Fuentes <br>
+**Email:** meryann68@gmail.com
 
 ```{r}
 library("MASS")
@@ -9,8 +12,10 @@ library("pracma")
 library("mosaic")
 ```
 
-## I PARTE: Comandos matemáticos y un poco de vectores
-##### 1. Sea P=(2,3), Q=(5,2), R=(2,-5) y S=(1, -2). Calcule la proyeccion de PQ sobre RS. (4 puntos)
+#### I PARTE: Comandos matemáticos y un poco de vectores
+<br>
+
+**1. Sea P=(2,3), Q=(5,2), R=(2,-5) y S=(1, -2). Calcule la proyeccion de PQ sobre RS. (4 puntos)**
 ```{r}
 p <- c(2, 3)
 q <- c(5, 2)
@@ -28,7 +33,9 @@ proyeccion
 **Respuesta**<br>
 La proyeccion de PQ sobre RS es [-9/5,  3/5].
 
-##### 2. Sea u=(-2, 1, 6) y v=(2, 4, 5) compruebe que el vector w es un vector ortogonal con v. (3 puntos)
+<br>
+
+**2. Sea u=(-2, 1, 6) y v=(2, 4, 5) compruebe que el vector w es un vector ortogonal con v. (3 puntos)**
 ```{r}
 u <- c(-2,1,6) 
 v <- c(2,4,5) 
@@ -44,12 +51,14 @@ sum(w * v)
 **Respuesta**<br>
 El vector W es ortogonal con V ya que el producto de multiplicar ambos es de 0.
 
-##### 3. Sean A=(3, 0, 0), b=(1,0,2), c=(2,3,0) puntos en el espacio R3, con estos puntos determine:
-##### a. Determine si el triangulo ABC es rectangulo, obtusangulo o acutangulo.
-##### b. Determine el perimetro del triangulo ABC.
-##### c. Determine el area del triangulo ABC. (6 puntos)
+<br>
 
-Sugerencia: exprese cada lado del triángulo como un vector, por ejemplo, el lado AB se puede expresar como el vector AB. Para calcular el ángulo entre dos vectores u, v puede usar el comando subspace(u,v) del paquete **pracma**. Tome en cuenta que el resultado es en radianes, pero si desea convertirlo en grados utilice la instruccion: 180 * subspace(u, v)/pi
+**3. Sean A=(3, 0, 0), b=(1,0,2), c=(2,3,0) puntos en el espacio R3, con estos puntos determine:**
+**a. Determine si el triangulo ABC es rectangulo, obtusangulo o acutangulo.** <br>
+**b. Determine el perimetro del triangulo ABC.** <br>
+**c. Determine el area del triangulo ABC. (6 puntos)** <br>
+
+**Sugerencia:** exprese cada lado del triángulo como un vector, por ejemplo, el lado AB se puede expresar como el vector AB. Para calcular el ángulo entre dos vectores u, v puede usar el comando subspace(u,v) del paquete **pracma**. Tome en cuenta que el resultado es en radianes, pero si desea convertirlo en grados utilice la instruccion: 180 * subspace(u, v)/pi
 
 ```{r}
 a <- c(3, 0, 0)
@@ -80,13 +89,13 @@ area
 
 ```
 **Respuestas**<br>
-a) El triangulo es acutangulo.
-b) El perimetro del triangulo es de 9.732362.
-c) El area del triangulo es de 4.358899.
+a) El triangulo es acutangulo. <br>
+b) El perimetro del triangulo es de 9.732362. <br>
+c) El area del triangulo es de 4.358899. <br>
 
-## II PARTE: Matrices
+### II PARTE: Matrices
 
-##### 1. Compruebe que la matriz P es ortogonal: (2 puntos)
+**1. Compruebe que la matriz P es ortogonal: (2 puntos)**
 ```{r}
 p <- matrix(c(1/2, 1/2, 1/2, 1/2,
              (1/sqrt(2)), -(1/sqrt(2)), 0, 0,
@@ -104,7 +113,9 @@ fractions(p_transpuesta)
 **Respuesta**<br>
 La matriz es ortogonal ya que una matriz ortogonal es una matriz cuadrada cuya matriz inversa coincide con su matriz traspuesta.
 
-##### 2. Compruebe que la matriz A es idempotente: (2 puntos)
+<br>
+
+**2. Compruebe que la matriz A es idempotente: (2 puntos)**
 
 ```{r}
 a <- matrix(c(
@@ -120,8 +131,10 @@ a
 **Respuesta** <br>
 La matriz **$a$** es idempotente ya que $a^{2}$ es igual a $a$.
 
+<br>
 
-##### 3. Sean **f($x$) = 6$x^{3}$ + 3$x^{2}$ - $x$** y $m$ una matriz. Determine la composicion f($m$) (2 puntos)
+**3. Sean f($x$) = 6$x^{3}$ + 3$x^{2}$ - $x$ y $m$ una matriz. Determine la composicion f($m$) (2 puntos)**
+
 ```{r}
 m <- matrix(c(
   (3/2), (-5/2),
@@ -140,7 +153,7 @@ fm <-  p_x3 + p_x2 - m
 fractions(fm)
 ```
 
-##### 4. Encuentre la matriz inversa y el determinante de cada una de las siguientes matrices: (8 puntos)
+**4. Encuentre la matriz inversa y el determinante de cada una de las siguientes matrices: (8 puntos)**
 
 
 ```{r}
@@ -203,10 +216,14 @@ det_d
 ```
 La matriz **d** no tiene inversa ya que es una matriz singular. Sabemos que una matriz es singular cuando su determinante es **0**.
 
+<br>
 
-##### ¿Qué relación existe entre las matrices que poseen inversas y el valor de su determinante? Sug: revisar la teoría vista en clase
+**¿Qué relación existe entre las matrices que poseen inversas y el valor de su determinante? Sug: revisar la teoría vista en clase**
+Respuesta
 
-##### 5. ¿Cómo se propaga una enfermedad contagiosa?. Suponga que un grupo de 4 individuos que llamaremos $I_{1}$, $I_{2}$, $I_{3}$, $I_{4}$ han contraido una enfermedad. <br><br> Este grupo entra en contacto con 6 personas de un segundo grupo $P_{1}$, $P_{2}$, $P_{3}$, $P_{4}$, $P_{5}$, $P_{6}$. Este tipo de contactos se llaman directos y se pueden representar en una matriz de 4x6 como la que se muestra a continuacion:
+<br>
+
+**5. ¿Cómo se propaga una enfermedad contagiosa?. Suponga que un grupo de 4 individuos que llamaremos $I_{1}$, $I_{2}$, $I_{3}$, $I_{4}$ han contraido una enfermedad. <br><br> Este grupo entra en contacto con 6 personas de un segundo grupo $P_{1}$, $P_{2}$, $P_{3}$, $P_{4}$, $P_{5}$, $P_{6}$. Este tipo de contactos se llaman directos y se pueden representar en una matriz de 4x6 como la que se muestra a continuacion:**
 
 ```{r}
 a <- matrix(c(
@@ -219,7 +236,8 @@ dimnames = list(c("I1", "I2", "I3", "I4"), c("P1", "P2", "P3", "P4", "P5", "P6")
 
 a
 ```
-##### Note que la forma de construir dicha matriz es, colocando un **1** si una persona del primer grupo (contagiados) entra en contacto con alguna persona del segundo grupo. <br> <br> Llamemos A a esta matriz de contactos Primer Contacto Directo. Ahora suponga que las 6 personas del grupo 2 entró en contacto directo con un tercer grupo de cinco personas $M_{1}$, $M_{2}$, $M_{3}$, $M_{4}$, $M_{5}$ de la siguiente manera:
+
+Note que la forma de construir dicha matriz es, colocando un **1** si una persona del primer grupo (contagiados) entra en contacto con alguna persona del segundo grupo. <br> <br> Llamemos A a esta matriz de contactos Primer Contacto Directo. Ahora suponga que las 6 personas del grupo 2 entró en contacto directo con un tercer grupo de cinco personas $M_{1}$, $M_{2}$, $M_{3}$, $M_{4}$, $M_{5}$ de la siguiente manera:
 
 ```{r}
 b <- matrix(c(
@@ -231,22 +249,55 @@ b <- matrix(c(
   0,0,1,0,0
 ), nrow = 6, ncol = 5,  byrow = TRUE,
 dimnames = list(c("P1", "P2", "P3", "P4", "P5", "P6"), c("M1", "M2", "M3", "M4", "M5")))
-
+b
 ```
 
-##### Llamamos B a esta segunda matriz de contacto. <br> <br> La lógica es igual que en el caso anterior, 1 significa que un individuo del segundo grupo estuvo en contacto con un individuo del tercer grupo. <br> <br>Los contactos indirectos o de segundo orden, se pueden dar entre individuos del primer grupo con individuos del tercer grupo, esto es, que una persona del grupo 3, puede ser contagiada por alguien del grupo 2 que a su vez fue contagiada por alguien del grupo 1. <br> <br> A manera de ejemplo, note que las posiciones **$A_{24}$ = 1** y **$B_{45}$ = 1** con esto, se ve que indirectamente la quinta persona del grupo 3, tuvo contacto con una persona del grupo 1 a través de la cuarta persona del grupo 2, así: <br> <br> **$I_{2}$** => **$P_{4}$** => **$M_{5}$** 
+Llamamos B a esta segunda matriz de contacto. <br> <br> 
+La lógica es igual que en el caso anterior, 1 significa que un individuo del segundo grupo estuvo en contacto con un individuo del tercer grupo. <br> <br>
+Los contactos indirectos o de segundo orden, se pueden dar entre individuos del primer grupo con individuos del tercer grupo, esto es, que una persona del grupo 3, puede ser contagiada por alguien del grupo 2 que a su vez fue contagiada por alguien del grupo 1. <br> <br> 
+A manera de ejemplo, note que las posiciones **$A_{24}$ = 1** y **$B_{45}$ = 1** con esto, se ve que indirectamente la quinta persona del grupo 3, tuvo contacto con una persona del grupo 1 a través de la cuarta persona del grupo 2, así: <br> 
 
-##### Con respecto al caso anterior, realice los siguiente:
-##### a. Calcule una nueva matriz C tal que C=A*B  (Tome en cuenta que el producto es matricial, al trabajarlo en R). 
+**$I_{2}$** => **$P_{4}$** => **$M_{5}$** 
+
+**Con respecto al caso anterior, realice los siguiente:** <br>
+
+**a. Calcule una nueva matriz C tal que C= A x B  (Tome en cuenta que el producto es matricial, al trabajarlo en R).**
+
 ```{r}
 c <- a %*% b
 c
 ```
-##### b. ¿Cuáles grupos de individuos (Grupo 1, 2 o 3) están quedando representados en C ?, ¿quiénes están representados en las filas y quiénes en las columnas?
-En C se estan representando los tres grupos de individuos, el grupo 1 (I), grupo 2 (P) y el grupo 3 (M). <br>
-Las filas representan a los individuos del grupo 1. <br>
-Las columnas representan a los individuos del grupo 3.
-##### c. Tome la fila 2 de C e interprétela (haga la extracción de esta usando un comando apropiado en R).
-##### d. Tome la columna 2 y 5 de C e interprételas (Use comandos apropiados en R para la extracción).
-##### e. Interprete la posición $C_{43}$ (Extraiga la entrada, usando el comando apropiado en R).
+**b. ¿Cuáles grupos de individuos (Grupo 1, 2 o 3) están quedando representados en C ?**<br>
+-  En la matriz C podemos ver representados a los tres grupos de individuos el grupo 1 (I), grupo 2 (P) y el grupo 3 (M), de manera directa vemos representados a los grupos 1 y 3, sin embargo de manera indirecta se representa tambien el grupo 2, ya que existen en la matriz valores con el numero '2' los cuales representan a personas que estuvieron en contacto con individuos del grupo 2. <br>
+**¿quiénes están representados en las filas y quiénes en las columnas?**<br>
+- Las filas representan a los individuos del grupo 1. <br>
+- Las columnas representan a los individuos del grupo 3.<br>
+**c. Tome la fila 2 de C e interprétela (haga la extracción de esta usando un comando apropiado en R).**<br>
+```{r}
+fila_2 = c[2,]
+fila_2
 
+# summary(fila_2)
+```
+En la fila 2 podemos ver los datos del individuo 2, podemos deducir que es el individuo ha contagiado a mas personas (5 en total) ya sea de manera directa o indirecta. 
+<br>
+
+**d. Tome la columna 2 y 5 de C e interprételas (Use comandos apropiados en R para la extracción).**<br>
+```{r}
+col_2 = c[,2]
+col_2
+
+col_5 = c[,5]
+col_5
+```
+En la **columna 2** podemos deducir que el individuo M2 no esta contagiado ya que no ha estado en contacto con personas contagiadas del grupo 1 o del grupo 2.
+<br>
+En la **columna 5** podemos decir que el individuo M5 ha estado en contacto con 5 personas contagiadas.
+<br>
+**e. Interprete la posición $C_{43}$ (Extraiga la entrada, usando el comando apropiado en R).**
+```{r}
+c_43 = c[4,3]
+c_43
+```
+
+La posicion  C43 nos dice que la persona M4 ha estado en contacto con 2 personas que a su vez estuvieron en contacto con la persona contagiada I4 del grupo 1.
