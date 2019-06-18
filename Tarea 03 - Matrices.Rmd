@@ -25,7 +25,7 @@ norma_pq = norm(pq, type = "2")
 proyeccion = fractions(mosaic::project(rs, pq))
 proyeccion
 ```
-**Respuesta**
+**Respuesta**<br>
 La proyeccion de PQ sobre RS es [-9/5,  3/5].
 
 ##### 2. Sea u=(-2, 1, 6) y v=(2, 4, 5) compruebe que el vector w es un vector ortogonal con v. (3 puntos)
@@ -41,7 +41,7 @@ w <- fractions(u-((producto_uv / norma_v)*v))
 sum(w * v)
 
 ```
-**Respuesta**
+**Respuesta**<br>
 El vector W es ortogonal con V ya que el producto de multiplicar ambos es de 0.
 
 ##### 3. Sean A=(3, 0, 0), b=(1,0,2), c=(2,3,0) puntos en el espacio R3, con estos puntos determine:
@@ -79,7 +79,7 @@ area
 
 
 ```
-**Respuestas**
+**Respuestas**<br>
 a) El triangulo es acutangulo.
 b) El perimetro del triangulo es de 9.732362.
 c) El area del triangulo es de 4.358899.
@@ -101,10 +101,11 @@ p_transpuesta = t(p)
 fractions(p_transpuesta)
 
 ```
-**Respuesta**
+**Respuesta**<br>
 La matriz es ortogonal ya que una matriz ortogonal es una matriz cuadrada cuya matriz inversa coincide con su matriz traspuesta.
 
 ##### 2. Compruebe que la matriz A es idempotente: (2 puntos)
+
 ```{r}
 a <- matrix(c(
   2, -2, -4,
@@ -140,6 +141,8 @@ fractions(fm)
 ```
 
 ##### 4. Encuentre la matriz inversa y el determinante de cada una de las siguientes matrices: (8 puntos)
+
+
 ```{r}
 a <- matrix(c(
   1, 2, 3,
@@ -153,6 +156,7 @@ a_inversa
 det_a = det(a)
 det_a
 ```
+
 
 ```{r}
 b <- matrix(c(
@@ -168,6 +172,7 @@ det_b = det(b)
 det_b
 ```
 
+
 ```{r}
 c <- matrix(c(
   0, 2, 1,
@@ -181,6 +186,7 @@ c_inversa
 det_c = det(c)
 fractions(det_c)
 ```
+
 
 ```{r}
 d <- matrix(c(
@@ -196,6 +202,7 @@ det_d
 # d_inversa
 ```
 La matriz **d** no tiene inversa ya que es una matriz singular. Sabemos que una matriz es singular cuando su determinante es **0**.
+
 
 ##### ¿Qué relación existe entre las matrices que poseen inversas y el valor de su determinante? Sug: revisar la teoría vista en clase
 
@@ -227,19 +234,18 @@ dimnames = list(c("P1", "P2", "P3", "P4", "P5", "P6"), c("M1", "M2", "M3", "M4",
 
 ```
 
-```{r}
-a %*% b
-
-```
-
 ##### Llamamos B a esta segunda matriz de contacto. <br> <br> La lógica es igual que en el caso anterior, 1 significa que un individuo del segundo grupo estuvo en contacto con un individuo del tercer grupo. <br> <br>Los contactos indirectos o de segundo orden, se pueden dar entre individuos del primer grupo con individuos del tercer grupo, esto es, que una persona del grupo 3, puede ser contagiada por alguien del grupo 2 que a su vez fue contagiada por alguien del grupo 1. <br> <br> A manera de ejemplo, note que las posiciones **$A_{24}$ = 1** y **$B_{45}$ = 1** con esto, se ve que indirectamente la quinta persona del grupo 3, tuvo contacto con una persona del grupo 1 a través de la cuarta persona del grupo 2, así: <br> <br> **$I_{2}$** => **$P_{4}$** => **$M_{5}$** 
 
 ##### Con respecto al caso anterior, realice los siguiente:
 ##### a. Calcule una nueva matriz C tal que C=A*B  (Tome en cuenta que el producto es matricial, al trabajarlo en R). 
 ```{r}
-a %*% b
+c <- a %*% b
+c
 ```
 ##### b. ¿Cuáles grupos de individuos (Grupo 1, 2 o 3) están quedando representados en C ?, ¿quiénes están representados en las filas y quiénes en las columnas?
+En C se estan representando los tres grupos de individuos, el grupo 1 (I), grupo 2 (P) y el grupo 3 (M). <br>
+Las filas representan a los individuos del grupo 1. <br>
+Las columnas representan a los individuos del grupo 3.
 ##### c. Tome la fila 2 de C e interprétela (haga la extracción de esta usando un comando apropiado en R).
 ##### d. Tome la columna 2 y 5 de C e interprételas (Use comandos apropiados en R para la extracción).
 ##### e. Interprete la posición $C_{43}$ (Extraiga la entrada, usando el comando apropiado en R).
