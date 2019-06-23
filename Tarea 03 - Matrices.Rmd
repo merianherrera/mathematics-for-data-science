@@ -292,7 +292,7 @@ col_5
 ```
 En la **columna 2** podemos deducir que el individuo M2 no esta contagiado ya que no ha estado en contacto con personas contagiadas del grupo 1 o del grupo 2.
 <br>
-En la **columna 5** podemos decir que el individuo M5 ha estado en contacto con 5 personas contagiadas.
+En la **columna 5** podemos decir que el individuo M5 ha estado en contacto 4 veces con personas contagiadas.
 <br>
 **e. Interprete la posición $C_{43}$ (Extraiga la entrada, usando el comando apropiado en R).**
 ```{r}
