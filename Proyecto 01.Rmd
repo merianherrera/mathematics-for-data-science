@@ -82,9 +82,33 @@ Cuándo igualamos el valor de $y$ a 0, de (1) extramos que el valor de $z$ =  $\
 </div>
 <br>
 
-<b>b) Determine la cantidad de cada tipo de café suponiendo que el dueño decide usar $\frac{1}{8}$ de café brasileño.</b>
+<b>b) Determine la cantidad de cada tipo de café suponiendo que el dueño decide usar $\frac{1}{8}$ de café brasileño.</b> <br>
 
-> $Conclusión:$
+Basados en el sistema de ecuaciones calculado para el ejercicio anterior: <br><br>
+
+<div class = "blue">
+&nbsp;&nbsp;&nbsp; **1)** &nbsp; $x$ + $\frac{1}{2}$$z$ = $\frac{3}{4}$ <br>
+<br>
+&nbsp;&nbsp;&nbsp; **2)** &nbsp; $y$ + $\frac{1}{2}$$z$ = $\frac{1}{4}$ <br>
+</div>
+<br>
+
+Si asumimos que $y$ = $\frac{1}{8}$, de (2) podemos encontrar el valor para $z$ de la siguiente manera: <br>
+
+&nbsp;&nbsp;&nbsp;$\frac{1}{8}$ + $\frac{1}{2}$$z$ = $\frac{1}{4}$ <br> <br>
+&nbsp;&nbsp;&nbsp;$\frac{1}{2}$$z$ = $\frac{1}{4}$ - $\frac{1}{8}$ <br> <br>
+&nbsp;&nbsp;&nbsp;$\frac{1}{2}$$z$ = $\frac{1}{8}$ <br> <br>
+&nbsp;&nbsp;&nbsp;$z$ = $\frac{1}{8}$ / $\frac{1}{2}$ <br> <br>
+&nbsp;&nbsp;&nbsp;$z$ = $\frac{1}{4}$ <br> <br>
+
+Teniendo los valores de $z$ y $y$ podemos encontrar el valor de $x$ de la siguiente manera: <br>
+
+&nbsp;&nbsp;&nbsp;$x$ + $\frac{1}{2}$ * $\frac{1}{4}$ = $\frac{3}{4}$ <br> <br>
+&nbsp;&nbsp;&nbsp;$x$ + $\frac{1}{8}$ = $\frac{3}{4}$ <br> <br>
+&nbsp;&nbsp;&nbsp;$x$ = $\frac{3}{4}$ - $\frac{1}{8}$ <br> <br>
+&nbsp;&nbsp;&nbsp;$x$ = $\frac{5}{8}$ <br> <br>
+
+> $Conclusión:$ Si el vendedor decide usar $\frac{1}{8}$ de café brasileño para crear bolsas de 1kg a $3.5, debe usar $\frac{5}{8}$kg de café colombiano y $\frac{1}{4}$kg del café de kenia.
 
 <br>
 <div style="background-color:#1D2951;color:white;padding:3px;marging:10px;">
