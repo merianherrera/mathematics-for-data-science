@@ -78,10 +78,13 @@ Cuándo igualamos el valor de $y$ a 0, de (1) extramos que el valor de $z$ =  $\
 
 
 > $Conclusión:$ Para formar bolsas de 1kg con el valor de $3.5 la cantidad minima de café colombiano que el dueño debe utilizar es de $\frac{1}{2}$kg y la cantidad máxima es de $\frac{3}{4}$kg. De café brasileño debe utilizar entre 0kg y $\frac{1}{4}$kg y finalmente del café de Kenia la cantidad miníma a utilizar es de 0kg y la cantidad máxima es de $\frac{1}{2}$kg.
+
 </div>
 <br>
-<br>
+
 <b>b) Determine la cantidad de cada tipo de café suponiendo que el dueño decide usar $\frac{1}{8}$ de café brasileño.</b>
+
+> $Conclusión:$
 
 <br>
 <div style="background-color:#1D2951;color:white;padding:3px;marging:10px;">
@@ -129,8 +132,6 @@ transito_vial <- matrix(c(
 dimnames = list(c("a", "b", "c", "d", "e", "f"), c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "Solucion"))
 )
 
-#matriz
-
 pracma:: rref(transito_vial)
 
 ```
@@ -175,5 +176,5 @@ Por lo tanto el valor minimo para $x_{7}$ = 500 cuando $x_{6}$ = 0 y el valor ma
 &nbsp;&nbsp;&nbsp;$0 \le$  $x_{3}$ $\le 100$ <br><br>
 </b>
 
-> $Conclusión:$ 
+> $Conclusión:$ Para minimizar el tránsito en $x_{5}$ es necesario que $x_{7}$ tome un valor minímo de 500 y un valor máximo de 600. Asímismo, $x_{6}$ debe tomar un valor entre 0 y 100, mientras que $x_{1}$ debe pertenecer con valores entre los 700 y 800. Para $x_{3}$ se debe manejar un valor minímo de 0 y un valor máximo de 100.
 </div>
