@@ -10,8 +10,10 @@ output: html_notebook
 
 ```{r  message=FALSE}
 library("FactoMineR")
-#library("mosaic")
-#library("MASS")
+library("corrplot")
+library("corrr")
+library("rattle")
+library("fmsb")
 ```
 
 
@@ -36,25 +38,55 @@ a) Cargue el dataset EjemploAlgoritmosRecomendacion.csv, verifique que la lectur
 </b>
 
 ```{r}
+clientes <- read.csv("EjemploAlgoritmosRecomendacion.csv", sep = ";", dec = ",", header = T,row.names = 1)
+head(clientes)
 ```
 
 <b>
 b) A manera de diagnóstico, haga una inspección de los datos presentes en el dataset y describa las variables presentes, tipos de variables, si hay datos nulos. <br>
 </b>
 
-> Respuesta
+```{r}
+summary(clientes)
+```
+
+> En el dataset clientes podemos encontrar las siguientes variables: Velocidad de Entrega, Precio, Durabilidad, Imagen del producto, Valor Educativo, Servicio de Retorno, Tamaño del paquete, Calidad del Producto y Número de estrellas. <br>
+Las cuales corresponden a valores númericos asignados por los clientes en orden de evaluar los productos comprados en Amazon. <br>
+**Tipos de Variables:** Cuantitativas Continuas <br>
+No se presentan datos nulos en el dataset
 
 <b>
 c) Determine si existen correlaciones importantes entre las variables del dataset, utilizando alguno de los gráficos o la matriz de correlaciones vistos en clases (si  desea, puede usar otra herramienta de su preferencia). Recordemos que para aplicar un ACP, es importante que existan correlaciones entre las variables. <br>
 </b>
 ```{r}
+# Para ver las correlaciones numéricas
+correlaciones_numericas <- round(cor(clientes), 2)
+correlaciones_numericas
 ```
+
+```{r}
+corrplot(correlaciones_numericas)
+```
+
+```{r}
+corr_dataframe <- correlate(clientes)
+network_plot(corr_dataframe)
+```
+
+
 <b>
 d) Realice un ACP usando el paquete FactoMiner, creando el plano principal y el círculo de correlaciones. Superponga ambos gráficos e identifique la cantidad de clústeres que considere apropiado. Haga un análisis descriptivo de cada clúster, indique si hay variables correlacionadas y el tipo de correlación entre estas. <br>
 </b>
 
 ```{r}
+pca_clientes <- PCA(clientes, scale.unit=TRUE, ncp=5, graph = FALSE)
+plot(pca_clientes, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE) 
 ```
+
+```{r}
+plot(pca_clientes, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE) 
+```
+
 <b>
 e) Repita el ejercicio anterior usando el paquete FactoMineR, elimine de los gráficos los individuos con $cos^{2} (\theta)$ $\le 0.2$  y las variables $cos^{2} (\theta)$ $\le 0.55$ y vuelva a crear el plano principal y el círculo de correlaciones. ¿Cuáles individuos quedaron mal representados?, ¿cuáles variables quedaron mal representadas? <br>
 
@@ -65,7 +97,7 @@ Sugerencia: Puede usar el siguiente código o cualquiera de su preferencia: <br>
 ```{r}
 # El coseno cuadrado se calcula sumando los valores de las dos dimensiones por individuo o por variable (puede revisar la presentación, en las diapositivas finales se explica como se calcula este dato
 # Se parte del hecho de que ya se tiene el modelo de ACP, que hemos llamado para efectos del ejemplo pca_datos, de ahí se extrae los cosenos cuadrados de los individuos. Para el caso de las variables, debe cambiar la instrucción pca_datos$ind$cos2 por pca_datos$var$cos2
-cos2.ind<-(pca_alg$ind$cos2[,1] + pca_alg$ind$cos2[,2])
+cos2.ind<-(pca_clientes$ind$cos2[,1] + pca_clientes$ind$cos2[,2])
 
 malrep <- NULL
 for (i in 1 : nrow(algoritmos)) {
@@ -78,6 +110,16 @@ malrep
 
 ```{r}
 ```
+<div style="text-align: justify;">
+**¿Cuáles individuos quedaron mal representados?**<br>
+
+> Respuesta
+
+**¿Cuáles variables quedaron mal representadas?**
+
+> Respuesta
+
+</div>
 
 <div style="text-align: justify;">
 <b>
@@ -85,12 +127,47 @@ f) Realice un gráfico radar (araña) usando 3 clústeres e interprete cada uno 
 </b>
 
 ```{r}
+modelo <- hclust(dist(clientes),method= "ward")
 ```
+```{r}
+centros<-centers.hclust(clientes,modelo,nclust=3,use.median=FALSE)
+centros
+```
+
+```{r}
+rownames(centros)<-c("Cluster 1","Cluster 2","Cluster 3")
+centros<-as.data.frame(centros)
+maximos<-apply(centros,2,max)
+minimos<-apply(centros,2,min)
+centros<-rbind(minimos,centros)
+centros<-rbind(maximos,centros)
+centros
+```
+
+```{r}
+radarchart(centros,maxmin=TRUE,axistype=4,axislabcol="slategray4",
+           centerzero=FALSE,seg=8,cglcol="gray67",
+           pcol=c("green","blue","red"),
+           plty=1,
+           plwd=5,
+           title="Comparacion de clusteres")
+
+legenda <-legend(1.5,1, legend=c("Cluster 1","Cluster 2","Cluster 3"),
+                 seg.len=-1.4,
+                 title="Clusteres",
+                 pch=21, 
+                 bty="n" ,lwd=3, y.intersp=1, horiz=FALSE,
+                 col=c("green","blue","red"))
+```
+
+> Cluster 1: <br>
+Cluster 2: <br>
+Cluster 3: <br>
 
 <b>
 g) Suponga que se trabajaron los datos con 3 clústeres, como se muestra en el plano principal siguiente: <br>
 
-<center><img src="p2_graficos.png" width="600"/></center>
+<center><img src="p2_graficos.png" width="1000"/></center>
 
 <br>
 Partiendo del hecho de que todos los individuos compraron, ya sea el mismo producto o similares, pero, cada uno tuvo una experiencia de compra diferente que pudo ser mejor o peor en los diferentes rubros de la evaluación, <br>
