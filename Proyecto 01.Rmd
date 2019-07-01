@@ -101,7 +101,7 @@ Si asumimos que $y$ = $\frac{1}{8}$, de (2) podemos encontrar el valor para $z$ 
 &nbsp;&nbsp;&nbsp;$z$ = $\frac{1}{8}$ / $\frac{1}{2}$ <br> <br>
 &nbsp;&nbsp;&nbsp;$z$ = $\frac{1}{4}$ <br> <br>
 
-Teniendo los valores de $z$ y $y$ podemos encontrar el valor de $x$ de la siguiente manera: <br>
+Teniendo los valores de $z$ y $y$ podemos encontrar el valor de $x$ de la siguiente manera, usando (1) para calcular el valor: <br>
 
 &nbsp;&nbsp;&nbsp;$x$ + $\frac{1}{2}$ * $\frac{1}{4}$ = $\frac{3}{4}$ <br> <br>
 &nbsp;&nbsp;&nbsp;$x$ + $\frac{1}{8}$ = $\frac{3}{4}$ <br> <br>
@@ -175,8 +175,8 @@ pracma:: rref(transito_vial)
 <br>
 
 <div style="text-align: justify;">
-De (1), (2), (3) se concluye que el valor minimo que puesde tomar -$x_{6}$ + $x_{7}$ para minimizar &nbsp;&nbsp;&nbsp;$x_{5}$ es: <br>
-&nbsp;&nbsp;&nbsp;-$x_{6}$ + $x_{7}$ = 50
+De (2), (4), (5) se concluye que el valor minimo que puesde tomar -$x_{6}$ + $x_{7}$ para minimizar &nbsp;&nbsp;&nbsp;$x_{5}$ es: <br>
+&nbsp;&nbsp;&nbsp;-$x_{6}$ + $x_{7}$ = 500
 <br>
 &nbsp;&nbsp;&nbsp;$x_{4}$ = 0
 <br><br>

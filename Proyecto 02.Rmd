@@ -1,0 +1,146 @@
+---
+output: html_notebook
+---
+
+<center><img src="logo.png" width="500"/></center>
+
+<center><h2><b>Proyecto 02<h2></b></center>
+
+<h4><b>Estudiante:</b> Merian Herrera Fuentes <br></h4>
+
+```{r  message=FALSE}
+library("FactoMineR")
+#library("mosaic")
+#library("MASS")
+```
+
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+
+<br>
+<div style="background-color:#1D2951;color:white;padding:3px;marging:10px;">
+  <h4><b>&nbsp;&nbsp;&nbsp;I Parte: Algoritmo de recomendación</b></h4>
+</div>
+<br>
+
+<div style="text-align: justify;">
+<b>
+1. [20 puntos] Se le pidió a un grupo de 100 clientes que compraron el mismo producto o productos similares en la tienda de AMAZON, que evaluaran el servicio recibido desde diferentes aspectos. El archivo EjemploAlgoritmosRecomendacion.csv muestra los promedios de la evaluación dada por los clientes en relación a las variables que se pueden apreciar en el encabezado de la tabla. Para este dataset, realice lo siguiente:
+<br><br>
+</b>
+
+<b>
+a) Cargue el dataset EjemploAlgoritmosRecomendacion.csv, verifique que la lectura de los datos es correcta. <br>
+</b>
+
+```{r}
+```
+
+<b>
+b) A manera de diagnóstico, haga una inspección de los datos presentes en el dataset y describa las variables presentes, tipos de variables, si hay datos nulos. <br>
+</b>
+
+> Respuesta
+
+<b>
+c) Determine si existen correlaciones importantes entre las variables del dataset, utilizando alguno de los gráficos o la matriz de correlaciones vistos en clases (si  desea, puede usar otra herramienta de su preferencia). Recordemos que para aplicar un ACP, es importante que existan correlaciones entre las variables. <br>
+</b>
+```{r}
+```
+<b>
+d) Realice un ACP usando el paquete FactoMiner, creando el plano principal y el círculo de correlaciones. Superponga ambos gráficos e identifique la cantidad de clústeres que considere apropiado. Haga un análisis descriptivo de cada clúster, indique si hay variables correlacionadas y el tipo de correlación entre estas. <br>
+</b>
+
+```{r}
+```
+<b>
+e) Repita el ejercicio anterior usando el paquete FactoMineR, elimine de los gráficos los individuos con $cos^{2} (\theta)$ $\le 0.2$  y las variables $cos^{2} (\theta)$ $\le 0.55$ y vuelva a crear el plano principal y el círculo de correlaciones. ¿Cuáles individuos quedaron mal representados?, ¿cuáles variables quedaron mal representadas? <br>
+
+Sugerencia: Puede usar el siguiente código o cualquiera de su preferencia: <br>
+</b>
+</div>
+
+```{r}
+# El coseno cuadrado se calcula sumando los valores de las dos dimensiones por individuo o por variable (puede revisar la presentación, en las diapositivas finales se explica como se calcula este dato
+# Se parte del hecho de que ya se tiene el modelo de ACP, que hemos llamado para efectos del ejemplo pca_datos, de ahí se extrae los cosenos cuadrados de los individuos. Para el caso de las variables, debe cambiar la instrucción pca_datos$ind$cos2 por pca_datos$var$cos2
+cos2.ind<-(pca_alg$ind$cos2[,1] + pca_alg$ind$cos2[,2])
+
+malrep <- NULL
+for (i in 1 : nrow(algoritmos)) {
+  header <- names(cos2.ind[i])[1]
+  value <- cos2.ind[i]
+ ifelse(value <= 0.2, malrep <- cbind(matrix(c(header, value), 2, 1, TRUE), malrep), NA)
+}
+malrep
+```
+
+```{r}
+```
+
+<div style="text-align: justify;">
+<b>
+f) Realice un gráfico radar (araña) usando 3 clústeres e interprete cada uno de los clústeres. <br>
+</b>
+
+```{r}
+```
+
+<b>
+g) Suponga que se trabajaron los datos con 3 clústeres, como se muestra en el plano principal siguiente: <br>
+
+<center><img src="p2_graficos.png" width="600"/></center>
+
+<br>
+Partiendo del hecho de que todos los individuos compraron, ya sea el mismo producto o similares, pero, cada uno tuvo una experiencia de compra diferente que pudo ser mejor o peor en los diferentes rubros de la evaluación, <br>
+• ¿Qué productos recomendaría a Salome?<br>
+</b>
+
+> Respuesta
+
+<b>
+• ¿Qué productos recomendaría a Stephania?<br>
+</b>
+
+> Respuesta
+
+<b>
+• ¿Qué productos recomendaría a Lydia?<br>
+</b>
+
+> Respuesta
+
+<b>
+Es decir, los mismos productos que compró cuál otro cliente.
+</b>
+</div>
+
+
+<div style="background-color:#1D2951;color:white;padding:3px;marging:10px;">
+  <h4><b>&nbsp;&nbsp;&nbsp;II PARTE: resuelva la siguiente situación</b></h4>
+</div>
+<br>
+
+<div style="text-align: justify;">
+<b>
+1. [10 puntos] Considérese tabla datos ConsumoEuropa.csv que contiene una estimación del consumo promedio de proteínas, en gramos, por persona y por día, en Europa, datos del año 1981 (Está en el aula virtual con el nombre). <br><br>
+</b>
+
+<b>
+a. Usando FactoMineR efectúe un ACP para esta tabla de datos.<br>
+</b>
+```{r}
+```
+
+<b>
+b. Grafique el plano principal y el círculo de correlaciones, luego compare este Plano Principal con el mapa de Europa ¿Qué conclusiones puede sacar?<br><br>
+
+Considere que podría recortar alguno de estos gráficos, hacer rotaciones y es necesario buscar un mapa de Europa, de preferencia un mapa político.
+
+</b>
+
+```{r}
+```
+
+</div>
