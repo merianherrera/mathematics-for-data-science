@@ -51,9 +51,9 @@ summary(clientes)
 ```
 
 > En el dataset clientes podemos encontrar las siguientes variables: Velocidad de Entrega, Precio, Durabilidad, Imagen del producto, Valor Educativo, Servicio de Retorno, Tamaño del paquete, Calidad del Producto y Número de estrellas. <br>
-Las cuales corresponden a valores númericos asignados por los clientes en orden de evaluar los productos comprados en Amazon. <br>
-**Tipos de Variables:** Cuantitativas Continuas <br>
-No se presentan datos nulos en el dataset
+Las cuales corresponden a valores númericos asignados por los clientes en orden de evaluar los productos comprados en AMAZON. <br>
+- **Tipos de Variables:** Cuantitativas Continuas <br>
+- No se presentan datos nulos en el dataset
 
 <b>
 c) Determine si existen correlaciones importantes entre las variables del dataset, utilizando alguno de los gráficos o la matriz de correlaciones vistos en clases (si  desea, puede usar otra herramienta de su preferencia). Recordemos que para aplicar un ACP, es importante que existan correlaciones entre las variables. <br>
@@ -73,6 +73,9 @@ corr_dataframe <- correlate(clientes)
 network_plot(corr_dataframe)
 ```
 
+> Las correlaciones mas importantes que existen son: <br>
+- **Imagen del producto**  con **Servicio de Retorno** <br>
+- 
 
 <b>
 d) Realice un ACP usando el paquete FactoMiner, creando el plano principal y el círculo de correlaciones. Superponga ambos gráficos e identifique la cantidad de clústeres que considere apropiado. Haga un análisis descriptivo de cada clúster, indique si hay variables correlacionadas y el tipo de correlación entre estas. <br>
@@ -87,35 +90,49 @@ plot(pca_clientes, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE)
 plot(pca_clientes, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE) 
 ```
 
+> Superponga ambos gráficos e identifique la cantidad de clústeres que considere apropiado. Haga un análisis descriptivo de cada clúster, indique si hay variables correlacionadas y el tipo de correlación entre estas.
+
 <b>
 e) Repita el ejercicio anterior usando el paquete FactoMineR, elimine de los gráficos los individuos con $cos^{2} (\theta)$ $\le 0.2$  y las variables $cos^{2} (\theta)$ $\le 0.55$ y vuelva a crear el plano principal y el círculo de correlaciones. ¿Cuáles individuos quedaron mal representados?, ¿cuáles variables quedaron mal representadas? <br>
 
-Sugerencia: Puede usar el siguiente código o cualquiera de su preferencia: <br>
+Sugerencia: Puede usar el código del documento o cualquiera de su preferencia: <br>
 </b>
 </div>
 
-```{r}
-# El coseno cuadrado se calcula sumando los valores de las dos dimensiones por individuo o por variable (puede revisar la presentación, en las diapositivas finales se explica como se calcula este dato
-# Se parte del hecho de que ya se tiene el modelo de ACP, que hemos llamado para efectos del ejemplo pca_datos, de ahí se extrae los cosenos cuadrados de los individuos. Para el caso de las variables, debe cambiar la instrucción pca_datos$ind$cos2 por pca_datos$var$cos2
-cos2.ind<-(pca_clientes$ind$cos2[,1] + pca_clientes$ind$cos2[,2])
-
-malrep <- NULL
-for (i in 1 : nrow(algoritmos)) {
-  header <- names(cos2.ind[i])[1]
-  value <- cos2.ind[i]
- ifelse(value <= 0.2, malrep <- cbind(matrix(c(header, value), 2, 1, TRUE), malrep), NA)
-}
-malrep
-```
-
-```{r}
-```
 <div style="text-align: justify;">
 **¿Cuáles individuos quedaron mal representados?**<br>
+
+```{r}
+# El coseno cuadrado se calcula sumando los valores de las dos dimensiones por individuo o por variable (puede revisar la presentación, en las diapositivas finales se explica como se calcula este dato
+
+# Se parte del hecho de que ya se tiene el modelo de ACP, que hemos llamado para efectos del ejemplo pca_clientes, de ahí se extrae los cosenos cuadrados de los individuos. Para el caso de las variables, debe cambiar la instrucción pca_datos$ind$cos2 por pca_clientes$var$cos2
+cos2.ind<-(pca_clientes$ind$cos2[,1] + pca_clientes$ind$cos2[,2])
+
+individuos_malrepresentados <- NULL
+for (i in 1 : nrow(clientes)) {
+  header <- names(cos2.ind[i])[1]
+  value <- cos2.ind[i]
+ ifelse(value <= 0.2, individuos_malrepresentados <- cbind(matrix(c(header, value), 2, 1, TRUE), individuos_malrepresentados), NA)
+}
+individuos_malrepresentados
+
+```
 
 > Respuesta
 
 **¿Cuáles variables quedaron mal representadas?**
+
+```{r}
+cos2.var<-(pca_clientes$var$cos2[,1] + pca_clientes$var$cos2[,2])
+
+variables_malrepresentadas <- NULL
+for (i in 1 : nrow(clientes)) {
+  header <- names(cos2.var[i])[1]
+  value <- cos2.ind[i]
+ ifelse(value <= 0.55, variables_malrepresentadas <- cbind(matrix(c(header, value), 2, 1, TRUE), variables_malrepresentadas), NA)
+}
+variables_malrepresentadas
+```
 
 > Respuesta
 
@@ -204,11 +221,18 @@ Es decir, los mismos productos que compró cuál otro cliente.
 1. [10 puntos] Considérese tabla datos ConsumoEuropa.csv que contiene una estimación del consumo promedio de proteínas, en gramos, por persona y por día, en Europa, datos del año 1981 (Está en el aula virtual con el nombre). <br><br>
 </b>
 
+```{r}
+consumo <- read.csv("ConsumoEuropa.csv", sep = ";", dec = ",", header = T,row.names = 1)
+head(consumo)
+```
+
 <b>
 a. Usando FactoMineR efectúe un ACP para esta tabla de datos.<br>
 </b>
 ```{r}
+pca_consumo <- PCA(consumo, scale.unit=TRUE, ncp=5, graph = FALSE)
 ```
+
 
 <b>
 b. Grafique el plano principal y el círculo de correlaciones, luego compare este Plano Principal con el mapa de Europa ¿Qué conclusiones puede sacar?<br><br>
@@ -218,6 +242,10 @@ Considere que podría recortar alguno de estos gráficos, hacer rotaciones y es 
 </b>
 
 ```{r}
+plot(pca_consumo, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE)
 ```
 
+```{r}
+plot(pca_consumo, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE) 
+```
 </div>
