@@ -11,9 +11,12 @@ output: html_notebook
 ```{r  message=FALSE}
 library("FactoMineR")
 library("corrplot")
+library("ggcorrplot")
 library("corrr")
 library("rattle")
 library("fmsb")
+library("ggmap")
+library("mapproj")
 ```
 
 
@@ -47,17 +50,37 @@ b) A manera de diagnóstico, haga una inspección de los datos presentes en el d
 </b>
 
 ```{r}
-summary(clientes)
+# summary(clientes)
+paste("Valores nulos para la variable Velocidad.Entrega:", sum(is.na(clientes$Velocidad.Entrega)))
+paste("Valores nulos para la variable Precio:", sum(is.na(clientes$Precio)))
+paste("Valores nulos para la variable Durabilidad:", sum(is.na(clientes$Durabilidad)))
+paste("Valores nulos para la variable Imagen.Producto:", sum(is.na(clientes$Imagen.Producto)))
+paste("Valores nulos para la variable Valor.Educativo:", sum(is.na(clientes$Valor.Educativo)))
+paste("Valores nulos para la variable Servicio.Retorno:", sum(is.na(clientes$Servicio.Retorno)))
+paste("Valores nulos para la variable Tamano.Paquete:", sum(is.na(clientes$Tamano.Paquete)))
+paste("Valores nulos para la variable Calidad.Producto:", sum(is.na(clientes$Calidad.Producto)))
+paste("Valores nulos para la variable Numero.Estrellas:", sum(is.na(clientes$Numero.Estrellas)))
 ```
 
-> En el dataset clientes podemos encontrar las siguientes variables: Velocidad de Entrega, Precio, Durabilidad, Imagen del producto, Valor Educativo, Servicio de Retorno, Tamaño del paquete, Calidad del Producto y Número de estrellas. <br>
+> En el dataset clientes podemos encontrar las siguientes variables: <br>
+&nbsp;&nbsp;&nbsp;- Velocidad de Entrega <br>
+&nbsp;&nbsp;&nbsp;- Precio <br>
+&nbsp;&nbsp;&nbsp;- Durabilidad <br>
+&nbsp;&nbsp;&nbsp;- Imagen del producto <br>
+&nbsp;&nbsp;&nbsp;- Valor Educativo <br>
+&nbsp;&nbsp;&nbsp;- Servicio de Retorno <br>
+&nbsp;&nbsp;&nbsp;- Tamaño del paquete <br>
+&nbsp;&nbsp;&nbsp;- Calidad del Producto <br>
+&nbsp;&nbsp;&nbsp;- Número de estrellas. <br><br>
 Las cuales corresponden a valores númericos asignados por los clientes en orden de evaluar los productos comprados en AMAZON. <br>
-- **Tipos de Variables:** Cuantitativas Continuas <br>
-- No se presentan datos nulos en el dataset
+Todas estas variable son de tipo **cuantitativo** lo que significa que representan valores númericos y admiten operaciones matemáticas sobre ellas. A estas variables cuantitativas las podemos clasificar como **continuas**, es decir, pueden tomar cualquier valor en un intervalo dado. <br>
+Se aplicó la función is.na() sobre las columnas del dataset y no se encontrar datos nulos en el dataset clientes.
 
 <b>
 c) Determine si existen correlaciones importantes entre las variables del dataset, utilizando alguno de los gráficos o la matriz de correlaciones vistos en clases (si  desea, puede usar otra herramienta de su preferencia). Recordemos que para aplicar un ACP, es importante que existan correlaciones entre las variables. <br>
 </b>
+<br>
+A continuación se muestran las correlaciones numericas para el dataset clientes:
 ```{r}
 # Para ver las correlaciones numéricas
 correlaciones_numericas <- round(cor(clientes), 2)
@@ -69,13 +92,18 @@ corrplot(correlaciones_numericas)
 ```
 
 ```{r}
-corr_dataframe <- correlate(clientes)
-network_plot(corr_dataframe)
+ggcorrplot(correlaciones_numericas)
 ```
 
-> Las correlaciones mas importantes que existen son: <br>
-- **Imagen del producto**  con **Servicio de Retorno** <br>
-- 
+> Las correlaciones **positivas** más fuertes que se observan son: <br>
+&nbsp;&nbsp;&nbsp;- **Imagen del producto**  con **Servicio de Retorno** <br>
+&nbsp;&nbsp;&nbsp;- **Número de estrellas** con **valor educativo** <br>
+&nbsp;&nbsp;&nbsp;- **Número de estrellas** con **velocidad de entrega** <br>
+&nbsp;&nbsp;&nbsp;- **Velocidad de entrega** con **calidad del producto** <br><br>
+Las correlaciones **negativas** más fuertes que se observan son: <br>
+&nbsp;&nbsp;&nbsp;- **Precio** con **durabilidad** <br>
+&nbsp;&nbsp;&nbsp;- **Tamaño del paquete** con **velocidad de entrega** <br>
+&nbsp;&nbsp;&nbsp;- **Tamaño del paquete** con **durabilidad** <br>
 
 <b>
 d) Realice un ACP usando el paquete FactoMiner, creando el plano principal y el círculo de correlaciones. Superponga ambos gráficos e identifique la cantidad de clústeres que considere apropiado. Haga un análisis descriptivo de cada clúster, indique si hay variables correlacionadas y el tipo de correlación entre estas. <br>
@@ -83,7 +111,7 @@ d) Realice un ACP usando el paquete FactoMiner, creando el plano principal y el 
 
 ```{r}
 pca_clientes <- PCA(clientes, scale.unit=TRUE, ncp=5, graph = FALSE)
-plot(pca_clientes, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE) 
+plot(pca_clientes, axes=c(1, 2), choix="ind", col.ind="purple",new.plot=TRUE) 
 ```
 
 ```{r}
@@ -109,16 +137,24 @@ Sugerencia: Puede usar el código del documento o cualquiera de su preferencia: 
 cos2.ind<-(pca_clientes$ind$cos2[,1] + pca_clientes$ind$cos2[,2])
 
 individuos_malrepresentados <- NULL
+
 for (i in 1 : nrow(clientes)) {
-  header <- names(cos2.ind[i])[1]
-  value <- cos2.ind[i]
- ifelse(value <= 0.2, individuos_malrepresentados <- cbind(matrix(c(header, value), 2, 1, TRUE), individuos_malrepresentados), NA)
+  ifelse(cos2.ind [i] <= 0.2, individuos_malrepresentados <- rbind(individuos_malrepresentados, i), NA)   
 }
-individuos_malrepresentados
+
+cos2.ind[individuos_malrepresentados]
 
 ```
 
-> Respuesta
+```{r}
+plot(pca_clientes, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE, select="cos2 0.2") 
+```
+
+> Los individuos que están mal representados son:<br>
+&nbsp;&nbsp;&nbsp;- Henry <br>
+&nbsp;&nbsp;&nbsp;- Isabelle <br>
+&nbsp;&nbsp;&nbsp;- Sebastian <br>
+Ya que si calculamos el coseno cuadrado de sus coeficientes de relación todos los resultados son menores a 0.2
 
 **¿Cuáles variables quedaron mal representadas?**
 
@@ -126,7 +162,7 @@ individuos_malrepresentados
 cos2.var<-(pca_clientes$var$cos2[,1] + pca_clientes$var$cos2[,2])
 
 variables_malrepresentadas <- NULL
-for (i in 1 : nrow(clientes)) {
+for (i in 1 : ncol(clientes)) {
   header <- names(cos2.var[i])[1]
   value <- cos2.ind[i]
  ifelse(value <= 0.55, variables_malrepresentadas <- cbind(matrix(c(header, value), 2, 1, TRUE), variables_malrepresentadas), NA)
@@ -134,7 +170,12 @@ for (i in 1 : nrow(clientes)) {
 variables_malrepresentadas
 ```
 
-> Respuesta
+```{r}
+plot(pca_clientes, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE, select="cos2 0.55") 
+```
+
+> La única variable mal representada en los datos anteriores es **Servicio.Retorno** ya que el cálculo de el coseno cuadrado de su coeficiente de relación es menor a 0.55, como se puede observar en el gráfico anterior.
+
 
 </div>
 
@@ -164,7 +205,7 @@ centros
 ```{r}
 radarchart(centros,maxmin=TRUE,axistype=4,axislabcol="slategray4",
            centerzero=FALSE,seg=8,cglcol="gray67",
-           pcol=c("green","blue","red"),
+           pcol=c("skyblue","pink","orange"),
            plty=1,
            plwd=5,
            title="Comparacion de clusteres")
@@ -174,7 +215,7 @@ legenda <-legend(1.5,1, legend=c("Cluster 1","Cluster 2","Cluster 3"),
                  title="Clusteres",
                  pch=21, 
                  bty="n" ,lwd=3, y.intersp=1, horiz=FALSE,
-                 col=c("green","blue","red"))
+                 col=c("skyblue","pink","orange"))
 ```
 
 > Cluster 1: <br>
@@ -188,6 +229,7 @@ g) Suponga que se trabajaron los datos con 3 clústeres, como se muestra en el p
 
 <br>
 Partiendo del hecho de que todos los individuos compraron, ya sea el mismo producto o similares, pero, cada uno tuvo una experiencia de compra diferente que pudo ser mejor o peor en los diferentes rubros de la evaluación, <br>
+
 • ¿Qué productos recomendaría a Salome?<br>
 </b>
 
@@ -248,4 +290,7 @@ plot(pca_consumo, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE)
 ```{r}
 plot(pca_consumo, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE) 
 ```
+
+<center><img src="mapaeuropa.gif" width="600"/></center>
+
 </div>
