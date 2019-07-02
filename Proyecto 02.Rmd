@@ -17,6 +17,7 @@ library("rattle")
 library("fmsb")
 library("ggmap")
 library("mapproj")
+library("factoextra")
 ```
 
 
@@ -118,7 +119,18 @@ plot(pca_clientes, axes=c(1, 2), choix="ind", col.ind="purple",new.plot=TRUE)
 plot(pca_clientes, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE) 
 ```
 
-> Superponga ambos gráficos e identifique la cantidad de clústeres que considere apropiado. Haga un análisis descriptivo de cada clúster, indique si hay variables correlacionadas y el tipo de correlación entre estas.
+```{r}
+fviz_pca_biplot(pca_clientes, repel = FALSE,
+                col.var = "#fc078a", # Variables color
+                col.ind = "#696969"  # Individuals color
+                ) 
+```
+
+Superponga ambos gráficos e identifique la cantidad de clústeres que considere apropiado. Haga un análisis descriptivo de cada clúster, indique si hay variables correlacionadas y el tipo de correlación entre estas.
+
+> Se pueden observar **2 clústeres** en el análisis del PCA. <br>
+**Clúster 01:** <br>
+**Clúster 02:** <br>
 
 <b>
 e) Repita el ejercicio anterior usando el paquete FactoMineR, elimine de los gráficos los individuos con $cos^{2} (\theta)$ $\le 0.2$  y las variables $cos^{2} (\theta)$ $\le 0.55$ y vuelva a crear el plano principal y el círculo de correlaciones. ¿Cuáles individuos quedaron mal representados?, ¿cuáles variables quedaron mal representadas? <br>
@@ -147,7 +159,16 @@ cos2.ind[individuos_malrepresentados]
 ```
 
 ```{r}
-plot(pca_clientes, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE, select="cos2 0.2") 
+#plot(pca_clientes, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE, select="cos2 0.2") 
+```
+
+```{r}
+#res.pca <- prcomp(clientes, scale = TRUE)
+fviz_pca_ind(pca_clientes,
+             col.ind = "cos2", # Color by the quality of representation
+             gradient.cols = c("#00AFBB", "#E7B800", "#fc078a"),
+             repel = FALSE     # Avoid text overlapping
+             )
 ```
 
 > Los individuos que están mal representados son:<br>
@@ -171,7 +192,15 @@ variables_malrepresentadas
 ```
 
 ```{r}
-plot(pca_clientes, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE, select="cos2 0.55") 
+# plot(pca_clientes, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE, select="cos2 0.55") 
+```
+
+```{r}
+fviz_pca_var(pca_clientes,
+             col.var = "cos2", # Color by contributions to the PC
+             gradient.cols = c("#00AFBB", "#E7B800", "#fc078a"),
+             repel = TRUE     # Avoid text overlapping
+             )
 ```
 
 > La única variable mal representada en los datos anteriores es **Servicio.Retorno** ya que el cálculo de el coseno cuadrado de su coeficiente de relación es menor a 0.55, como se puede observar en el gráfico anterior.
@@ -205,7 +234,7 @@ centros
 ```{r}
 radarchart(centros,maxmin=TRUE,axistype=4,axislabcol="slategray4",
            centerzero=FALSE,seg=8,cglcol="gray67",
-           pcol=c("skyblue","pink","orange"),
+           pcol=c("#00AFBB", "#E7B800", "#fc078a"),
            plty=1,
            plwd=5,
            title="Comparacion de clusteres")
@@ -215,7 +244,7 @@ legenda <-legend(1.5,1, legend=c("Cluster 1","Cluster 2","Cluster 3"),
                  title="Clusteres",
                  pch=21, 
                  bty="n" ,lwd=3, y.intersp=1, horiz=FALSE,
-                 col=c("skyblue","pink","orange"))
+                 col=c("#00AFBB", "#E7B800", "#fc078a"))
 ```
 
 > Cluster 1: <br>
@@ -284,11 +313,11 @@ Considere que podría recortar alguno de estos gráficos, hacer rotaciones y es 
 </b>
 
 ```{r}
-plot(pca_consumo, axes=c(1, 2), choix="ind", col.ind="red",new.plot=TRUE)
+plot(pca_consumo, axes=c(1, 2), choix="ind", col.ind="#00AFBB",new.plot=TRUE)
 ```
 
 ```{r}
-plot(pca_consumo, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE) 
+plot(pca_consumo, axes=c(1, 2), choix="var", col.var="#fc078a",new.plot=TRUE) 
 ```
 
 <center><img src="mapaeuropa.gif" width="600"/></center>
