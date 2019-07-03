@@ -284,14 +284,10 @@ Es decir, los mismos productos que compró cuál otro cliente.
 
 ```{r}
 consumo <- read.csv("ConsumoEuropa.csv", sep = ";", dec = ",", header = T,row.names = 1)
-print(dim(consumo))
+#print(dim(consumo))
 head(consumo, 50)
 ```
 ```{r}
-
-typeof(summary(consumo))
-library(Hmisc)
-describe(consumo) 
 
 
 ```
@@ -300,8 +296,14 @@ a. Usando FactoMineR efectúe un ACP para esta tabla de datos.<br>
 </b>
 ```{r}
 pca_consumo <- PCA(consumo, scale.unit=TRUE, ncp=5, graph = FALSE)
+typeof(pca_consumo)
+print(pca_consumo)
 ```
+```{r}
+#pca_consumo$var$coord
+pca_consumo$ind
 
+```
 
 <b>
 b. Grafique el plano principal y el círculo de correlaciones, luego compare este Plano Principal con el mapa de Europa ¿Qué conclusiones puede sacar?<br><br>
