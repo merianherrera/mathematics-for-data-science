@@ -237,13 +237,18 @@ legenda <-legend(1.5,1, legend=c("Cluster 1","Cluster 2","Cluster 3"),
                  col=c("#00AFBB", "#E7B800", "#fc078a"))
 ```
 
-> Cluster 1: <br>
-Cluster 2: <br>
-Cluster 3: <br>
+> **Cluster 1:** En el cluster 1 podemos ber donde la variable que tiene mas importancia para esos individuos es la del tamaño del paquete y como segunda variable mas importante es la del precio, las demas variables tienen un valor muy bajo, por lo tanto los individuos que pertenecen al cluster 1 les han dado poca importancia. <br>
+**Cluster 2:** En este cluster podemos orservar como las variables Precio, Imagen del producto. Valor educativo, Servicio de retorno y tamaño del paquete han sido evaluadas de manera alta por el grupo de individuos que pertenecen a este cluster.<br>
+**Cluster 3:** Podemos apreciar como las variables Numero de estrellas, calidad del producto, valor educativo y durabilidad son las que fueron evaluadas con las calificaciones mas altas por los individuos de esete cluster<br>
+
 
 <b>
 g) Suponga que se trabajaron los datos con 3 clústeres, como se muestra en el plano principal siguiente: <br>
 
+```{r}
+# pca_alg.hcpc <- HCPC(pca_clientes, nb.clust=-1, min=2, max=3)
+# plot(pca_alg.hcpc, axes = 3:4)
+```
 <center><img src="p2_graficos.png" width="1000"/></center>
 
 <br>
@@ -320,6 +325,13 @@ plot(pca_consumo, axes=c(1, 2), choix="ind", col.ind="#00AFBB",new.plot=TRUE)
 plot(pca_consumo, axes=c(1, 2), choix="var", col.var="#fc078a",new.plot=TRUE) 
 ```
 
-<center><img src="mapaeuropa.gif" width="600"/></center>
+```{r}
+fviz_pca_biplot(pca_consumo, repel = FALSE,
+                col.var = "#000000", # Variables color
+                col.ind = "#00AFBB"  # Individuals color
+                ) 
+```
+
+<center><img src="mapaeuropa2.jpg" width="600"/></center>
 
 </div>
