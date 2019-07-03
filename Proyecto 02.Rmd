@@ -51,16 +51,8 @@ b) A manera de diagnóstico, haga una inspección de los datos presentes en el d
 </b>
 
 ```{r}
-# summary(clientes)
-paste("Valores nulos para la variable Velocidad.Entrega:", sum(is.na(clientes$Velocidad.Entrega)))
-paste("Valores nulos para la variable Precio:", sum(is.na(clientes$Precio)))
-paste("Valores nulos para la variable Durabilidad:", sum(is.na(clientes$Durabilidad)))
-paste("Valores nulos para la variable Imagen.Producto:", sum(is.na(clientes$Imagen.Producto)))
-paste("Valores nulos para la variable Valor.Educativo:", sum(is.na(clientes$Valor.Educativo)))
-paste("Valores nulos para la variable Servicio.Retorno:", sum(is.na(clientes$Servicio.Retorno)))
-paste("Valores nulos para la variable Tamano.Paquete:", sum(is.na(clientes$Tamano.Paquete)))
-paste("Valores nulos para la variable Calidad.Producto:", sum(is.na(clientes$Calidad.Producto)))
-paste("Valores nulos para la variable Numero.Estrellas:", sum(is.na(clientes$Numero.Estrellas)))
+#str(clientes)
+sapply(clientes, typeof)
 ```
 
 > En el dataset clientes podemos encontrar las siguientes variables: <br>
@@ -126,11 +118,9 @@ fviz_pca_biplot(pca_clientes, repel = FALSE,
                 ) 
 ```
 
-Superponga ambos gráficos e identifique la cantidad de clústeres que considere apropiado. Haga un análisis descriptivo de cada clúster, indique si hay variables correlacionadas y el tipo de correlación entre estas.
-
-> Se pueden observar **2 clústeres** en el análisis del PCA. <br>
-**Clúster 01:** <br>
-**Clúster 02:** <br>
+> Se pueden observar **2 clústeres** bien marcados, cada uno de estos por una correlacion negativa entre el tamaño del paquete y la durabilidad. Podriamos decir que cada grupo de personas representados por un cluster opinaron de manera muy similar en las evaluaciones.<br><br>
+**Clúster 01:** En este primer cluster podemos observar al grupo de personas que valora de una manera mas alta el tamano del paquete, de este primer cluster tambien podemos deducir que este grupo de personas valora de una manera positiva variables como el precio, imagen del producto y servicio de retorno. Tambien se observa una correlacion positiva muy fuerte entre la imagen del producto y el servicio de retorno. <br>
+**Clúster 02:** En este segundo grupo de  personas podemos encontrar a quienes valoran de una manera mas positiva la durabilidad del producto, estas personas tambien le dan mas importancia a la velocidad de entrega y calidad del producto, Se observa una correlacion positiva fuerte entre calidad del producto y numero de estrellas, lo que nos iindica que a mayor calidad del producto mayor numero de estrellas.<br>
 
 <b>
 e) Repita el ejercicio anterior usando el paquete FactoMineR, elimine de los gráficos los individuos con $cos^{2} (\theta)$ $\le 0.2$  y las variables $cos^{2} (\theta)$ $\le 0.55$ y vuelva a crear el plano principal y el círculo de correlaciones. ¿Cuáles individuos quedaron mal representados?, ¿cuáles variables quedaron mal representadas? <br>
@@ -262,19 +252,19 @@ Partiendo del hecho de que todos los individuos compraron, ya sea el mismo produ
 • ¿Qué productos recomendaría a Salome?<br>
 </b>
 
-> Respuesta
+> Salome se encuentra representado en el cluster 3, donde tambien se encuentran representados otros individuos que le dan mayor valor a las mismas variables que Salome, por lo tanto, se recomienda a Salome comprar los mismos productos adquiridos por personas dentro de este cluster como: Maksym, Louise, Philip...
 
 <b>
 • ¿Qué productos recomendaría a Stephania?<br>
 </b>
 
-> Respuesta
+> A Stephania la vemos representada en el cluster 1, donde tambien vemos representados a individuos como Maryna, Eunice y Marcel Se recomienda a Stephania adquirir productos que han comprado algunos de los individuos mencionados previamente o productos adquiridos por cualquiera de los individuos representados en el cluster 1.
 
 <b>
 • ¿Qué productos recomendaría a Lydia?<br>
 </b>
 
-> Respuesta
+> Lydia por su parte esta representada dentro del cluster 2, dentro de este cluster tambien vemos representados a Ivan, Fedir, Evdokia... Al igual que los individuos representados en los clusters 1 y 3, se recomienda a Lydia comprar productos que han sido adquiridos por los individuos representados en el cluster que la representa, en este caso el cluster 2.
 
 <b>
 Es decir, los mismos productos que compró cuál otro cliente.
