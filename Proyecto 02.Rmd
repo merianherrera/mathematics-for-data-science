@@ -284,9 +284,17 @@ Es decir, los mismos productos que compró cuál otro cliente.
 
 ```{r}
 consumo <- read.csv("ConsumoEuropa.csv", sep = ";", dec = ",", header = T,row.names = 1)
-head(consumo)
+print(dim(consumo))
+head(consumo, 50)
 ```
+```{r}
 
+typeof(summary(consumo))
+library(Hmisc)
+describe(consumo) 
+
+
+```
 <b>
 a. Usando FactoMineR efectúe un ACP para esta tabla de datos.<br>
 </b>
