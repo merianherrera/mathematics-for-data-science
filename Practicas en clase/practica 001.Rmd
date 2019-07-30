@@ -1,0 +1,121 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+### Ejercicios 01:
+
+#### Realice en RStudio las siguientes instrucciones y vaya anotando lo que observa:
+
+```{r}
+x <- c(1, 3, 5)
+```
+En esta linea se asigna a "X" el valor del vector (1, 3, 5).
+
+
+```{r}
+x
+```
+Se muestra el contenido de "X".
+
+
+```{r}
+dim(x)
+```
+Se obtiene la dimension de "x".
+
+
+```{r}
+y <- as.matrix(x)
+```
+Se convierte "x" a matriz y se le asigna el valor a "y".
+
+```{r}
+y
+```
+Se muestra el contenido de "y".
+
+```{r}
+dim(y) 
+```
+Se obtiene la dimension de "y".
+
+### Ejercicios 02:
+
+
+```{r}
+m <- seq(-3,3,0.5)
+m
+
+```
+La funcion "seq" genera un vector con todos los numeros desde -3 hasta 3. Con una diferencia de 0.5. Parametros de la funcion seq(from, to, by)
+
+<br>
+
+#### Genere el vector (1,4,7,10,13,16,19) usando el comando secuencia
+```{r}
+i <- seq(from=1, to=19, by=3)
+i
+```
+
+```{r}
+rep(1:3,3)
+```
+Esta linea genera un vector con los numeros del 1 al 3 y lo repite 3 veces. 
+
+<br>
+
+### Generar el vector z=(1,3,2,5).
+```{r}
+z <- c(1,3,2,5)
+
+```
+
+```{r}
+length(z)
+
+```
+Devuelve el tamanno del vector "z".
+
+### Generar los vectores x=(-1,4,-3), y=(0,11, 2) y Calcular x+y, sum(x), sum(x)/length(x), x+z, x*y,
+```{r}
+x <- c(-1,4,-3)
+y <- c(0,11, 2)
+
+x+y # retorna un nuevo vector
+
+sum(x) # retorna un escalar
+
+sum(x)/length(x) # retorna un escalar
+
+x+z # da un warning pues los lenghts de ambos  vectores son distintos. Para evitar un error reinicia la suma con el primer valor del vector de menor tamano.
+
+x*y # retorna un vector
+```
+
+## Indexando un Vector
+
+### En un nuevo Chunk, genere el vector x=(90,98,-10,22,-55,10,230). Haga las siguientes consultas: x[3], x[3:5], x[-1], x[-3], x[-c(2,3)]
+
+```{r}
+x <- c(90,98,-10,22,-55,10,230)
+
+x[3] # Retorna un nuevo valor en la posicion 3.
+x[3:5] # Retorna un nuevo vector con los valores de x entre la posicion 3 y 5.
+x[-1] # Retorna un nuevo vector sin el elemneto de x en la posicion 1.
+x[-3] # Retorna un nuevo vector sin el elemneto de x en la posicion 3.
+x[-c(2,3)] # Retorna un nuevo vector sin los elementos de x en la poscion 1 y 3 segun el nuevo vector (2 y 3)
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```

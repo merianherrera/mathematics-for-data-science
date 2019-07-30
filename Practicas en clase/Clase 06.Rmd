@@ -1,0 +1,199 @@
+---
+title: "Clase 06"
+author: "Merian Herrera"
+date: "19/6/2019"
+output: html_document
+---
+```{r echo=FALSE, message=FALSE}
+library("pracma")
+library("mosaic")
+library("MASS")
+```
+
+##### RESOLVER SISTEMA DE ECUACIONES
+**Transito Vial**
+<br>
+
+```{r}
+matriz_aumentada <- matrix(c(
+  1, 0, 0, 0, 0, 1, 0, 1300,
+  1, -1, 0, 0, 0, 0, 1, 200,
+  0, 1, 0, 0, -1, 0, 0, 200,
+  0, 0, 0, -1, 1, 0, 0, 400,
+  0, 0, 1, -1, 0, 0, 1, 100,
+  0, 0, 1, 0, 0, 1, 0, 600
+), nrow = 6, ncol = 8, byrow = TRUE)
+
+pracma:: rref(matriz_aumentada)
+
+```
+
+Si la ultima entrada en la solucion del sistema no es **0** significa que el sistema de ecuaciones no tiene solucion.
+
+#VECTORES LINEALES O INDEPENDIENTES
+```{r echo=FALSE, message=FALSE}
+library("pracma")
+library("Smisc")
+library("caret")
+library("MASS")
+```
+
+```{r}
+
+y <- matrix(c(
+  1,3,4,2,6,8,7,2,9,4,1,7,3.5,1,4.5
+), ncol = 3, byrow = TRUE)
+
+findDepMat(y)
+findDepMat(y, rows=F)
+```
+
+# CLASE 07 - SON LOS VECTOROES LINEALMENTE INDEPENDIENTES O LINEALMENTE DEPENDIENTES
+
+**EJERCICIO 01**
+```{r}
+y <- matrix(c(
+  1, 2, 0,
+  -2, -2, 1,
+  3, 0, 7
+), ncol = 3, byrow = TRUE)
+
+Rank(y)
+det(y)
+```
+
+**EJERCICIO 02**
+
+```{r}
+b <- matrix(c(
+  1, -3, 0,
+  3, 0, 4,
+  11, -6, 12
+), ncol = 3, byrow = TRUE)
+b
+
+#Rank(b) # Devuelve la cantidad de vectores que son LI
+#det(b) # Si el determinante es mayor a 0 los vectores son LI
+#rref(b) # si la diagonal son todos 1 los vectores son LI
+caret:: findLinearCombos(b)
+```
+
+**EJEMPLO 03**
+```{r}
+b <- matrix(c(
+  1,2,
+  2,5,
+  4,3
+), ncol = 3, byrow = TRUE)
+
+
+Rank(b) # Devuelve la cantidad de vectores que son LI
+#det(b) # Si el determinante es mayor a 0 los vectores son LI
+rref(b) # si la diagonal son todos 1 los vectores son LI
+caret:: findLinearCombos(b)
+```
+
+ES LI.
+
+# VALORES Y VECTORES PROPIOS
+
+```{r}
+A <- matrix(c(
+10, -18, 6, -11
+), ncol = 2, nrow = 2, byrow = TRUE)
+
+
+v1 <- matrix(c(
+2, 1
+), ncol = 1, nrow = 2, byrow = TRUE)
+
+
+v2 <- matrix(c(
+3, 2
+), ncol = 1, nrow = 2, byrow = TRUE)
+
+e1 <- 1
+e2 <- 2
+
+a <- A %*% v1
+a
+
+b <- e1*v1
+
+all.equal(a,b)
+
+
+
+```
+eig(a): vector de valors propios del paquete pracma
+eigen(a): funciones bases de R
+#ejemplo con valores propios
+```{r}
+eig(A)
+fractions(eigen(A)$vectors)
+```
+
+  EJEMPLO 1
+  
+calcular valores propios de 
+```{r}
+A1 <- matrix(c(
+  2,5,6,
+  0,-3,2,
+  0,0,5
+), ncol = 3, nrow = 3, byrow = TRUE)
+
+A1
+
+eigen(A1) $values
+```
+ los valores propios de una matriz triangular superior o inferior son la diagonal.
+
+  EJEMPLO 2
+ 
+calcular los valores propios de 
+```{r}
+A2 <- matrix(c(
+  1,-1,4,
+  3,2,-1,
+  2,1,-1
+), ncol = 3, nrow = 3, byrow = TRUE)
+```
+
+sean
+```{r}
+V1 <- matrix(c(
+  -1,4,1
+), ncol = 1, nrow = 3, byrow = TRUE)
+
+V2 <- matrix(c(
+  1,-1,-1
+), ncol = 1, nrow = 3, byrow = TRUE)
+
+V3 <- matrix(c(
+  1,2,1
+), ncol = 1, nrow = 3, byrow = TRUE)
+```
+
+sea
+
+
+```{r}
+A2 <- matrix(c(
+  1,-1,4,
+  3,2,-1,
+  2,1,-1
+), ncol = 3, nrow = 3, byrow = TRUE)
+
+C <- matrix(c(
+  -1,1,1,
+  4,-1,2,
+  1,-1,1
+), ncol = 3, nrow = 3, byrow = TRUE)
+```
+
+calcular
+```{r}
+fractions(solve(C) %*% A2 %*% C)
+#solve(C) %*% A2 %*% C
+```

@@ -1,0 +1,212 @@
+---
+title: "Matrices"
+output: html_notebook
+---
+
+
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
+matriz
+```
+Una matriz se define mediante la función matrix() a la que hay que especificarle
+los elementos y la dimensión: <br> **matrix(c(entradas), N° filas, N° columnas)**
+
+
+## Ejercicios
+
+#### Para la matriz creada anteriormente, realice en RStudio las siguientes instrucciones y vaya anotando lo que observa:
+
+```{r}
+dim(matriz)
+```
+La funcion **dim()** retorna la dimension de una matriz: **filas**x**columnas**.
+
+```{r}
+summary(matriz)
+```
+La funcion **summary()** retorna toda la informacion de una matriz por columna: <br>
+- **Min.   :** Valor minimo en la columna <br>
+- **1st Qu.:** Primer cuartil (Percentil 25) <br>
+- **Median :** Mediana <br>
+- **Mean   :** Media <br>
+- **3rd Qu.:** Tercer cuartil (Percentil 75) <br>
+- **Max.   :** Valor maximo en la columna <br>
+
+```{r}
+str(matriz)
+```
+La funcuin **str()** se utiliza para mostrar de manera compacta la estructura interna de un objeto, en este caso nos muestra la informacion de la matriz: <br>
+- Numero de filas
+- Numero de columnas
+- Elementos de la matriz
+
+```{r}
+is.matrix(matriz)
+```
+
+La funcion **is.matrix()** nos retorna si el objeto que estamos evaluando es o no una matriz: <br>
+- TRUE: Es una matriz
+- FALSE: No es una matriz
+
+```{r}
+matriz <- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
+length(matriz)
+```
+La funcion **length()** nos retorna el total de elementos dentro de una matriz.
+
+#### Consultas sobre entradas de la matriz:
+
+```{r}
+matriz[2,3]
+```
+
+```{r}
+matriz <- matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
+
+matriz[1:2,2:3]
+```
+
+```{r}
+matriz[,c(1,3)]
+```
+
+## Operaciones con matrices
+
+#### Por otra parte, tanto para vectores como para matrices, funcionan las operaciones suma y diferencia sin más complicaciones. En el caso del producto, sin embargo, hay que clarificar que por ejemplo, **matriz*matriz** devuelve la multiplicación elemento a elemento y no el producto matricial.
+
+```{r}
+matriz*matriz
+```
+
+#### Mientras que **matriz %*% matriz** sí devuelve el producto matricial
+
+```{r}
+matriz %*% matriz
+```
+
+## Operaciones con matrices
+
+#### Cree una nueva matriz como sigue:
+
+```{r}
+matriz2<-matrix(c(1,2,3,4,5,6),3,2)
+
+dim(matriz2)
+nrow(matriz2)
+ncol(matriz2)
+
+matriz2
+
+# matriz2%*%matriz
+
+matriz %*% matriz2
+```
+La funcion **nrow()** retorna el numero de filas de una matriz. <br>
+La funcion **ncol()** retorna el numero de columnas de una matriz. <br>
+
+## Creacion de matrices
+
+#### Cree una nueva matriz como sigue:
+
+```{r}
+X <- matrix(data=c(1,2,3,4), nrow=2, ncol=2)
+X
+```
+
+```{r}
+X2 <- matrix(data=c(1,2,3,4),2,2)
+X2
+```
+
+#### Las funciones anteriores, hacen un llenado de los datos por columnas (por defecto). Si interese hacer el llenado por filas, realice lo siguiente:
+
+```{r}
+X2 <- matrix(data=c(1,2,3,4),2,2, byrow = TRUE)
+X2
+```
+
+#### A partir de un vector, si le añadimos el atributo dimensión podemos obtener una matriz:
+
+```{r}
+m <- 1:12
+m
+
+dim(m) <- c(4,3)
+m
+```
+
+#### En el siguiente ejemplo hacemos uso del argumento dimnames para dar nombre a las filas y columnas:
+
+```{r}
+automoviles <- matrix(data=1:12, nrow=4, byrow=TRUE, dimnames=list(c("Blanco", "Rojo", "Negro", "Gris"),c("Toyota", "Audi", "Nissan")))
+
+automoviles
+```
+La funcion **matrix()** recibe los siguientes argumentos: <br>
+- **data: ** Datos para crear la matriz, puede ser una lista, una expresion o un vector. <br>
+- **nrow: ** Numero de filas. <br>
+- **ncol: ** Numero de columnas. <br>
+- **byrow: ** Decide si la matriz se llena por columnas o por filas. <br>
+- **dimnames: ** Nombres para las filas y columnas. <br>
+
+## Combinando matrices
+
+#### Las funciones cbind() y rbind() se pueden usar para unir dos o más vectores o matrices, por columnas o por filas, respectivamente.
+
+```{r}
+m1 <- matrix(c(45, 23, 66, 77, 33, 44, 56, 12, 78, 23), 2,5)
+
+cbind(c(4, 76), m1[, 4])
+```
+
+```{r}
+m2 <- matrix(rep(10, 20), 4, 5) #se recomienda que la cantidad de elementos a repetir, coincida con el número de entradas de la matriz
+m2
+m3 <- rbind(m1[1, ], m2[3, ])
+m3
+```
+
+## Otras operaciones con matrices
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
+matriz %*% matriz2
+```
+**A %*% B :** producto de matrices <br>
+
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,-1),4,3)
+t(matriz)
+```
+**t(A) :** transpuesta de la matriz A <br>
+
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,2, 2, 4, 3),4,4)
+solve(matriz,matriz)
+```
+**solve(A,b) :** solución del sistema de ecuaciones Ax=b.<br>
+
+```{r}
+matriz<-matrix(c(1,2,3,4,5,6,7,8,9,0,0,2, 2, 4, 3),4,4)
+solve(matriz)
+```
+**solve(A) :** inversa de la matriz A<br>
+
+```{r}
+matriz<-matrix(c(2,4,6,8,4,2,6,8,4,6,2,8,2,4,6,8),4,4)
+diag(matriz)
+```
+**diag(b) :** matriz diagonal (b es un vector)<br>
+**diag(A) :** matriz diagonal (A es una matriz)<br>
+
+```{r}
+```
+**rref(A|B) :** matriz en forma reducida por fila (escalonada reducida). La expresión A|B es la matriz aumentada del sistema. Requiere instalar y cargar el paquete pracma.<br>
+
+```{r}
+```
+**fractions(A) :** transforma las entradas de la matriz de decimal a fracciones. Para usar esta función debe instalar y cargar el paquete MASS <br>
+
+```{r}
+```
+**det(A) :** calcula el determinante de una matriz <br>
+

@@ -1,0 +1,127 @@
+---
+title: "Clase 05"
+output: html_notebook
+---
+```{r}
+library("pracma")
+library("mosaic")
+library("MASS")
+```
+Cargar las librerias que vamos a utilizar.
+
+```{r}
+u <- c(2, 4, -5)
+v <- c(-3, -2, -1)
+pracma :: cross(u, v)
+
+```
+La funcion **cross(u, v)** se utiliza para calcular el producto cruz de dos vectores.
+
+# Producto Cruz
+
+#### Calcular el area del triangulo con los vertices: P=(5,4,5), Q=(4,40,6), R=(1,8,7)
+
+```{r}
+P <- c(5,4,5)
+Q <- c(4,10,6)
+R <- c(1,8,7)
+
+PQ <- Q - P
+PR <- R - P
+
+producto_cruz <- as.matrix(pracma :: cross(PQ, PR))
+area_paralelogramo <-  norm(producto_cruz, type="2")
+
+area_triangulo <- area_paralelogramo / 2
+area_triangulo
+
+```
+Calcular la norma convirtiendo el vector a matriz
+
+```{r}
+P <- c(5,4,5)
+Q <- c(4,10,6)
+R <- c(1,8,7)
+
+PQ <- Q - P
+PR <- R - P
+
+producto_cruz <- pracma :: cross(PQ, PR)
+area_paralelogramo <-  pracma::Norm(producto_cruz)
+
+area_triangulo <- area_paralelogramo / 2
+area_triangulo
+
+```
+Calcular el area del paralelogramo usando las funciones de **pracma**.
+
+# Proyecciones:
+
+```{r}
+u <- c(2, 3, 1)
+v <- c(1, 2, -6)
+u <- c(2, 3)
+v <- c(1, 1)
+
+# mosaic::project(u, v, type="coef")
+# mosaic::project(u, v, type="coef") * v
+proy <-  mosaic::project(u, v) # La funcion por defecto trae el coeficiente
+fractions(proy)
+```
+
+# Ejercicio de Matrices en clase
+
+### Un fabricante produce 4 articulos, su demanda esta dada por las siguiente matriz:
+
+```{r}
+demanda <- matrix(c(30, 25, 33, 20, 32, 20, 40, 38, 45, 10, 7, 5), nrow = 3, ncol = 4)
+demanda
+
+```
+Llenado de matriz por **columnas**.
+
+### Los precios por unidad que recibe el fabricante por dichos articulos considerando 3 posibilidades (El precio seria en $):
+
+```{r}
+precios <- matrix(c(20, 15, 18, 40, 18, 17, 16, 38, 25, 15, 20, 33), nrow = 4, ncol = 3)
+precios
+```
+
+
+### Muestre los escenarios posibles para la combinacion de demanda con respecto a los precios:
+
+```{r}
+demanda %*% precios
+```
+Multiplicacion de matrices, la manera correcta es **%*%**.
+<br>
+**3, 3**  es el mejor escenario de ventas <br>
+**3, 2** es el peor escenario de ventas
+
+# Matriz Ortogonal
+### Calcular la inversa y la transpuesta, si la inversa y la transpuesta son iguales la matriz es ortogonal.\
+
+# Sistemas de ecuaciones
+### Resolver el siguiente sistema de ecuaciones utilizando el metodo Gauss-Jordan
+### 2x + 4y +6 = 18
+### 4x + 5y +6z = 24
+### 3x + y + -2z = 4
+
+```{r}
+matriz_asociada <- matrix(c(2, 4,3,4,5,1,6,6,-2), nrow = 3, ncol = 3)
+vector_solucion <- c(18,24,4)
+matriz_aumentada <- matrix(c(2, 4,3,4,5,1,6,6,-2,18,24,4), nrow = 3, ncol = 4)
+
+solve(matriz_asociada, vector_solucion)
+pracma:: rref(matriz_aumentada)
+```
+
+```{r}
+x <- 4
+y <- -2
+z <- 3
+
+ 2 * x + 4 * y + 6 * z
+ 4 * x + 5 * y +6 * z
+ 3 * x + y + -2 * z
+```
